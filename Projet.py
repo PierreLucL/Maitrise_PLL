@@ -19,7 +19,6 @@ from torchvision.models import resnet18
 #==================//=======================#
 # Importation des différentes classes implémentées
 #==================//=======================#
-from Classe_posters import Posters
 from Classe_réseau import PostersNet, PostersNet2, AlexNet, ResNet18
 from Fonctions_utiles import compute_accuracy, plot_hist, plot_results, custom_loss, custom_loss2, accuracy_random
 from Sampler import sampler, elagueur
@@ -30,9 +29,6 @@ DEVICE = torch.device('cuda') if torch.cuda.is_available() else torch.device('cp
 
 # Vide la cache de la GPU
 torch.cuda.empty_cache()
-
-# Setup du .csv dela base de données pour avoir les genres
-df = pd.read_csv("Multi_Label_dataset/train.csv")
 
 # Path relatif des images
 img_folder = 'Multi_Label_dataset/Images'
