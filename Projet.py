@@ -1,5 +1,5 @@
-# Projet final d'introduction à l'apprentissage automatique (GIF-4101) #
-# Par Julien Houle, Olivier Lapointe-Gagné et Pierre-Luc Larouche #
+# Projet de maîtrise #
+# Par Pierre-Luc Larouche #
 
 #==================//=======================#
 # Importation des différents modules utiles
