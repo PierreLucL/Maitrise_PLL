@@ -7,9 +7,11 @@
 import numpy as np
 import torch.nn as nn
 import torch
+import os
 from torch.optim import SGD
 from torchvision import datasets, transforms, utils
 import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader,Dataset, dataset
@@ -21,7 +23,7 @@ from torchvision.models import resnet18
 #==================//=======================#
 from Classe_réseau import PostersNet, PostersNet2, AlexNet, ResNet18
 from Fonctions_utiles import compute_accuracy, plot_hist, plot_results, custom_loss, custom_loss2, accuracy_random
-from Sampler import sampler, elagueur
+#from Sampler import sampler, elagueur
 
 
 # Faire les calculs sur le GPU plutôt que le CPU si possible
@@ -31,19 +33,14 @@ DEVICE = torch.device('cuda') if torch.cuda.is_available() else torch.device('cp
 torch.cuda.empty_cache()
 
 # Path relatif des images
-img_folder = 'Multi_Label_dataset/Images'
+Timeseries = np.load('C:/Users/Admin/Desktop/Maîtrise/Data/timeseries_GCaMP_28fps_3um.npy').T
 
-# Standardisation des images à effectuer
-transform = transforms.Compose([
-    transforms.ToPILImage(),
-    transforms.Resize((300, 300)),
-    transforms.ToTensor()])
-
-# Instanciation de l'ensemble des données
-whole_dataset = Posters(df, img_folder, transform)
-
-# Élagage des genres de fims sous-représentés dans le dataset
-elagage = elagueur(whole_dataset)
+# Normalisation des données entre 0 et 1
+scaler = MinMaxScaler()
+scaler.fit(Timeseries)
+Norm_Timeseries = scaler.transform(Timeseries)
+plt.plot(Norm_Timeseries)
+plt.show()
 
 # Sélection de la meilleure distribution possible des genres pour l'entraîenement
 sample, not_sample = sampler(whole_dataset, elagage)
