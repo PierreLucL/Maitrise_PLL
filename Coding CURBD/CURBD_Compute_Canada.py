@@ -142,33 +142,36 @@ def learn(N, x_vector, time, signal, tau, g, J, h, P):
     return x_vector, x_list, J, J_mean, P
 
 
-
-# On lance ensuite l'intégration du modèle
-model = GeneratorModel3R(N=100, g_AB=[1.8, 1.5, 1.5], w_rgn=0.01, p_rgn=0.01)
+N_list = [100,200,400,800,1000,1500,2000,3000,4000,100,200,400,800,1000,1500,2000,3000,4000]
 time = np.arange(0.0, 12.0, 0.01)
-rA, rB, rC = model.integrate(time=time)
+for idx, N_used in enumerate(N_list) :
+    # On lance ensuite l'intégration du modèle
+    model = GeneratorModel3R(N=N_used, g_AB=[1.8, 1.5, 1.5], w_rgn=0.01, p_rgn=0.01)
+    rA, rB, rC = model.integrate(time=time)
 
-# On définie les paramètres du modèle
-N = 300 # Nombre de neurones
-tau = 0.1 # Pas de temps
-alpha = 1.0 # Valeur du bruit initial sur la diagonale de P
-g = 1.5 # Constante de force des connections récurentes
-J_list = []
+    # On définie les paramètres du modèle
+    N = 3 * N_used # Nombre de neurones
+    tau = 0.1 # Pas de temps
+    alpha = 1.0 # Valeur du bruit initial sur la diagonale de P
+    g = 1.5 # Constante de force des connections récurentes
+    J_list = []
 
 
-# Ensuite quelques vecteurs et matrices
-J = np.random.normal(loc=0.0, scale=g/np.sqrt(N), size=(N, N))
-P = 1/alpha * np.identity(n=N)
-x_vector = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
-h = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
+    # Ensuite quelques vecteurs et matrices
+    J = np.random.normal(loc=0.0, scale=g/np.sqrt(N), size=(N, N))
+    P = 1/alpha * np.identity(n=N)
+    x_vector = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
+    h = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
 
-# On défini le teacher
-teacher = np.concatenate((np.tanh(rA), np.tanh(rB), np.tanh(rC)), axis=0)
+    # On défini le teacher
+    teacher = np.concatenate((np.tanh(rA), np.tanh(rB), np.tanh(rC)), axis=0)
 
-for i in range(10):
-    x_vector, x_list, J, J_mean, P = learn(N, x_vector, time, teacher, tau, g, J, h, P)
-    J_list.append(J_mean)
+    for i in range(15):
+        x_vector, x_list, J, J_mean, P = learn(N, x_vector, time, teacher, tau, g, J, h, P)
+        J_list.append(J_mean)
 
-np.save("3R_training_numba.npy", J_list)
-np.save("3R_netJ_numba.npy", J)
-np.save("3R_x_numba.npy", x_list)
+    np.save(fr'/home/pllar11/scratch/model.J_{N_used}-{idx}.npy', model.J)
+    np.save(fr'/home/pllar11/scratch/teacher_{N_used}-{idx}.npy', teacher)
+    np.save(fr'/home/pllar11/scratch/J_list_{N_used}-{idx}.npy', J_list)
+    np.save(fr'/home/pllar11/scratch/J_{N_used}-{idx}.npy', J)
+    np.save(fr'/home/pllar11/scratch/x_list_{N_used}-{idx}.npy', x_list)
