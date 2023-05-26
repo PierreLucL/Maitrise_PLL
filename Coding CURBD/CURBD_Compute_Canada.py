@@ -4,17 +4,9 @@
 
 # Import des librairie importantes
 import numpy as np
-import matplotlib.pyplot as plt
 from tqdm import tqdm
-from sklearn.decomposition import PCA
 from numba import njit, prange
-from scipy.ndimage import gaussian_filter
 
-# Quelques généralités importante dans le layout des figures
-plt.rcParams.update({'font.size': 16})
-plt.rcParams['lines.linewidth'] = 4
-plt.rcParams['lines.markersize'] = 5
-cmap = "coolwarm"
 
 # La classe qui génère les données
 class GeneratorModel3R:
@@ -92,7 +84,6 @@ def dhdt(N,h):
     eta = np.random.normal(loc=0.0, scale=1.0, size=(N, 1))
     return 1/0.1 * (-h + eta)
 
-
 @njit
 def update_J(x, P, J, f):
     cte = (1 / (1 + np.tanh(x).T @ P @ np.tanh(x)))[0][0]
@@ -102,20 +93,6 @@ def update_J(x, P, J, f):
     J = J - cte * error @ (P @ np.tanh(x)).T
 
     return P, J
-
-
-@njit
-def integrate(time, N, tau, x_vector, g, J, h):
-    dt = time[1] - time[0]
-    x = np.empty((N, len(time)))
-
-    for i, t in enumerate(time):
-        h = h + dt * dhdt(N, h)
-        x_vector = x_vector + dt * dxdt(tau, x_vector, g, J, h)
-        x[:, i] = x_vector[:, 0]
-
-    return x
-
 
 @njit
 def learn(N, x_vector, time, signal, tau, g, J, h, P):
@@ -142,12 +119,13 @@ def learn(N, x_vector, time, signal, tau, g, J, h, P):
     return x_vector, x_list, J, J_mean, P
 
 
-N_list = [100,200,400,800,1000,1500,2000,3000,4000,100,200,400,800,1000,1500,2000,3000,4000]
+N_list = [600,800,1000]
 time = np.arange(0.0, 12.0, 0.01)
 for idx, N_used in enumerate(N_list) :
     # On lance ensuite l'intégration du modèle
     model = GeneratorModel3R(N=N_used, g_AB=[1.8, 1.5, 1.5], w_rgn=0.01, p_rgn=0.01)
     rA, rB, rC = model.integrate(time=time)
+    print('did it')
 
     # On définie les paramètres du modèle
     N = 3 * N_used # Nombre de neurones
@@ -166,7 +144,7 @@ for idx, N_used in enumerate(N_list) :
     # On défini le teacher
     teacher = np.concatenate((np.tanh(rA), np.tanh(rB), np.tanh(rC)), axis=0)
 
-    for i in range(15):
+    for i in tqdm(range(12)):
         x_vector, x_list, J, J_mean, P = learn(N, x_vector, time, teacher, tau, g, J, h, P)
         J_list.append(J_mean)
 
@@ -175,3 +153,21 @@ for idx, N_used in enumerate(N_list) :
     np.save(fr'/home/pllar11/scratch/J_list_{N_used}-{idx}.npy', J_list)
     np.save(fr'/home/pllar11/scratch/J_{N_used}-{idx}.npy', J)
     np.save(fr'/home/pllar11/scratch/x_list_{N_used}-{idx}.npy', x_list)
+
+
+    # Ensuite quelques vecteurs et matrices
+    J = np.random.normal(loc=0.0, scale=g/np.sqrt(N), size=(N, N))
+    P = 1/alpha * np.identity(n=N)
+    x_vector = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
+    h = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
+    J_list = []
+    
+    for i in tqdm(range(12)):
+        x_vector, x_list, J, J_mean, P = learn(N, x_vector, time, teacher, tau, g, J, h, P)
+        J_list.append(J_mean)
+
+    np.save(fr'/home/pllar11/scratch/model.J_{N_used}-{idx+10}.npy', model.J)
+    np.save(fr'/home/pllar11/scratch/teacher_{N_used}-{idx+10}.npy', teacher)
+    np.save(fr'/home/pllar11/scratch/J_list_{N_used}-{idx+10}.npy', J_list)
+    np.save(fr'/home/pllar11/scratch/J_{N_used}-{idx+10}.npy', J)
+    np.save(fr'/home/pllar11/scratch/x_list_{N_used}-{idx+10}.npy', x_list)
