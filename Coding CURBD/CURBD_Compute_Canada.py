@@ -119,7 +119,7 @@ def learn(N, x_vector, time, signal, tau, g, J, h, P):
     return x_vector, x_list, J, J_mean, P
 
 
-N_list = [600,800,1000]
+N_list = [800,1000]
 time = np.arange(0.0, 12.0, 0.01)
 for idx, N_used in enumerate(N_list) :
     # On lance ensuite l'intégration du modèle
@@ -161,13 +161,11 @@ for idx, N_used in enumerate(N_list) :
     x_vector = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
     h = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
     J_list = []
-    
+
     for i in tqdm(range(12)):
         x_vector, x_list, J, J_mean, P = learn(N, x_vector, time, teacher, tau, g, J, h, P)
         J_list.append(J_mean)
 
-    np.save(fr'/home/pllar11/scratch/model.J_{N_used}-{idx+10}.npy', model.J)
-    np.save(fr'/home/pllar11/scratch/teacher_{N_used}-{idx+10}.npy', teacher)
     np.save(fr'/home/pllar11/scratch/J_list_{N_used}-{idx+10}.npy', J_list)
     np.save(fr'/home/pllar11/scratch/J_{N_used}-{idx+10}.npy', J)
     np.save(fr'/home/pllar11/scratch/x_list_{N_used}-{idx+10}.npy', x_list)
