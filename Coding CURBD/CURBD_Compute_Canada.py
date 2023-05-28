@@ -118,14 +118,15 @@ def learn(N, x_vector, time, signal, tau, g, J, h, P):
 
     return x_vector, x_list, J, J_mean, P
 
+# On lance ensuite l'intégration du modèle
+model = GeneratorModel3R(N=N_used, g_AB=[1.8, 1.5, 1.5], w_rgn=0.01, p_rgn=0.01)
+rA, rB, rC = model.integrate(time=time)
+teacher = np.concatenate((np.tanh(rA), np.tanh(rB), np.tanh(rC)), axis=0)
 
-N_list = [800,1000]
+N_list = [1000,1000,1000,1000,1000,1000,1000,1000]
 time = np.arange(0.0, 12.0, 0.01)
+
 for idx, N_used in enumerate(N_list) :
-    # On lance ensuite l'intégration du modèle
-    model = GeneratorModel3R(N=N_used, g_AB=[1.8, 1.5, 1.5], w_rgn=0.01, p_rgn=0.01)
-    rA, rB, rC = model.integrate(time=time)
-    print('did it')
 
     # On définie les paramètres du modèle
     N = 3 * N_used # Nombre de neurones
@@ -141,9 +142,6 @@ for idx, N_used in enumerate(N_list) :
     x_vector = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
     h = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
 
-    # On défini le teacher
-    teacher = np.concatenate((np.tanh(rA), np.tanh(rB), np.tanh(rC)), axis=0)
-
     for i in tqdm(range(12)):
         x_vector, x_list, J, J_mean, P = learn(N, x_vector, time, teacher, tau, g, J, h, P)
         J_list.append(J_mean)
@@ -153,19 +151,3 @@ for idx, N_used in enumerate(N_list) :
     np.save(fr'/home/pllar11/scratch/J_list_{N_used}-{idx}.npy', J_list)
     np.save(fr'/home/pllar11/scratch/J_{N_used}-{idx}.npy', J)
     np.save(fr'/home/pllar11/scratch/x_list_{N_used}-{idx}.npy', x_list)
-
-
-    # Ensuite quelques vecteurs et matrices
-    J = np.random.normal(loc=0.0, scale=g/np.sqrt(N), size=(N, N))
-    P = 1/alpha * np.identity(n=N)
-    x_vector = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
-    h = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
-    J_list = []
-
-    for i in tqdm(range(12)):
-        x_vector, x_list, J, J_mean, P = learn(N, x_vector, time, teacher, tau, g, J, h, P)
-        J_list.append(J_mean)
-
-    np.save(fr'/home/pllar11/scratch/J_list_{N_used}-{idx+10}.npy', J_list)
-    np.save(fr'/home/pllar11/scratch/J_{N_used}-{idx+10}.npy', J)
-    np.save(fr'/home/pllar11/scratch/x_list_{N_used}-{idx+10}.npy', x_list)
