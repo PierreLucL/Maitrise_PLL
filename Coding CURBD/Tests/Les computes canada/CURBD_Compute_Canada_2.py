@@ -53,12 +53,12 @@ def learn(N, x_vector, time, signal, tau, g, J, h, P):
 
 # On lance ensuite l'intégration du modèle
 time = np.arange(0.0, 12.0, 0.01)
-teacher =  np.load(r'/home/pllar11/scratch/teacher_1000-0.npy')
+teacher = np.load(r'/home/pllar11/scratch/teacher_officiel_300.npy')
 
-N_list = [1000]
+N_list = [100,100,100,100,100,100,100,100,100,100]
+N_iterations = 250
 
-
-for N_used in N_list :
+for idx, N_used in enumerate(N_list) :
 
     # On définie les paramètres du modèle
     N = 3 * N_used # Nombre de neurones
@@ -74,10 +74,10 @@ for N_used in N_list :
     x_vector = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
     h = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
 
-    for i in tqdm(range(100)):
+    for i in tqdm(range(N_iterations)):
         x_vector, x_list, J, J_mean, P = learn(N, x_vector, time, teacher, tau, g, J, h, P)
         J_list.append(J_mean)
 
-    np.save(fr'/home/pllar11/scratch/J_list_{N_used}-V3.npy', J_list)
-    np.save(fr'/home/pllar11/scratch/J_{N_used}-V3.npy', J)
-    np.save(fr'/home/pllar11/scratch/x_list_{N_used}-V3.npy', x_list)
+    np.save(fr'/home/pllar11/scratch/J_list_300_{idx}_it{N_iterations}.npy', J_list)
+    np.save(fr'/home/pllar11/scratch/J_300_{idx}_it{N_iterations}.npy', J)
+    np.save(fr'/home/pllar11/scratch/x_list_300_{idx}_it{N_iterations}.npy', x_list)

@@ -53,31 +53,33 @@ def learn(N, x_vector, time, signal, tau, g, J, h, P):
 
 # On lance ensuite l'intégration du modèle
 time = np.arange(0.0, 12.0, 0.01)
-teacher =  np.load(r'/home/pllar11/scratch/teacher_1000-0.npy')
+#teacher = np.load(r'/home/pllar11/scratch/teacher_officiel_300.npy')
+teacher = np.load(r'teacher_officiel_300.npy')
 
-N_list = [1000]
+N_iterations = [10,40,70,100,130,160,190,220,250,290,320,350]
 
-
-for N_used in N_list :
-
-    # On définie les paramètres du modèle
-    N = 3 * N_used # Nombre de neurones
-    tau = 0.1 # Pas de temps
-    alpha = 1.0 # Valeur du bruit initial sur la diagonale de P
-    g = 1.5 # Constante de force des connections récurentes
-    J_list = []
+# On définie les paramètres du modèle
+N = 300 # Nombre de neurones
+tau = 0.1 # Pas de temps
+alpha = 1.0 # Valeur du bruit initial sur la diagonale de P
+g = 1.5 # Constante de force des connections récurentes
+J_list = []
 
 
-    # Ensuite quelques vecteurs et matrices
-    J = np.random.normal(loc=0.0, scale=g/np.sqrt(N), size=(N, N))
-    P = 1/alpha * np.identity(n=N)
-    x_vector = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
-    h = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
+# Ensuite quelques vecteurs et matrices
+J = np.random.normal(loc=0.0, scale=g/np.sqrt(N), size=(N, N))
+P = 1/alpha * np.identity(n=N)
+x_vector = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
+h = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
 
-    for i in tqdm(range(100)):
-        x_vector, x_list, J, J_mean, P = learn(N, x_vector, time, teacher, tau, g, J, h, P)
-        J_list.append(J_mean)
+for i in tqdm(range(350)):
+    x_vector, x_list, J, J_mean, P = learn(N, x_vector, time, teacher, tau, g, J, h, P)
+    J_list.append(J_mean)
 
-    np.save(fr'/home/pllar11/scratch/J_list_{N_used}-V1.npy', J_list)
-    np.save(fr'/home/pllar11/scratch/J_{N_used}-V1.npy', J)
-    np.save(fr'/home/pllar11/scratch/x_list_{N_used}-V1.npy', x_list)
+    if i in [9,39,69,99,129,159,189,219,249,289,319,349]:
+        #np.save(fr'/home/pllar11/scratch/J_list_300_1_it{i+1}.npy', J_list)
+        #np.save(fr'/home/pllar11/scratch/J_300_1_it{i+1}.npy', J)
+        #np.save(fr'/home/pllar11/scratch/x_list_300_1_it{i+1}.npy', x_list)
+        np.save(fr'J_list_300_2_it{i + 1}.npy', J_list)
+        np.save(fr'J_300_2_it{i+1}.npy', J)
+        np.save(fr'x_list_300_2_it{i+1}.npy', x_list)
