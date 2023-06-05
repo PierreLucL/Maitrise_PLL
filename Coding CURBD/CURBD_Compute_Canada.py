@@ -54,9 +54,9 @@ def learn(N, x_vector, time, signal, tau, g, J, h, P):
 # On lance ensuite l'intégration du modèle
 time = np.arange(0.0, 12.0, 0.01)
 #teacher = np.load(r'/home/pllar11/scratch/teacher_officiel_300.npy')
-teacher = np.load(r'teacher_officiel_300.npy')
+teacher = np.load(r"teacher_simple.npy")
 
-N_iterations = [10,40,70,100,130,160,190,220,250,290,320,350]
+N_iterations = [1,2,3,4,5,10,40,70,100,130]
 
 # On définie les paramètres du modèle
 N = 300 # Nombre de neurones
@@ -72,11 +72,11 @@ P = 1/alpha * np.identity(n=N)
 x_vector = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
 h = np.random.uniform(low=-1.0, high=1.0, size=(N, 1))
 
-for i in tqdm(range(350)):
+for i in tqdm(range(130)):
     x_vector, x_list, J, J_mean, P = learn(N, x_vector, time, teacher, tau, g, J, h, P)
     J_list.append(J_mean)
 
-    if i in [9,39,69,99,129,159,189,219,249,289,319,349]:
+    if i in [0,1,2,3,4,9,39,69,99,129]:
         #np.save(fr'/home/pllar11/scratch/J_list_300_1_it{i+1}.npy', J_list)
         #np.save(fr'/home/pllar11/scratch/J_300_1_it{i+1}.npy', J)
         #np.save(fr'/home/pllar11/scratch/x_list_300_1_it{i+1}.npy', x_list)
