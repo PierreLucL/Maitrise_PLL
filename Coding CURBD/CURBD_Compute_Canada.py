@@ -56,12 +56,12 @@ time = np.arange(0.0, 12.0, 0.01)
 #teacher = np.load(r'/home/pllar11/scratch/teacher_officiel_300.npy')
 teacher = np.load(r"teacher_simple.npy")
 etat_initial = teacher[:, 0]
-x_vector = np.reshape(etat_initial, (300, 1))
+x_vector = np.reshape(etat_initial, (240, 1))
 
-N_iterations = [1,2,3,4,5,10,40,70,100,130,160,190]
+N_iterations = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,30,40,70,100,130,160,190]
 
 # On définie les paramètres du modèle
-N = 300 # Nombre de neurones
+N = 240 # Nombre de neurones
 tau = 0.1 # Pas de temps
 alpha = 1.0 # Valeur du bruit initial sur la diagonale de P
 g = 1.5 # Constante de force des connections récurentes
@@ -78,10 +78,10 @@ for i in tqdm(range(190)):
     x_list, J, J_mean, P = learn(N, x_vector, time, teacher, tau, g, J, h, P)
     J_list.append(J_mean)
 
-    if i in [0,1,2,3,4,9,39,69,99,129,159,189]:
+    if i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,29,39,69,99,129,159,189]:
         #np.save(fr'/home/pllar11/scratch/J_list_300_1_it{i+1}.npy', J_list)
         #np.save(fr'/home/pllar11/scratch/J_300_1_it{i+1}.npy', J)
         #np.save(fr'/home/pllar11/scratch/x_list_300_1_it{i+1}.npy', x_list)
-        np.save(fr'J_list_900_it{i + 1}.npy', J_list)
-        np.save(fr'J_900_it{i+1}.npy', J)
-        np.save(fr'x_list_900_it{i+1}.npy', x_list)
+        np.save(fr'J_list_TEST_it{i + 1}.npy', J_list)
+        np.save(fr'J_TEST_it{i+1}.npy', J)
+        np.save(fr'x_list_TEST_it{i+1}.npy', x_list)
