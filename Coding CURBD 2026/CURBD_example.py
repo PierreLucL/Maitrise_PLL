@@ -14,7 +14,7 @@
 
 import numpy as np
 import pylab
-
+import matplotlib.pyplot as plt
 import curbd
 
 sim = curbd.threeRegionSim(number_units=29,dtData=0.01,T=8)
@@ -66,3 +66,5 @@ for iTarget in range(n_regions):
         axn.yaxis.label.set_fontsize(8)
 fig.subplots_adjust(hspace=0.4, wspace=0.3)
 fig.show()
+
+plt.show()

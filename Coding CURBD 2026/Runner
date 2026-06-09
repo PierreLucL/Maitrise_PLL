@@ -30,7 +30,7 @@ plot = False
 ##########################################################################################################
 
 ### On sort les données
-with h5py.File(f"/Users/pierre-luclarouche/Desktop/École/Maîtrise/CURBD-master/Data H5/{souris[Idx_souris]}_v4_mvmt.h5", "r") as f:
+with h5py.File(f"/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026/{souris[Idx_souris]}_v4_mvmt.h5", "r") as f:
    infos_animal = dict(f["data"].attrs)
 
 ### On affiche les infos de l'animal
@@ -48,7 +48,7 @@ Frames        : {infos_animal['monitoring_frame_range']}
 )
 
 ### On clean le masque, on extrait les pixels actifs, on retire les pixels morts du masque, et on subdivise le masque
-dataset, masque_init = load_gcamp(f"/Users/pierre-luclarouche/Desktop/École/Maîtrise/CURBD-master/Data H5/{souris[Idx_souris]}_v4_mvmt.h5")
+dataset, masque_init = load_gcamp(f"/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026/{souris[Idx_souris]}_v4_mvmt.h5")
 clean_masque_init = clean_region_mask(masque_init)
 pixels_actifs, masque_mort = extract_nonzero_pixels(dataset, debug=debug)
 masque_init_actif = remove_dead_pixels_from_region_mask(clean_masque_init, masque_mort)

@@ -326,6 +326,7 @@ def extract_timeseries_du_tenseur(X, mask):
     return ts
 
 ### REGRESS OUT ###
+
 def regress_out_global_signal(ts, return_global=False):
     """
     Régress-out le signal moyen de chaque time series.
