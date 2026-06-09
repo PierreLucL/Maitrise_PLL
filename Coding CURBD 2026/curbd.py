@@ -24,7 +24,7 @@ def trainMultiRegionRNN(activity, dtData=1, dtFactor=1, g=1.5, tauRNN=0.01,
                         nonLinearity=np.tanh,
                         nonLinearity_inv=np.arctanh,
                         resetPoints=None,
-                        plotStatus=True, verbose=False,
+                        plotStatus=False, verbose=False,
                         regions=None):
     r"""
     Trains a data-constrained multi-region RNN. The RNN can be used for,
