@@ -14,6 +14,7 @@ from scipy.ndimage import gaussian_filter1d
 from collections import defaultdict
 from matplotlib.collections import LineCollection
 from matplotlib.colors import LinearSegmentedColormap
+from scipy.ndimage import percentile_filter
 
 #### LOADER LE FICHIER H5 ####
 
@@ -375,6 +376,46 @@ def regress_out_global_signal(ts, return_global=False):
         ts_resid[i] = y_centered - beta * g
 
     return (ts_resid, global_signal) if return_global else ts_resid
+
+### Rolling window
+
+def compute_dff(ts, fs=3.0, window_sec=60, percentile=8, eps=1e-8):
+    """
+    Calcule ΔF/F avec baseline glissante basée sur un percentile.
+
+    Paramètres
+    ----------
+    ts : ndarray (N, T)
+        Fluorescence brute.
+    fs : float
+        Fréquence d'acquisition (Hz).
+    window_sec : float
+        Taille de la fenêtre glissante (secondes).
+    percentile : float
+        Percentile utilisé pour F0.
+    eps : float
+        Évite les divisions par zéro.
+
+    Retour
+    -------
+    dff : ndarray (N, T)
+        Signal ΔF/F.
+    F0 : ndarray (N, T)
+        Baseline estimée.
+    """
+
+    window_frames = int(round(window_sec * fs))
+
+    F0 = percentile_filter(
+        ts,
+        percentile=percentile,
+        size=(1, window_frames),
+        mode='reflect'
+    )
+
+    dff = (ts - F0) / (F0 + eps)
+
+    return dff
 
 #### LISSAGE ####
 

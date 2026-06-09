@@ -16,13 +16,13 @@ souris = ['M387-6', 'M396-6', 'M410-6', 'M412-8']
 
 
 Idx_souris = 2
-n_pixels = 450
+n_pixels = 50
 #n_pixels = 370
-lissage_sigma = 16
+lissage_sigma = 2
 Combien_de_petites_regions = 5
 nRunTrain = 100 
-debug = False
-plot = False
+debug = True
+plot = True
 
 
 #########################################################################################################
@@ -77,11 +77,14 @@ ts = extract_timeseries_du_tenseur(dataset, masque_sub)
 ### Lissage
 ts = smooth_timeseries(ts, sigma=lissage_sigma)
 
+### Delta F / F comme l'article de référence rolling window
+ts = compute_dff(ts)
+
 ### Regréssion du signal global
 ts = regress_out_global_signal(ts)
 
 ### Z-score
-ts = (ts - ts.mean(axis=1, keepdims=True)) / ts.std(axis=1, keepdims=True)
+#ts = (ts - ts.mean(axis=1, keepdims=True)) / ts.std(axis=1, keepdims=True)
 
 
 #########################################################################################################
@@ -95,15 +98,14 @@ if plot:
 # FUCKING CURBD
 ##########################################################################################################
 
-model = trainMultiRegionRNN(ts,
-    dtData=0.33, # pas de temps de données (en secondes)
-    dtFactor=5, # Combien de pas entre les pas de données et les pas de RNN
+model = trainMultiRegionRNN(ts, dtData=0.33, # pas de temps de données (en secondes)
+    dtFactor=4, # Combien de pas entre les pas de données et les pas de RNN
     tauRNN=0.33, # constante de temps du RNN (en secondes)
     nRunTrain=nRunTrain, # Nombre d'itérations d'entraînement du RNN,
     P0=1.0, # Taux d'apprentissage du RLS,
     regions=regions, # Dictionnaire des régions parentes
 )
-print(f'Terminé avec chi2 = {model["chi2s"][-1]} et pVars = {model["pVars"][-1]}')
+print(f'Terminé avec pVars = {model["pVars"][-1]} et chi2 = {model["chi2s"][-1]}')
 
 curbd_arr, curbd_labels = computeCURBD(model)
 
