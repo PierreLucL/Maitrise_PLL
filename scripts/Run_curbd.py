@@ -4,23 +4,24 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import to_rgb
 from matplotlib.gridspec import GridSpec
+from pathlib import Path
 
-from src.maitrise_curbd.io import load_gcamp
-from src.maitrise_curbd.masks import (
+from maitrise_curbd.io import load_gcamp
+from maitrise_curbd.masks import (
     build_parent_regions_dict,
     clean_region_mask,
     extract_nonzero_pixels,
     remove_dead_pixels_from_region_mask,
     subdivide_mask_by_spatial_clustering,
 )
-from src.maitrise_curbd.timeseries import (
+from maitrise_curbd.timeseries import (
     compute_dff,
     extract_timeseries_du_tenseur,
     regress_out_global_signal,
     smooth_timeseries,
 )
-from src.maitrise_curbd.curbd import computeCURBD, trainMultiRegionRNN
-from src.maitrise_curbd.plotting import gradient_line, plot_10_ts_with_mask_and_similarity
+from maitrise_curbd.curbd import computeCURBD, trainMultiRegionRNN
+from maitrise_curbd.plotting import gradient_line, plot_10_ts_with_mask_and_similarity
 
 ### Liste des souris disponibles ###
 souris = ['M387-6', 'M396-6', 'M410-6', 'M412-8']
@@ -43,9 +44,18 @@ plot = True
 ##########################################################################################################
 
 ### On sort les données
-with h5py.File(f"/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026/{souris[Idx_souris]}_v4_mvmt.h5", "r") as f:
-   infos_animal = dict(f["data"].attrs)
+data_dir = Path("data")
+file_path = data_dir / f"{souris[Idx_souris]}_v4_mvmt.h5"
 
+if not file_path.exists():
+    raise FileNotFoundError(
+        f"Fichier introuvable: {file_path}. "
+        "Mets tes fichiers .h5 dans data/ ou passe un autre dossier."
+    )
+
+with h5py.File(file_path, "r") as f:
+    infos_animal = dict(f["data"].attrs)
+    
 ### On affiche les infos de l'animal
 print(
     f"""
@@ -61,7 +71,7 @@ Frames        : {infos_animal['monitoring_frame_range']}
 )
 
 ### On clean le masque, on extrait les pixels actifs, on retire les pixels morts du masque, et on subdivise le masque
-dataset, masque_init = load_gcamp(f"/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026/{souris[Idx_souris]}_v4_mvmt.h5")
+dataset, masque_init = load_gcamp(file_path)
 clean_masque_init = clean_region_mask(masque_init)
 pixels_actifs, masque_mort = extract_nonzero_pixels(dataset, debug=debug)
 masque_init_actif = remove_dead_pixels_from_region_mask(clean_masque_init, masque_mort)
