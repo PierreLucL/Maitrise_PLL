@@ -16,14 +16,13 @@ souris = ['M387-6', 'M396-6', 'M410-6', 'M412-8']
 
 
 Idx_souris = 2
-n_pixels = 50
+n_pixels = 700
 #n_pixels = 370
 lissage_sigma = 2
 Combien_de_petites_regions = 5
 nRunTrain = 100 
 debug = True
 plot = True
-
 
 #########################################################################################################
 # Preworkout
@@ -90,43 +89,31 @@ ts = regress_out_global_signal(ts)
 #########################################################################################################
 # Plotting midgame
 ##########################################################################################################
+
 if plot:
     plot_10_ts_with_mask_and_similarity(ts, masque_sub, n=10, souris=souris[Idx_souris], n_pixels=n_pixels)
-
 
 #########################################################################################################
 # FUCKING CURBD
 ##########################################################################################################
+
+### Training pour obtenir la matrice J
 
 model = trainMultiRegionRNN(ts, dtData=0.33, # pas de temps de données (en secondes)
     dtFactor=4, # Combien de pas entre les pas de données et les pas de RNN
     tauRNN=0.33, # constante de temps du RNN (en secondes)
     nRunTrain=nRunTrain, # Nombre d'itérations d'entraînement du RNN,
     P0=1.0, # Taux d'apprentissage du RLS,
+    plotStatus=True,
     regions=regions, # Dictionnaire des régions parentes
 )
 print(f'Terminé avec pVars = {model["pVars"][-1]} et chi2 = {model["chi2s"][-1]}')
 
+### Calcul de CURBD
+
 curbd_arr, curbd_labels = computeCURBD(model)
 
-# ============================================================
-# Couleurs des régions
-# ============================================================
-
-region_colors = {
-    0: "#0047AB",  # Moteur secondaire - Cobalt
-    1: "#FF7F00",  # Moteur secondaire - Orange
-    2: "#00A550",  # Somatosensorielle - Vert
-    3: "#A020F0",  # Associative - Violet
-    4: "#E60026",  # Visuelle - Rouge
-    5: "#00B7EB",  # Rétrospléniale - Cyan
-   
-}
-
-
-# ============================================================
-# Pré-calcul des courants
-# ============================================================
+### On somme la matrice des courants pour obtenir une courbe de courant total source → cible pour chaque paire de régions parentes
 
 n_regions = curbd_arr.shape[0]
 
@@ -142,10 +129,22 @@ for iTarget in range(n_regions):
 
         currents[(iTarget, iSource)] = current
 
+#########################################################################################################
+# Plotting final
+##########################################################################################################
 
-# ============================================================
-# Limites Y communes
-# ============================================================
+### Couleurs pour les régions parentes
+region_colors = {
+    0: "#0047AB",  # Moteur secondaire - Cobalt
+    1: "#FF7F00",  # Moteur secondaire - Orange
+    2: "#00A550",  # Somatosensorielle - Vert
+    3: "#A020F0",  # Associative - Violet
+    4: "#E60026",  # Visuelle - Rouge
+    5: "#00B7EB",  # Rétrospléniale - Cyan
+   
+}
+
+### Setup pour les limites des axes
 
 all_currents = np.concatenate(
     list(currents.values())
@@ -153,13 +152,7 @@ all_currents = np.concatenate(
 
 max_abs = np.percentile(np.abs(all_currents), 99)
 
-# ============================================================
-# Figure
-# ============================================================
-
-# --------------------------------------------------
-# Construire une image RGB du masque parent
-# --------------------------------------------------
+### Setup de la figure du masque coloré
 
 mask_rgb = np.ones((*masque_sub.shape, 3))  # fond blanc
 
@@ -172,14 +165,11 @@ for iRegion in range(len(regions)):
     for idx in subregion_indices:
         mask_rgb[masque_sub == idx] = color
 
-# Si ton fond est NaN
 if np.any(np.isnan(masque_sub)):
     mask_rgb[np.isnan(masque_sub)] = [1, 1, 1]
 
 
-# --------------------------------------------------
-# Figure avec colonne masque + matrice
-# --------------------------------------------------
+### Setup de la figure finale
 
 fig = plt.figure(figsize=(12, 8))
 
@@ -190,13 +180,13 @@ outer = GridSpec(
     figure=fig
 )
 
-# Colonne de gauche : masque
+# Colonne de gauche : masque coloré avec les régions parentes
 ax_mask = fig.add_subplot(outer[0, 0])
 ax_mask.imshow(mask_rgb)
 ax_mask.set_title("Régions", fontsize=10)
 ax_mask.axis("off")
 
-# Matrice de droite
+# Matrice de droite : courants CURBD source → cible
 right = outer[0, 1].subgridspec(
     n_regions,
     n_regions,

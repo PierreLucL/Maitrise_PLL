@@ -1,0 +1,174 @@
+
+
+================================================================================
+{'i_config': 71, 'souris': 'M396-6', 'Idx_souris': 1, 'n_pixels': 50, 'lissage_sigma': 1, 'use_dff': True, 'use_global_regression': True, 'nRunTrain': 100, 'n_regions': 730, 'min_region_size': 12, 'median_region_size': 50.0, 'max_region_size': 69, 'pVar_final': 0.6124484867576009, 'chi2_final': 1.652032946027093, 'pVar_max': 0.6124484867576009, 'chi2_min': 1.652032946027093, 'runtime_sec': nan, 'status': 'failed', 'error': '[Errno 28] No space left on device'}
+Traceback (most recent call last):
+  File "/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026/Nightloop.py", line 266, in <module>
+    pickle.dump(
+    ~~~~~~~~~~~^
+        {
+        ^
+    ...<7 lines>...
+        f
+        ^
+    )
+    ^
+OSError: [Errno 28] No space left on device
+when serializing tuple item 0
+when serializing numpy.ndarray reconstructor arguments
+when serializing numpy.ndarray object
+when serializing dict item 'RNN'
+when serializing dict item 'model'
+
+
+================================================================================
+{'i_config': 72, 'souris': 'M396-6', 'Idx_souris': 1, 'n_pixels': 50, 'lissage_sigma': 2, 'use_dff': False, 'use_global_regression': False, 'nRunTrain': 100, 'n_regions': 730, 'min_region_size': 12, 'median_region_size': 50.0, 'max_region_size': 69, 'pVar_final': 0.696375482264904, 'chi2_final': 2.043001492485082, 'pVar_max': 0.696375482264904, 'chi2_min': 2.043001492485082, 'runtime_sec': nan, 'status': 'failed', 'error': '[Errno 28] No space left on device'}
+Traceback (most recent call last):
+  File "/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026/Nightloop.py", line 266, in <module>
+    pickle.dump(
+    ~~~~~~~~~~~^
+        {
+        ^
+    ...<7 lines>...
+        f
+        ^
+    )
+    ^
+OSError: [Errno 28] No space left on device
+when serializing tuple item 0
+when serializing numpy.ndarray reconstructor arguments
+when serializing numpy.ndarray object
+when serializing dict item 'RNN'
+when serializing dict item 'model'
+
+
+================================================================================
+{'i_config': 73, 'souris': 'M396-6', 'Idx_souris': 1, 'n_pixels': 50, 'lissage_sigma': 2, 'use_dff': False, 'use_global_regression': True, 'nRunTrain': 100, 'n_regions': 730, 'min_region_size': 12, 'median_region_size': 50.0, 'max_region_size': 69, 'pVar_final': 0.7548974531121433, 'chi2_final': 1.2664972625044457, 'pVar_max': 0.7548974531121433, 'chi2_min': 1.2664972625044457, 'runtime_sec': nan, 'status': 'failed', 'error': '[Errno 28] No space left on device'}
+Traceback (most recent call last):
+  File "/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026/Nightloop.py", line 266, in <module>
+    pickle.dump(
+    ~~~~~~~~~~~^
+        {
+        ^
+    ...<7 lines>...
+        f
+        ^
+    )
+    ^
+OSError: [Errno 28] No space left on device
+when serializing tuple item 0
+when serializing numpy.ndarray reconstructor arguments
+when serializing numpy.ndarray object
+when serializing dict item 'RNN'
+when serializing dict item 'model'
+
+
+================================================================================
+{'i_config': 77, 'souris': 'M396-6', 'Idx_souris': 1, 'n_pixels': 50, 'lissage_sigma': 3, 'use_dff': False, 'use_global_regression': True, 'nRunTrain': 100, 'n_regions': 730, 'min_region_size': 12, 'median_region_size': 50.0, 'max_region_size': 69, 'pVar_final': 0.8483069736358764, 'chi2_final': 0.6906712995578076, 'pVar_max': 0.8483069736358764, 'chi2_min': 0.6906712995578076, 'runtime_sec': nan, 'status': 'failed', 'error': '[Errno 28] No space left on device'}
+Traceback (most recent call last):
+  File "/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026/Nightloop.py", line 266, in <module>
+    pickle.dump(
+    ~~~~~~~~~~~^
+        {
+        ^
+    ...<7 lines>...
+        f
+        ^
+    )
+    ^
+OSError: [Errno 28] No space left on device
+when serializing tuple item 0
+when serializing numpy.ndarray reconstructor arguments
+when serializing numpy.ndarray object
+when serializing dict item 'inputWN'
+when serializing dict item 'model'
+
+
+================================================================================
+{'i_config': 87, 'souris': 'M396-6', 'Idx_souris': 1, 'n_pixels': 100, 'lissage_sigma': 1, 'use_dff': True, 'use_global_regression': True, 'nRunTrain': 100, 'n_regions': 367, 'min_region_size': 43, 'median_region_size': 99.0, 'max_region_size': 148, 'pVar_final': 0.40531099792576497, 'chi2_final': 2.8532142485122236, 'pVar_max': 0.40531099792576497, 'chi2_min': 2.8532142485122236, 'runtime_sec': nan, 'status': 'failed', 'error': '[Errno 28] No space left on device'}
+Traceback (most recent call last):
+  File "/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026/Nightloop.py", line 266, in <module>
+    pickle.dump(
+    ~~~~~~~~~~~^
+        {
+        ^
+    ...<7 lines>...
+        f
+        ^
+    )
+    ^
+OSError: [Errno 28] No space left on device
+when serializing tuple item 0
+when serializing numpy.ndarray reconstructor arguments
+when serializing numpy.ndarray object
+when serializing list item 31
+when serializing tuple item 4
+when serializing numpy.ndarray state
+when serializing numpy.ndarray object
+when serializing dict item 'curbd_arr'
+
+
+================================================================================
+{'i_config': 88, 'souris': 'M396-6', 'Idx_souris': 1, 'n_pixels': 100, 'lissage_sigma': 2, 'use_dff': False, 'use_global_regression': False, 'nRunTrain': 100, 'n_regions': 367, 'min_region_size': 43, 'median_region_size': 99.0, 'max_region_size': 148, 'pVar_final': 0.4294810847657182, 'chi2_final': 4.365725181275679, 'pVar_max': 0.4294810847657182, 'chi2_min': 4.365725181275679, 'runtime_sec': nan, 'status': 'failed', 'error': "[Errno 28] No space left on device: 'night_run_models/M396-6_npix-100_sigma-2_dff-False_greg-False_nrun-100.pkl'"}
+Traceback (most recent call last):
+  File "/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026/Nightloop.py", line 265, in <module>
+    with open(save_path, "wb") as f:
+         ~~~~^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device: 'night_run_models/M396-6_npix-100_sigma-2_dff-False_greg-False_nrun-100.pkl'
+
+
+================================================================================
+{'i_config': 89, 'souris': 'M396-6', 'Idx_souris': 1, 'n_pixels': 100, 'lissage_sigma': 2, 'use_dff': False, 'use_global_regression': True, 'nRunTrain': 100, 'n_regions': 367, 'min_region_size': 43, 'median_region_size': 99.0, 'max_region_size': 148, 'pVar_final': 0.5004427902144806, 'chi2_final': 4.0770707016992835, 'pVar_max': 0.5033680316921771, 'chi2_min': 4.0598867272698165, 'runtime_sec': nan, 'status': 'failed', 'error': "[Errno 28] No space left on device: 'night_run_models/M396-6_npix-100_sigma-2_dff-False_greg-True_nrun-100.pkl'"}
+Traceback (most recent call last):
+  File "/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026/Nightloop.py", line 265, in <module>
+    with open(save_path, "wb") as f:
+         ~~~~^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device: 'night_run_models/M396-6_npix-100_sigma-2_dff-False_greg-True_nrun-100.pkl'
+
+
+================================================================================
+{'i_config': 90, 'souris': 'M396-6', 'Idx_souris': 1, 'n_pixels': 100, 'lissage_sigma': 2, 'use_dff': True, 'use_global_regression': False, 'nRunTrain': 100, 'n_regions': 367, 'min_region_size': 43, 'median_region_size': 99.0, 'max_region_size': 148, 'pVar_final': 0.41221736060808467, 'chi2_final': 3.601390923910814, 'pVar_max': 0.4143247904933012, 'chi2_min': 3.573004321686755, 'runtime_sec': nan, 'status': 'failed', 'error': '[Errno 28] No space left on device'}
+Traceback (most recent call last):
+  File "/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026/Nightloop.py", line 266, in <module>
+    pickle.dump(
+    ~~~~~~~~~~~^
+        {
+        ^
+    ...<7 lines>...
+        f
+        ^
+    )
+    ^
+OSError: [Errno 28] No space left on device
+when serializing tuple item 0
+when serializing numpy.ndarray reconstructor arguments
+when serializing numpy.ndarray object
+when serializing dict item 'RNN'
+when serializing dict item 'model'
+
+
+================================================================================
+{'i_config': 91, 'souris': 'M396-6', 'Idx_souris': 1, 'n_pixels': 100, 'lissage_sigma': 2, 'use_dff': True, 'use_global_regression': True, 'nRunTrain': 100, 'n_regions': 367, 'min_region_size': 43, 'median_region_size': 99.0, 'max_region_size': 148, 'pVar_final': 0.49372060707419363, 'chi2_final': 2.435849292437414, 'pVar_max': 0.49372060707419363, 'chi2_min': 2.435849292437414, 'runtime_sec': nan, 'status': 'failed', 'error': "[Errno 28] No space left on device: 'night_run_models/M396-6_npix-100_sigma-2_dff-True_greg-True_nrun-100.pkl'"}
+Traceback (most recent call last):
+  File "/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026/Nightloop.py", line 265, in <module>
+    with open(save_path, "wb") as f:
+         ~~~~^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device: 'night_run_models/M396-6_npix-100_sigma-2_dff-True_greg-True_nrun-100.pkl'
+
+
+================================================================================
+{'i_config': 92, 'souris': 'M396-6', 'Idx_souris': 1, 'n_pixels': 100, 'lissage_sigma': 3, 'use_dff': False, 'use_global_regression': False, 'nRunTrain': 100, 'n_regions': 367, 'min_region_size': 43, 'median_region_size': 99.0, 'max_region_size': 148, 'pVar_final': 0.6267525777690437, 'chi2_final': 3.1887505374076803, 'pVar_max': 0.6267525777690437, 'chi2_min': 3.1887505374076803, 'runtime_sec': nan, 'status': 'failed', 'error': "[Errno 28] No space left on device: 'night_run_models/M396-6_npix-100_sigma-3_dff-False_greg-False_nrun-100.pkl'"}
+Traceback (most recent call last):
+  File "/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026/Nightloop.py", line 265, in <module>
+    with open(save_path, "wb") as f:
+         ~~~~^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device: 'night_run_models/M396-6_npix-100_sigma-3_dff-False_greg-False_nrun-100.pkl'
+
+
+================================================================================
+{'i_config': 93, 'souris': 'M396-6', 'Idx_souris': 1, 'n_pixels': 100, 'lissage_sigma': 3, 'use_dff': False, 'use_global_regression': True, 'nRunTrain': 100, 'n_regions': 367, 'min_region_size': 43, 'median_region_size': 99.0, 'max_region_size': 148, 'pVar_final': 0.6097882766231564, 'chi2_final': 3.0563669668897866, 'pVar_max': 0.6097882766231564, 'chi2_min': 3.0542571631406847, 'runtime_sec': nan, 'status': 'failed', 'error': "[Errno 28] No space left on device: 'night_run_models/M396-6_npix-100_sigma-3_dff-False_greg-True_nrun-100.pkl'"}
+Traceback (most recent call last):
+  File "/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026/Nightloop.py", line 265, in <module>
+    with open(save_path, "wb") as f:
+         ~~~~^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device: 'night_run_models/M396-6_npix-100_sigma-3_dff-False_greg-True_nrun-100.pkl'

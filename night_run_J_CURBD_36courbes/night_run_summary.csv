@@ -1,0 +1,6 @@
+i_config,Idx_souris,souris,n_pixels,n_regions,pVar_max,pVar_finale,chi2_min,chi2_final,runtime_sec,status,error,save_path
+0,0,M387-6,50,6,0.7929618508954314,0.7929618508954314,0.6391770038815882,0.6391770038815882,2458.8108530044556,done,,night_run_J_CURBD_36courbes/config0_M387-6_pix50_sigma2_dffFalse_globalregTrue_nRunTrain1000.pkl
+1,0,M387-6,30,6,0.87255601474691,0.87255601474691,0.25999915456429834,0.25999915456429834,8532.032475948334,done,,night_run_J_CURBD_36courbes/config1_M387-6_pix30_sigma2_dffFalse_globalregTrue_nRunTrain1000.pkl
+2,1,M396-6,50,6,0.8255942272419985,0.8255942272419985,0.720721632962412,0.720721632962412,3183.590266942978,done,,night_run_J_CURBD_36courbes/config2_M396-6_pix50_sigma2_dffFalse_globalregTrue_nRunTrain1000.pkl
+3,1,M396-6,30,6,0.8859376750302511,0.8859376750302511,0.32857674945312576,0.32857674945312576,11509.616161108017,done,,night_run_J_CURBD_36courbes/config3_M396-6_pix30_sigma2_dffFalse_globalregTrue_nRunTrain1000.pkl
+4,2,M410-6,50,6,0.8189970524719857,0.8189970524719857,0.7061089590183078,0.7061089590183078,3183.358350276947,done,,night_run_J_CURBD_36courbes/config4_M410-6_pix50_sigma2_dffFalse_globalregTrue_nRunTrain1000.pkl

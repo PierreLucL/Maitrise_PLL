@@ -15,6 +15,9 @@ from collections import defaultdict
 from matplotlib.collections import LineCollection
 from matplotlib.colors import LinearSegmentedColormap
 from scipy.ndimage import percentile_filter
+import pickle
+from matplotlib.gridspec import GridSpec
+from matplotlib.colors import to_rgb
 
 #### LOADER LE FICHIER H5 ####
 
@@ -763,3 +766,249 @@ def build_parent_regions_dict(info_masque_sub):
         dtype=object)
 
     return regions
+
+### Pkl retrieve ?
+
+def plot_curbd_currents_from_pkl(pkl_path, gradient_line):
+    """
+    Plot les 36 courbes de courant CURBD directement depuis un fichier .pkl.
+    """
+
+    with open(pkl_path, "rb") as f:
+        data = pickle.load(f)
+
+    currents = data["currents_curves"]
+    regions = data["regions"]
+    masque_sub = data["masque_sub"]
+    tRNN = data["tRNN"]
+
+    n_regions = len(regions)
+
+    region_colors = {
+        0: "#0047AB",
+        1: "#FF7F00",
+        2: "#00A550",
+        3: "#A020F0",
+        4: "#E60026",
+        5: "#00B7EB",
+    }
+
+    all_currents = np.concatenate(list(currents.values()))
+    max_abs = np.percentile(np.abs(all_currents), 99)
+
+    mask_rgb = np.ones((*masque_sub.shape, 3))
+
+    for iRegion in range(n_regions):
+        subregion_indices = regions[iRegion, 1]
+        color = to_rgb(region_colors[iRegion])
+
+        for idx in subregion_indices:
+            mask_rgb[masque_sub == idx] = color
+
+    if np.any(np.isnan(masque_sub)):
+        mask_rgb[np.isnan(masque_sub)] = [1, 1, 1]
+
+    fig = plt.figure(figsize=(12, 8))
+
+    outer = GridSpec(
+        1, 2,
+        width_ratios=[1, 5],
+        wspace=0.15,
+        figure=fig
+    )
+
+    ax_mask = fig.add_subplot(outer[0, 0])
+    ax_mask.imshow(mask_rgb)
+    ax_mask.set_title("Régions", fontsize=10)
+    ax_mask.axis("off")
+
+    right = outer[0, 1].subgridspec(
+        n_regions,
+        n_regions,
+        wspace=0.08,
+        hspace=0.08
+    )
+
+    for iTarget in range(n_regions):
+        for iSource in range(n_regions):
+
+            ax = fig.add_subplot(right[iTarget, iSource])
+
+            current = currents[(iTarget, iSource)]
+
+            source_color = region_colors[iSource]
+            target_color = region_colors[iTarget]
+
+            gradient_line(
+                tRNN,
+                current,
+                ax,
+                source_color,
+                target_color,
+                lw=3 if iSource == iTarget else 2
+            )
+
+            ax.axhline(0, color="black", linewidth=0.4, alpha=0.25)
+
+            ax.set_xlim(tRNN[0], tRNN[-1])
+            ax.set_ylim(-max_abs, max_abs)
+
+            if iTarget == 0:
+                ax.set_title(
+                    regions[iSource, 0],
+                    fontsize=8,
+                    color=source_color
+                )
+
+            if iSource == 0:
+                ax.set_ylabel(
+                    regions[iTarget, 0],
+                    fontsize=8,
+                    color=target_color
+                )
+
+            if iTarget != n_regions - 1:
+                ax.set_xticklabels([])
+
+            if iSource != 0:
+                ax.set_yticklabels([])
+
+            ax.tick_params(axis="both", labelsize=6, length=2)
+
+            for spine in ax.spines.values():
+                spine.set_linewidth(0.5)
+                spine.set_alpha(0.5)
+
+    fig.suptitle(
+        "Courants CURBD source → cible",
+        fontsize=14,
+        y=0.98
+    )
+
+    plt.show()
+
+
+### Synthétiques ?
+
+def generate_synthetic_gcamp_rnn(
+    height=40,
+    width=60,
+    T=1000,
+    g=1.5,
+    dt=0.33,
+    tau=1.0,
+    noise_std=0.02,
+    same_region_strength=2.5,
+    spatial_decay=8.0,
+    calcium_tau=1.2,
+    apply_gcamp=True,
+    seed=None,
+):
+    """
+    Génère des données synthétiques type GCaMP avec 6 régions carrées.
+
+    Returns
+    -------
+    mask : array (height, width)
+        Masque contenant les labels 0 à 5.
+    W : array (N, N)
+        Matrice de connectivité vraie entre tous les pixels.
+    X : array (N, T)
+        Séries temporelles simulées, N pixels x T temps.
+    """
+
+    rng = np.random.default_rng(seed)
+
+    # ---------------------------------------------------------------------
+    # 1. Masque : 6 régions en grille 2 x 3
+    # ---------------------------------------------------------------------
+    mask = np.zeros((height, width), dtype=int)
+
+    n_rows = 2
+    n_cols = 3
+
+    region_h = height // n_rows
+    region_w = width // n_cols
+
+    label = 0
+    for i in range(n_rows):
+        for j in range(n_cols):
+            y0 = i * region_h
+            y1 = (i + 1) * region_h if i < n_rows - 1 else height
+            x0 = j * region_w
+            x1 = (j + 1) * region_w if j < n_cols - 1 else width
+
+            mask[y0:y1, x0:x1] = label
+            label += 1
+
+    N = height * width
+    labels = mask.ravel()
+
+    # Coordonnées spatiales des pixels
+    yy, xx = np.meshgrid(np.arange(height), np.arange(width), indexing="ij")
+    coords = np.column_stack([yy.ravel(), xx.ravel()])
+
+    # ---------------------------------------------------------------------
+    # 2. Matrice de connectivité structurée
+    # ---------------------------------------------------------------------
+    dy = coords[:, 0][:, None] - coords[:, 0][None, :]
+    dx = coords[:, 1][:, None] - coords[:, 1][None, :]
+    dist = np.sqrt(dx**2 + dy**2)
+
+    spatial_kernel = np.exp(-dist / spatial_decay)
+
+    same_region = labels[:, None] == labels[None, :]
+
+    structure = spatial_kernel.copy()
+    structure[same_region] *= same_region_strength
+
+    # Poids aléatoires structurés
+    W = rng.normal(0, 1, size=(N, N)).astype(np.float32)
+    W *= structure.astype(np.float32)
+
+    # Pas d'auto-connexion directe
+    np.fill_diagonal(W, 0)
+
+    # Normalisation par rayon spectral
+    eigvals = np.linalg.eigvals(W)
+    spectral_radius = np.max(np.abs(eigvals))
+
+    if spectral_radius > 0:
+        W = W / spectral_radius * g
+
+    W = W.astype(np.float32)
+
+    # ---------------------------------------------------------------------
+    # 3. Simulation RNN
+    # ---------------------------------------------------------------------
+    H = rng.normal(0, 0.1, size=N).astype(np.float32)
+    X_neural = np.zeros((N, T), dtype=np.float32)
+
+    for t in range(T):
+        R = np.tanh(H)
+        X_neural[:, t] = R
+
+        noise = rng.normal(0, noise_std, size=N).astype(np.float32)
+
+        dH = (-H + W @ R + noise) / tau
+        H = H + dt * dH
+
+    # ---------------------------------------------------------------------
+    # 4. Observation GCaMP synthétique
+    # ---------------------------------------------------------------------
+    if apply_gcamp:
+        # filtre exponentiel approximé par un lissage gaussien temporel
+        sigma_frames = calcium_tau / dt
+        X = gaussian_filter1d(X_neural, sigma=sigma_frames, axis=1)
+
+        # bruit observationnel calcium
+        X += rng.normal(0, noise_std, size=X.shape).astype(np.float32)
+
+        # normalisation par pixel
+        X = X - X.mean(axis=1, keepdims=True)
+        X = X / (X.std(axis=1, keepdims=True) + 1e-8)
+
+    else:
+        X = X_neural
+
+    return mask, W, X

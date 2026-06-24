@@ -10,7 +10,6 @@ import numpy as np
 import pandas as pd
 import traceback
 import time
-import pickle
 from pathlib import Path
 from itertools import product
 
@@ -21,10 +20,10 @@ from itertools import product
 souris = ['M387-6', 'M396-6', 'M410-6', 'M412-8']
 
 idx_souris_list = [0, 1, 2, 3]
-n_pixels_list = [50, 100, 200, 500]
-lissage_sigma_list = [0, 1, 2, 3]
-use_dff_list = [False, True]
-use_global_regression_list = [False, True]
+n_pixels_list = [30, 50]
+lissage_sigma_list = [2]
+use_dff_list = [False]
+use_global_regression_list = [True]
 
 nRunTrain = 100
 debug = False
@@ -234,7 +233,7 @@ for i, (Idx_souris, n_pixels, lissage_sigma, use_dff, use_global_regression) in 
             tauRNN=0.33,
             nRunTrain=nRunTrain,
             P0=1.0,
-            regions=regions,
+            regions=regions,plotStatus=False
         )
 
         pVars = np.array(model["pVars"])
@@ -244,12 +243,6 @@ for i, (Idx_souris, n_pixels, lissage_sigma, use_dff, use_global_regression) in 
         row["chi2_final"] = float(chi2s[-1])
         row["pVar_max"] = float(np.nanmax(pVars))
         row["chi2_min"] = float(np.nanmin(chi2s))
-
-        #################################################################################################
-        # CURBD ARRAY
-        #################################################################################################
-
-        curbd_arr, curbd_labels = computeCURBD(model)
 
         save_name = (
             f"{mouse_id}"
@@ -261,19 +254,6 @@ for i, (Idx_souris, n_pixels, lissage_sigma, use_dff, use_global_regression) in 
         )
 
         save_path = models_dir / save_name
-
-        with open(save_path, "wb") as f:
-            pickle.dump(
-                {
-                    "model": model,
-                    "curbd_arr": curbd_arr,
-                    "curbd_labels": curbd_labels,
-                    "regions": regions,
-                    "info_masque_sub": info_masque_sub,
-                    "row": row,
-                },
-                f
-            )
 
         row["status"] = "success"
 

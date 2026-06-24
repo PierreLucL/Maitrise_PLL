@@ -1,0 +1,6 @@
+from Pipeline import *
+
+plot_curbd_currents_from_pkl(
+    "night_run_J_CURBD_36courbes/config4_M410-6_pix50_sigma2_dffFalse_globalregTrue_nRunTrain1000.pkl",
+    gradient_line=gradient_line
+)
