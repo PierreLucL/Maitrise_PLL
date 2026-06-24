@@ -1,1 +1,29 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs
+.idea/
+.vscode/
+
+# Donnees lourdes / locales
 *.h5
+*.npy
+*.pkl
+*.mat
+*.zip
+
+# Dossiers locaux de donnees/resultats
+data/
+results/
+outputs/
+night_run_models/
+night_run_J_CURBD_36courbes/
