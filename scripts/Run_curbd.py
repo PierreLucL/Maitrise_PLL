@@ -1,14 +1,29 @@
 ### Importations ###
-from Pipeline import *
-from curbd import *
-from sklearn.decomposition import PCA
-import pylab
-from matplotlib.gridspec import GridSpec
+import h5py
+import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.colors import to_rgb
+from matplotlib.gridspec import GridSpec
+
+from src.maitrise_curbd.io import load_gcamp
+from src.maitrise_curbd.masks import (
+    build_parent_regions_dict,
+    clean_region_mask,
+    extract_nonzero_pixels,
+    remove_dead_pixels_from_region_mask,
+    subdivide_mask_by_spatial_clustering,
+)
+from src.maitrise_curbd.timeseries import (
+    compute_dff,
+    extract_timeseries_du_tenseur,
+    regress_out_global_signal,
+    smooth_timeseries,
+)
+from src.maitrise_curbd.curbd import computeCURBD, trainMultiRegionRNN
+from src.maitrise_curbd.plotting import gradient_line, plot_10_ts_with_mask_and_similarity
 
 ### Liste des souris disponibles ###
 souris = ['M387-6', 'M396-6', 'M410-6', 'M412-8']
-
 
 #########################################################################################################
 # SETUP
@@ -17,7 +32,6 @@ souris = ['M387-6', 'M396-6', 'M410-6', 'M412-8']
 
 Idx_souris = 2
 n_pixels = 700
-#n_pixels = 370
 lissage_sigma = 2
 Combien_de_petites_regions = 5
 nRunTrain = 100 
