@@ -244,7 +244,7 @@ def gradient_line(
     ax,
     color_start,
     color_end,
-    lw=2
+    lw=0.8
 ):
 
     cmap = LinearSegmentedColormap.from_list(
@@ -351,7 +351,7 @@ def plot_curbd_currents_from_pkl(pkl_path, gradient_line):
                 ax,
                 source_color,
                 target_color,
-                lw=3 if iSource == iTarget else 2
+                lw=0.8 if iSource == iTarget else 0.5
             )
 
             ax.axhline(0, color="black", linewidth=0.4, alpha=0.25)

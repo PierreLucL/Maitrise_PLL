@@ -4,54 +4,66 @@ import time
 import traceback
 from itertools import product
 from pathlib import Path
+import argparse
+from datetime import datetime
 
 import numpy as np
 import pandas as pd
 
-from src.maitrise_curbd.io import load_gcamp
-from src.maitrise_curbd.masks import (
+from maitrise_curbd.io import load_gcamp
+from maitrise_curbd.masks import (
     build_parent_regions_dict,
     clean_region_mask,
     extract_nonzero_pixels,
     remove_dead_pixels_from_region_mask,
     subdivide_mask_by_spatial_clustering,
 )
-from src.maitrise_curbd.timeseries import (
+from maitrise_curbd.timeseries import (
     compute_dff,
     extract_timeseries_du_tenseur,
     regress_out_global_signal,
     smooth_timeseries,
 )
-from src.maitrise_curbd.curbd import computeCURBD, trainMultiRegionRNN
+from maitrise_curbd.curbd import computeCURBD, trainMultiRegionRNN
 
 
 # ============================================================
 # PARAMÈTRES
 # ============================================================
 
+titre_du_test = 'Petits n_pixels, gros nRunfree'
+
+now = datetime.now()
+moment = now.strftime("%Y-%m-%d_%Hh%M")
+
+
 souris = ['M387-6', 'M396-6', 'M410-6', 'M412-8']
 
 idx_souris_list = [0, 1, 2, 3]
-n_pixels_list = [50,30]
+n_pixels_list = [10,20,30,40,50,60,70]
 
-lissage_sigma = 2
+lissage_sigma = 3
 use_dff = False
 use_global_regression = True
 
-nRunTrain = 1000
+nRunTrain = 400
 debug = False
 
+nRunFree = 10
 dtData = 0.33
 dtFactor = 4
 tauRNN = 0.33
 P0 = 1.0
 
-base_path = Path(
-    "/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Coding CURBD 2026"
-)
+parser = argparse.ArgumentParser()
+parser.add_argument("--data-dir", type=Path, default=Path("data"))
+parser.add_argument("--output-dir", type=Path, default=Path(f"{titre_du_test}/run_du_{moment}"))
+args = parser.parse_args()
 
-save_dir = Path("night_run_J_CURBD_36courbes")
-save_dir.mkdir(exist_ok=True)
+base_path = args.data_dir
+
+save_dir = args.output_dir
+save_dir.mkdir(parents=True, exist_ok=True)
 
 results_csv = save_dir / "night_run_summary.csv"
 
@@ -129,9 +141,15 @@ for i_config, (Idx_souris, n_pixels) in enumerate(configs):
         print(f"Souris : {souris[Idx_souris]} | n_pixels : {n_pixels}")
         print("=" * 90)
 
-        dataset, masque_init = load_gcamp(
-            base_path / f"{souris[Idx_souris]}_v4_mvmt.h5"
-        )
+        file_path = base_path / f"{souris[Idx_souris]}_v4_mvmt.h5"
+
+        if not file_path.exists():
+            row["status"] = "missing_file"
+            row["error"] = f"Fichier introuvable: {file_path}"
+            print(f"⚠️ Fichier manquant, skip: {file_path}")
+            continue
+
+        dataset, masque_init = load_gcamp(file_path)
 
         clean_masque_init = clean_region_mask(masque_init)
 
@@ -172,6 +190,7 @@ for i_config, (Idx_souris, n_pixels) in enumerate(configs):
             dtData=dtData,
             dtFactor=dtFactor,
             tauRNN=tauRNN,
+            nRunFree=nRunFree,
             nRunTrain=nRunTrain,
             P0=P0,
             regions=regions,

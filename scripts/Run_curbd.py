@@ -237,7 +237,7 @@ for iTarget in range(n_regions):
             ax,
             source_color,
             target_color,
-            lw= 3 if iSource == iTarget else 2
+            lw=0.8 if iSource == iTarget else 0.5
         )
 
         ax.axhline(0, color="black", linewidth=0.4, alpha=0.25)

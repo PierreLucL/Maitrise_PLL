@@ -1,0 +1,6 @@
+from maitrise_curbd.plotting import plot_curbd_currents_from_pkl, gradient_line
+
+plot_curbd_currents_from_pkl(
+    "notebooks/night_run_J_CURBD_36courbes/config0_M387-6_pix50_sigma2_dffFalse_globalregTrue_nRunTrain1000.pkl",
+    gradient_line=gradient_line
+)
