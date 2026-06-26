@@ -26,30 +26,33 @@ from maitrise_curbd.timeseries import (
 )
 from maitrise_curbd.curbd import computeCURBD, trainMultiRegionRNN
 
+# ============================================================
+# Qu'est-ce qu'on veut tester ?
+# ============================================================
+
+titre_du_test = 'Petits n_pixels, gros nRunfree, mais pas 10'
 
 # ============================================================
 # PARAMÈTRES
 # ============================================================
 
-titre_du_test = 'Petits n_pixels, gros nRunfree'
-
 now = datetime.now()
-moment = now.strftime("%Y-%m-%d_%Hh%M")
+maintenant = now.strftime("%Y-%m-%d_%Hh%M")
 
-
+# Les souris qu'on investigue
 souris = ['M387-6', 'M396-6', 'M410-6', 'M412-8']
 
 idx_souris_list = [0, 1, 2, 3]
-n_pixels_list = [10,20,30,40,50,60,70]
+n_pixels_list = [80,100,150,200]
 
-lissage_sigma = 3
+lissage_sigma = [2,3]
 use_dff = False
 use_global_regression = True
 
-nRunTrain = 400
+nRunTrain = 1000
 debug = False
 
-nRunFree = 10
+nRunFree = 50
 dtData = 0.33
 dtFactor = 4
 tauRNN = 0.33
@@ -57,7 +60,7 @@ P0 = 1.0
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--data-dir", type=Path, default=Path("data"))
-parser.add_argument("--output-dir", type=Path, default=Path(f"{titre_du_test}/run_du_{moment}"))
+parser.add_argument("--output-dir", type=Path, default=Path(f"{titre_du_test}/run_du_{maintenant}"))
 args = parser.parse_args()
 
 base_path = args.data_dir
@@ -97,7 +100,7 @@ def safe_last(x):
 # CONFIGS
 # ============================================================
 
-configs = list(product(idx_souris_list, n_pixels_list))
+configs = list(product(idx_souris_list, n_pixels_list, lissage_sigma))
 rows = []
 
 
@@ -105,7 +108,7 @@ rows = []
 # LOOP PRINCIPALE
 # ============================================================
 
-for i_config, (Idx_souris, n_pixels) in enumerate(configs):
+for i_config, (Idx_souris, n_pixels, lissage_sigma) in enumerate(configs):
 
     t0 = time.time()
 
