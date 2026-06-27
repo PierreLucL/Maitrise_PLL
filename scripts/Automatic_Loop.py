@@ -30,7 +30,7 @@ from maitrise_curbd.curbd import computeCURBD, trainMultiRegionRNN
 # Qu'est-ce qu'on veut tester ?
 # ============================================================
 
-titre_du_test = 'Petits n_pixels, gros nRunfree, mais pas 10'
+titre_du_test = 'Petits petiits n_pixels, gros nRunfree, mais pas 10'
 
 # ============================================================
 # PARAMÈTRES
@@ -43,7 +43,7 @@ maintenant = now.strftime("%Y-%m-%d_%Hh%M")
 souris = ['M387-6', 'M396-6', 'M410-6', 'M412-8']
 
 idx_souris_list = [0, 1, 2, 3]
-n_pixels_list = [80,100,150,200]
+n_pixels_list = [40,45,50]
 
 lissage_sigma = [2,3]
 use_dff = False

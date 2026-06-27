@@ -386,7 +386,7 @@ def plot_curbd_currents_from_pkl(pkl_path, gradient_line):
                 spine.set_alpha(0.5)
 
     fig.suptitle(
-        "Courants CURBD source → cible",
+        "Courants CURBD source → cible, souris {}, n_pixels {}".format(data["row"]["souris"], data["row"]["n_pixels"]),
         fontsize=14,
         y=0.98
     )
