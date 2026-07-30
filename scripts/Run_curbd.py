@@ -7,7 +7,9 @@ from matplotlib.gridspec import GridSpec
 from pathlib import Path
 
 from maitrise_curbd.io import load_dataset
-from maitrise_curbd.masks import remove_thin_label_artifacts,clean_reduced_atlas, reduce_atlas_to_6_regions, subdivide_mask_by_spatial_clustering, build_parent_regions_dict, clean_region_mask
+from maitrise_curbd.masks import (remove_thin_label_artifacts,
+    reduce_atlas_to_6_regions,subdivide_mask_by_spatial_clustering, 
+    build_parent_regions_dict)
 
 from maitrise_curbd.timeseries import (
     compute_dff,
@@ -25,7 +27,7 @@ from maitrise_curbd.plotting import gradient_line, plot_10_ts_with_mask_and_simi
 n_cohorte = 0
 month = 10
 souris = 253
-n_pixels = 700
+n_pixels = 300
 lissage_sigma = 2
 Combien_de_petites_regions = 5
 nRunTrain = 100 
@@ -46,7 +48,6 @@ print("GCaMP :", gcamp.shape, gcamp.dtype)
 print("Atlas :", atlas.shape, atlas.dtype)
 print("ROI mask :", roi_mask.shape, roi_mask.dtype)
 
-
 ### On clean le masque, on extrait les pixels actifs, on retire les pixels morts du masque, et on subdivise le masque
 clean_atlas = remove_thin_label_artifacts(atlas,size=5,min_fraction=0.25)
 
@@ -57,7 +58,6 @@ atlas_6 = reduce_atlas_to_6_regions(
 plt.imshow(atlas_6)
 plt.show()
 
-print(np.unique(atlas_6, return_counts=True))
 
 masque_sub, info_masque_sub = subdivide_mask_by_spatial_clustering(atlas_6, target_size=n_pixels)
 
@@ -110,8 +110,8 @@ if plot:
 
 ### Training pour obtenir la matrice J
 
-model = trainMultiRegionRNN(ts, dtData=0.33, # pas de temps de données (en secondes)
-    dtFactor=4, # Combien de pas entre les pas de données et les pas de RNN
+model = trainMultiRegionRNN(ts, dtData=1/12, # pas de temps de données (en secondes)
+    dtFactor=1, # Combien de pas entre les pas de données et les pas de RNN
     tauRNN=0.33, # constante de temps du RNN (en secondes)
     nRunTrain=nRunTrain, # Nombre d'itérations d'entraînement du RNN,
     P0=1.0, # Taux d'apprentissage du RLS,

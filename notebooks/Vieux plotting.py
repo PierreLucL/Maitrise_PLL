@@ -3,48 +3,58 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-def animate_dff(X, interval=50):
-    """
-    X : array (T, H, W)
-    Affiche animation avec ΔF/F
-    """
+def animate_dff(X, roi_mask, interval=50):
+    X = np.asarray(X, dtype=np.float32)
+    roi_mask = np.asarray(roi_mask, dtype=bool)
 
-    # --- ΔF/F ---
+    if roi_mask.shape != X.shape[1:]:
+        raise ValueError(
+            f"roi_mask {roi_mask.shape} incompatible avec X {X.shape}"
+        )
+
+    X = np.where(roi_mask[None, :, :], X, np.nan)
+
     F0 = np.nanmedian(X, axis=0, keepdims=True)
-    F0[F0 == 0] = 1  # éviter division par zéro
+    F0[(F0 == 0) | ~np.isfinite(F0)] = np.nan
 
     X_dff = (X - F0) / F0
 
-    # --- Setup animation ---
-    T, H, W = X.shape
-    fig, ax = plt.subplots()
+    T = X_dff.shape[0]
 
-    # Colormap adaptée (vert calcium)
     cmap = plt.cm.Greens.copy()
-    cmap.set_bad(color='black')
+    cmap.set_bad("black")
 
-    im = ax.imshow(X_dff[0], cmap=cmap, animated=True)
-
-    # 🔥 IMPORTANT : limites robustes (évite outliers)
     vmin = np.nanpercentile(X_dff, 1)
     vmax = np.nanpercentile(X_dff, 99)
-    im.set_clim(vmin, vmax)
 
-    title = ax.set_title("Frame 0 (ΔF/F)")
+    fig, ax = plt.subplots()
+
+    im = ax.imshow(
+        X_dff[0],
+        cmap=cmap,
+        vmin=vmin,
+        vmax=vmax,
+        animated=True,
+    )
+
+    title = ax.set_title("Frame 0 — ΔF/F")
+    ax.axis("off")
 
     def update(frame):
-        im.set_array(X_dff[frame])
-        return [im]
+        im.set_data(X_dff[frame])
+        title.set_text(f"Frame {frame}/{T - 1} — ΔF/F")
+        return im, title
 
     ani = FuncAnimation(
         fig,
         update,
         frames=T,
         interval=interval,
-        blit=True
+        blit=True,
     )
 
     plt.show()
+    return ani
 
 from pathlib import Path
 import tifffile as tiff
@@ -80,5 +90,4 @@ print("GCaMP :", gcamp.shape, gcamp.dtype)
 print("Atlas :", atlas.shape, atlas.dtype)
 print("ROI mask :", roi_mask.shape, roi_mask.dtype)
 
-    
-animate_dff(gcamp)
+ani = animate_dff(gcamp, roi_mask)

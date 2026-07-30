@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pickle
 
 
-pkl_a = "/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/NEW DATASETS À SOIR/run_du_2026-07-30_02h25/config0_191_pix50_sigma2_dffFalse_globalregTrue_nRunTrain1000.pkl"
+pkl_a = "/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Results/NEW DATASETS À SOIR/run_du_2026-07-30_02h25/config1_191_pix80_sigma2_dffFalse_globalregTrue_nRunTrain1000.pkl"
 #pkl_b = "/Users/pierre-luclarouche/Desktop/École/Maîtrise/Maitrise_PLL/Petits n_pixels, gros nRunfree, mais pas 10/run_du_2026-06-25_23h12/config8_M396-6_pix80_sigma2_dffFalse_globalregTrue_nRunTrain1000.pkl"
 
 plot_curbd_currents_from_pkl(

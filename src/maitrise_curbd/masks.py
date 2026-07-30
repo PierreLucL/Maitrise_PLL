@@ -15,12 +15,22 @@ ATLAS_TO_PARENT_6 = {
     # Ensemble frontal / moteur secondaire
     # ============================================================
     1: 0,    # ACAd_left
+    2: 0,    # AUDd_left
+    3: 0,    # AUDp_left
+    4: 0,    # AUDpo_left
+    5: 0,    # AUDv_left
+    6: 0,    # ECT_left
     7: 0,    # FRP_left
     9: 0,    # MOs_left
     10: 0,   # ORBm_left
     11: 0,   # PL_left
 
     35: 0,   # ACAd_right
+    36: 0,   # AUDd_right
+    37: 0,   # AUDp_right
+    38: 0,   # AUDpo_right
+    39: 0,   # AUDv_right
+    40: 0,   # ECT_right
     41: 0,   # FRP_right
     43: 0,   # MOs_right
     44: 0,   # ORBm_right
@@ -62,45 +72,35 @@ ATLAS_TO_PARENT_6 = {
     # 3 — Rég. Ass.
     # Auditif / temporal / associatif latéral
     # ============================================================
-    2: 3,    # AUDd_left
-    3: 3,    # AUDp_left
-    4: 3,    # AUDpo_left
-    5: 3,    # AUDv_left
-    6: 3,    # ECT_left
-    23: 3,   # TEa_left
+    31: 3,   # VISa_left
+    34: 3,   # VISrl_left
 
-    36: 3,   # AUDd_right
-    37: 3,   # AUDp_right
-    38: 3,   # AUDpo_right
-    39: 3,   # AUDv_right
-    40: 3,   # ECT_right
-    57: 3,   # TEa_right
+    65: 3,   # VISa_right
+    68: 3,   # VISrl_right
 
     # ============================================================
     # 4 — Rég. Vis.
     # Aires visuelles primaires et associatives
     # ============================================================
+    23: 4,   # TEa_left
     24: 4,   # VISal_left
     25: 4,   # VISam_left
     27: 4,   # VISl_left
     28: 4,   # VISp_left
     29: 4,   # VISpl_left
     30: 4,   # VISpm_left
-    31: 4,   # VISa_left
     32: 4,   # VISli_left
     33: 4,   # VISpor_left
-    34: 4,   # VISrl_left
 
+    57: 4,   # TEa_right
     58: 4,   # VISal_right
     59: 4,   # VISam_right
     61: 4,   # VISl_right
     62: 4,   # VISp_right
     63: 4,   # VISpl_right
     64: 4,   # VISpm_right
-    65: 4,   # VISa_right
     66: 4,   # VISli_right
     67: 4,   # VISpor_right
-    68: 4,   # VISrl_right
 
     # ============================================================
     # 5 — Rég. Rét.
