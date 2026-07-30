@@ -10,14 +10,9 @@ from datetime import datetime
 import numpy as np
 import pandas as pd
 
-from maitrise_curbd.io import load_gcamp
-from maitrise_curbd.masks import (
-    build_parent_regions_dict,
-    clean_region_mask,
-    extract_nonzero_pixels,
-    remove_dead_pixels_from_region_mask,
-    subdivide_mask_by_spatial_clustering,
-)
+from maitrise_curbd.io import load_dataset
+from maitrise_curbd.masks import remove_thin_label_artifacts,reduce_atlas_to_6_regions, subdivide_mask_by_spatial_clustering, build_parent_regions_dict, clean_region_mask
+
 from maitrise_curbd.timeseries import (
     compute_dff,
     extract_timeseries_du_tenseur,
@@ -30,7 +25,7 @@ from maitrise_curbd.curbd import computeCURBD, trainMultiRegionRNN
 # Qu'est-ce qu'on veut tester ?
 # ============================================================
 
-titre_du_test = 'Petits petiits n_pixels, gros nRunfree, mais pas 10'
+titre_du_test = 'NEW DATASETS À SOIR'
 
 # ============================================================
 # PARAMÈTRES
@@ -40,12 +35,11 @@ now = datetime.now()
 maintenant = now.strftime("%Y-%m-%d_%Hh%M")
 
 # Les souris qu'on investigue
-souris = ['M387-6', 'M396-6', 'M410-6', 'M412-8']
-
+souris = [191,210,213,233]
 idx_souris_list = [0, 1, 2, 3]
-n_pixels_list = [40,45,50]
+n_pixels_list = [50,80,100]
 
-lissage_sigma = [2,3]
+lissage_sigma = 2
 use_dff = False
 use_global_regression = True
 
@@ -53,9 +47,9 @@ nRunTrain = 1000
 debug = False
 
 nRunFree = 50
-dtData = 0.33
+dtData = 0.083
 dtFactor = 4
-tauRNN = 0.33
+tauRNN = 0.083
 P0 = 1.0
 
 parser = argparse.ArgumentParser()
@@ -100,7 +94,7 @@ def safe_last(x):
 # CONFIGS
 # ============================================================
 
-configs = list(product(idx_souris_list, n_pixels_list, lissage_sigma))
+configs = list(product(idx_souris_list, n_pixels_list))
 rows = []
 
 
@@ -108,7 +102,7 @@ rows = []
 # LOOP PRINCIPALE
 # ============================================================
 
-for i_config, (Idx_souris, n_pixels, lissage_sigma) in enumerate(configs):
+for i_config, (Idx_souris, n_pixels) in enumerate(configs):
 
     t0 = time.time()
 
@@ -144,37 +138,26 @@ for i_config, (Idx_souris, n_pixels, lissage_sigma) in enumerate(configs):
         print(f"Souris : {souris[Idx_souris]} | n_pixels : {n_pixels}")
         print("=" * 90)
 
-        file_path = base_path / f"{souris[Idx_souris]}_v4_mvmt.h5"
+        gcamp, atlas, roi_mask = load_dataset(
+            cohort=0,
+            month=12,
+            mouse=souris[Idx_souris])
 
-        if not file_path.exists():
-            row["status"] = "missing_file"
-            row["error"] = f"Fichier introuvable: {file_path}"
-            print(f"⚠️ Fichier manquant, skip: {file_path}")
-            continue
+        clean_atlas = remove_thin_label_artifacts(atlas,size=5,min_fraction=0.25)
 
-        dataset, masque_init = load_gcamp(file_path)
+        
+        atlas_6 = reduce_atlas_to_6_regions(
+    atlas=clean_atlas,
+    roi_mask=roi_mask,
+)
 
-        clean_masque_init = clean_region_mask(masque_init)
 
-        pixels_actifs, masque_mort = extract_nonzero_pixels(
-            dataset,
-            debug=debug
-        )
-
-        masque_init_actif = remove_dead_pixels_from_region_mask(
-            clean_masque_init,
-            masque_mort
-        )
-
-        masque_sub, info_masque_sub = subdivide_mask_by_spatial_clustering(
-            masque_init_actif,
-            target_size=n_pixels
-        )
+        masque_sub, info_masque_sub = subdivide_mask_by_spatial_clustering(atlas_6, target_size=n_pixels)
 
         regions = build_parent_regions_dict(info_masque_sub)
 
         ts = extract_timeseries_du_tenseur(
-            dataset,
+            gcamp,
             masque_sub
         )
 
@@ -232,6 +215,8 @@ for i_config, (Idx_souris, n_pixels, lissage_sigma) in enumerate(configs):
 
         row["chi2_min"] = safe_nanmin(chi2)
         row["chi2_final"] = safe_last(chi2)
+        row["status"] = "done"
+        row["runtime_sec"] = time.time() - t0
 
         to_save = {
     "J_final": J_final,
@@ -241,7 +226,7 @@ for i_config, (Idx_souris, n_pixels, lissage_sigma) in enumerate(configs):
     "info_masque_sub": info_masque_sub,
     "masque_sub": masque_sub.astype(np.float32),
     "tRNN": np.asarray(model["tRNN"], dtype=np.float32),
-    "row": row,
+    "row": row.copy(),
 }
 
         with open(save_path, "wb") as f:
@@ -276,12 +261,10 @@ for i_config, (Idx_souris, n_pixels, lissage_sigma) in enumerate(configs):
         print(f"CSV résumé mis à jour : {results_csv}")
 
         for var in [
-            "dataset",
-            "masque_init",
-            "clean_masque_init",
-            "pixels_actifs",
-            "masque_mort",
-            "masque_init_actif",
+            "gcamp",
+            "atlas",
+            "roi_mask",
+            "clean_atlas",
             "masque_sub",
             "info_masque_sub",
             "regions",
@@ -290,13 +273,16 @@ for i_config, (Idx_souris, n_pixels, lissage_sigma) in enumerate(configs):
             "curbd_arr",
             "curbd_labels",
             "currents_curves",
+            "current_curve",
+            "C",
             "J_final",
             "pVar",
             "chi2",
+            "tRNN",
             "to_save",
-        ]:
-            if var in locals():
-                del locals()[var]
+    
+            ]:
+            globals().pop(var, None)
 
         gc.collect()
 

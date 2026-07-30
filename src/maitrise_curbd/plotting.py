@@ -7,6 +7,7 @@ from matplotlib.collections import LineCollection
 from matplotlib.colors import LinearSegmentedColormap
 import pickle
 from matplotlib.gridspec import GridSpec
+from scipy.ndimage import gaussian_filter1d
 
 from matplotlib.colors import to_rgb
 
@@ -275,7 +276,7 @@ def gradient_line(
 
 ### Plot from pkl
 
-def plot_curbd_currents_from_pkl(pkl_path, gradient_line):
+def plot_curbd_currents_from_pkl(pkl_path, gradient_line, sigma=2):
     """
     Plot les 36 courbes de courant CURBD directement depuis un fichier .pkl.
     """
@@ -341,13 +342,14 @@ def plot_curbd_currents_from_pkl(pkl_path, gradient_line):
             ax = fig.add_subplot(right[iTarget, iSource])
 
             current = currents[(iTarget, iSource)]
-
+            # Lissage uniquement pour la visualisation
+            current_plot = gaussian_filter1d(current, sigma=sigma)
             source_color = region_colors[iSource]
             target_color = region_colors[iTarget]
 
             gradient_line(
                 tRNN,
-                current,
+                current_plot,
                 ax,
                 source_color,
                 target_color,
@@ -393,3 +395,108 @@ def plot_curbd_currents_from_pkl(pkl_path, gradient_line):
 
     plt.show()
 
+
+def plot_current_similarity_imshow(
+    matrix,
+    title="Similarité Pearson des courants",
+    region_names=None,
+    region_colors=None,
+    cmap="bwr",
+    vmin=-1,
+    vmax=1,
+    annotate=True,
+    ax=None,
+):
+    """
+    Affiche une matrice 6x6 source -> cible avec labels de régions.
+
+    Lignes = régions sources
+    Colonnes = régions cibles
+    """
+
+    if region_names is None:
+        region_names = [
+            "Rég. M.II",
+            "Rég. M.I",
+            "Rég. Som.",
+            "Rég. Ass.",
+            "Rég. Vis.",
+            "Rég. Rét.",
+        ]
+
+    if region_colors is None:
+        region_colors = [
+            "#0057d9",  # M.II bleu
+            "#ff7a00",  # M.I orange
+            "#00a85a",  # Som. vert
+            "#a735ff",  # Ass. violet
+            "#ff1f2d",  # Vis. rouge
+            "#00b7e8",  # Rét. cyan
+        ]
+
+    matrix = np.asarray(matrix)
+
+    if matrix.shape != (len(region_names), len(region_names)):
+        raise ValueError(
+            f"matrix doit être de taille "
+            f"{len(region_names)}x{len(region_names)}, reçu {matrix.shape}"
+        )
+
+    created_fig = ax is None
+    if ax is None:
+        fig, ax = plt.subplots(figsize=(8.5, 7.5), constrained_layout=True)
+    else:
+        fig = ax.figure
+
+    im = ax.imshow(matrix, cmap=cmap, vmin=vmin, vmax=vmax)
+
+    ax.set_title(title, fontsize=18, pad=18)
+    ax.set_xlabel("Région cible", fontsize=14, labelpad=12)
+    ax.set_ylabel("Région source", fontsize=14, labelpad=12)
+
+    ax.set_xticks(np.arange(len(region_names)))
+    ax.set_yticks(np.arange(len(region_names)))
+    ax.set_xticklabels(region_names, fontsize=12)
+    ax.set_yticklabels(region_names, fontsize=12)
+
+    ax.tick_params(top=True, bottom=False, labeltop=True, labelbottom=False)
+
+    for tick, color in zip(ax.get_xticklabels(), region_colors):
+        tick.set_color(color)
+        tick.set_rotation(0)
+
+    for tick, color in zip(ax.get_yticklabels(), region_colors):
+        tick.set_color(color)
+
+    # Grille entre les cases
+    ax.set_xticks(np.arange(-0.5, len(region_names), 1), minor=True)
+    ax.set_yticks(np.arange(-0.5, len(region_names), 1), minor=True)
+    ax.grid(which="minor", color="white", linewidth=2)
+    ax.tick_params(which="minor", bottom=False, left=False)
+
+    # Annoter les valeurs
+    if annotate:
+        midpoint = (vmin + vmax) / 2
+        for i in range(matrix.shape[0]):
+            for j in range(matrix.shape[1]):
+                value = matrix[i, j]
+                text_color = "white" if abs(value - midpoint) > 0.45 else "black"
+                ax.text(
+                    j,
+                    i,
+                    f"{value:.2f}",
+                    ha="center",
+                    va="center",
+                    color=text_color,
+                    fontsize=11,
+                    fontweight="bold",
+                )
+
+    cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
+    cbar.set_label("Pearson r", fontsize=12)
+    cbar.ax.tick_params(labelsize=10)
+
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+
+    return fig, ax

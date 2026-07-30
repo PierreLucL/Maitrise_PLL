@@ -2,7 +2,6 @@ from matplotlib.animation import FuncAnimation
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-from Pipeline import load_gcamp
 
 def animate_dff(X, interval=50):
     """
@@ -47,12 +46,39 @@ def animate_dff(X, interval=50):
 
     plt.show()
 
-### Liste des souris disponibles ###
-souris = ['M387-6', 'M396-6', 'M410-6', 'M412-8']
+from pathlib import Path
+import tifffile as tiff
+from maitrise_curbd.io import load_dataset
+from maitrise_curbd.masks import reduce_atlas_to_6_regions, subdivide_mask_by_spatial_clustering, build_parent_regions_dict
 
+#########################################################################################################
+# SETUP
+##########################################################################################################
 
-### Choix de la souris ###
-Idx_souris = 0
+n_cohorte = 9
+month = 14
+souris = 410
+n_pixels = 700
+lissage_sigma = 2
+Combien_de_petites_regions = 5
+nRunTrain = 100 
+debug = True
+plot = True
+
+#########################################################################################################
+# Preworkout
+##########################################################################################################
+
+### On sort les données
+gcamp, atlas, roi_mask = load_dataset(
+    cohort=n_cohorte,
+    month=month,
+    mouse=souris,
+)
+
+print("GCaMP :", gcamp.shape, gcamp.dtype)
+print("Atlas :", atlas.shape, atlas.dtype)
+print("ROI mask :", roi_mask.shape, roi_mask.dtype)
+
     
-dataset,mask = load_gcamp(f"/Users/pierre-luclarouche/Desktop/École/Maîtrise/CURBD-master/Data H5/{souris[Idx_souris]}_v4_mvmt.h5")
-animate_dff(dataset)
+animate_dff(gcamp)

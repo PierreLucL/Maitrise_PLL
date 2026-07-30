@@ -6,14 +6,9 @@ from matplotlib.colors import to_rgb
 from matplotlib.gridspec import GridSpec
 from pathlib import Path
 
-from maitrise_curbd.io import load_gcamp
-from maitrise_curbd.masks import (
-    build_parent_regions_dict,
-    clean_region_mask,
-    extract_nonzero_pixels,
-    remove_dead_pixels_from_region_mask,
-    subdivide_mask_by_spatial_clustering,
-)
+from maitrise_curbd.io import load_dataset
+from maitrise_curbd.masks import remove_thin_label_artifacts,clean_reduced_atlas, reduce_atlas_to_6_regions, subdivide_mask_by_spatial_clustering, build_parent_regions_dict, clean_region_mask
+
 from maitrise_curbd.timeseries import (
     compute_dff,
     extract_timeseries_du_tenseur,
@@ -23,15 +18,13 @@ from maitrise_curbd.timeseries import (
 from maitrise_curbd.curbd import computeCURBD, trainMultiRegionRNN
 from maitrise_curbd.plotting import gradient_line, plot_10_ts_with_mask_and_similarity
 
-### Liste des souris disponibles ###
-souris = ['M387-6', 'M396-6', 'M410-6', 'M412-8']
-
 #########################################################################################################
 # SETUP
 ##########################################################################################################
 
-
-Idx_souris = 2
+n_cohorte = 0
+month = 10
+souris = 253
 n_pixels = 700
 lissage_sigma = 2
 Combien_de_petites_regions = 5
@@ -44,38 +37,32 @@ plot = True
 ##########################################################################################################
 
 ### On sort les données
-data_dir = Path("data")
-file_path = data_dir / f"{souris[Idx_souris]}_v4_mvmt.h5"
+gcamp, atlas, roi_mask = load_dataset(
+    cohort=n_cohorte,
+    month=month,
+    mouse=souris)
 
-if not file_path.exists():
-    raise FileNotFoundError(
-        f"Fichier introuvable: {file_path}. "
-        "Mets tes fichiers .h5 dans data/ ou passe un autre dossier."
-    )
+print("GCaMP :", gcamp.shape, gcamp.dtype)
+print("Atlas :", atlas.shape, atlas.dtype)
+print("ROI mask :", roi_mask.shape, roi_mask.dtype)
 
-with h5py.File(file_path, "r") as f:
-    infos_animal = dict(f["data"].attrs)
-    
-### On affiche les infos de l'animal
-print(
-    f"""
-Informations sur l'animal
--------------------------
-Indice souris : {souris[Idx_souris]}  
-GCaMP         : {bool(infos_animal['GCaMP'])}
-Âge           : {int(infos_animal['age'])} mois
-Cohorte       : {int(infos_animal['cohort'])}
-Sexe          : {infos_animal['sex']}
-Frames        : {infos_animal['monitoring_frame_range']}
-"""
-)
 
 ### On clean le masque, on extrait les pixels actifs, on retire les pixels morts du masque, et on subdivise le masque
-dataset, masque_init = load_gcamp(file_path)
-clean_masque_init = clean_region_mask(masque_init)
-pixels_actifs, masque_mort = extract_nonzero_pixels(dataset, debug=debug)
-masque_init_actif = remove_dead_pixels_from_region_mask(clean_masque_init, masque_mort)
-masque_sub, info_masque_sub = subdivide_mask_by_spatial_clustering(masque_init_actif, target_size=n_pixels)
+clean_atlas = remove_thin_label_artifacts(atlas,size=5,min_fraction=0.25)
+
+atlas_6 = reduce_atlas_to_6_regions(
+    atlas=clean_atlas,
+    roi_mask=roi_mask,
+)
+plt.imshow(atlas_6)
+plt.show()
+
+print(np.unique(atlas_6, return_counts=True))
+
+masque_sub, info_masque_sub = subdivide_mask_by_spatial_clustering(atlas_6, target_size=n_pixels)
+
+plt.imshow(masque_sub)
+plt.show()
 
 ### Building du dictionnaire de régions parentes
 regions = build_parent_regions_dict(info_masque_sub)
@@ -90,7 +77,7 @@ print(f"Les tailles respectives en pixels des {Combien_de_petites_regions} plus 
         for taille, _ in tailles_regions[:Combien_de_petites_regions]))
 
 ### Get these TS
-ts = extract_timeseries_du_tenseur(dataset, masque_sub)
+ts = extract_timeseries_du_tenseur(gcamp, masque_sub)
 
 
 #########################################################################################################
@@ -115,7 +102,7 @@ ts = regress_out_global_signal(ts)
 ##########################################################################################################
 
 if plot:
-    plot_10_ts_with_mask_and_similarity(ts, masque_sub, n=10, souris=souris[Idx_souris], n_pixels=n_pixels)
+    plot_10_ts_with_mask_and_similarity(ts, masque_sub, n=10, souris=souris, n_pixels=n_pixels)
 
 #########################################################################################################
 # FUCKING CURBD

@@ -10,11 +10,8 @@
 
 import math
 import random
-
 import numpy as np
 import numpy.random as npr
-
-
 import matplotlib.pyplot as plt
 from matplotlib.gridspec import GridSpec
 

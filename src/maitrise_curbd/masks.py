@@ -5,6 +5,328 @@ from sklearn.cluster import KMeans
 from scipy import ndimage
 from scipy.spatial.distance import cdist
 from collections import defaultdict
+from scipy import ndimage as ndi
+
+#### DIMINUER LES RÉGIONS DU ALLEN ATLAS
+
+ATLAS_TO_PARENT_6 = {
+    # ============================================================
+    # 0 — Rég. M.II
+    # Ensemble frontal / moteur secondaire
+    # ============================================================
+    1: 0,    # ACAd_left
+    7: 0,    # FRP_left
+    9: 0,    # MOs_left
+    10: 0,   # ORBm_left
+    11: 0,   # PL_left
+
+    35: 0,   # ACAd_right
+    41: 0,   # FRP_right
+    43: 0,   # MOs_right
+    44: 0,   # ORBm_right
+    45: 0,   # PL_right
+
+    # ============================================================
+    # 1 — Rég. M.I
+    # Cortex moteur primaire
+    # ============================================================
+    8: 1,    # MOp_left
+    42: 1,   # MOp_right
+
+    # ============================================================
+    # 2 — Rég. Som.
+    # Cortex somatosensoriel primaire et secondaire
+    # + aire viscérale
+    # ============================================================
+    15: 2,   # SSp-bfd_left
+    16: 2,   # SSp-ll_left
+    17: 2,   # SSp-m_left
+    18: 2,   # SSp-n_left
+    19: 2,   # SSp-tr_left
+    20: 2,   # SSp-ul_left
+    21: 2,   # SSp-un_left
+    22: 2,   # SSs_left
+    26: 2,   # VISC_left — visceral area
+
+    49: 2,   # SSp-bfd_right
+    50: 2,   # SSp-ll_right
+    51: 2,   # SSp-m_right
+    52: 2,   # SSp-n_right
+    53: 2,   # SSp-tr_right
+    54: 2,   # SSp-ul_right
+    55: 2,   # SSp-un_right
+    56: 2,   # SSs_right
+    60: 2,   # VISC_right — visceral area
+
+    # ============================================================
+    # 3 — Rég. Ass.
+    # Auditif / temporal / associatif latéral
+    # ============================================================
+    2: 3,    # AUDd_left
+    3: 3,    # AUDp_left
+    4: 3,    # AUDpo_left
+    5: 3,    # AUDv_left
+    6: 3,    # ECT_left
+    23: 3,   # TEa_left
+
+    36: 3,   # AUDd_right
+    37: 3,   # AUDp_right
+    38: 3,   # AUDpo_right
+    39: 3,   # AUDv_right
+    40: 3,   # ECT_right
+    57: 3,   # TEa_right
+
+    # ============================================================
+    # 4 — Rég. Vis.
+    # Aires visuelles primaires et associatives
+    # ============================================================
+    24: 4,   # VISal_left
+    25: 4,   # VISam_left
+    27: 4,   # VISl_left
+    28: 4,   # VISp_left
+    29: 4,   # VISpl_left
+    30: 4,   # VISpm_left
+    31: 4,   # VISa_left
+    32: 4,   # VISli_left
+    33: 4,   # VISpor_left
+    34: 4,   # VISrl_left
+
+    58: 4,   # VISal_right
+    59: 4,   # VISam_right
+    61: 4,   # VISl_right
+    62: 4,   # VISp_right
+    63: 4,   # VISpl_right
+    64: 4,   # VISpm_right
+    65: 4,   # VISa_right
+    66: 4,   # VISli_right
+    67: 4,   # VISpor_right
+    68: 4,   # VISrl_right
+
+    # ============================================================
+    # 5 — Rég. Rét.
+    # Cortex rétrosplénial
+    # ============================================================
+    12: 5,   # RSPagl_left
+    13: 5,   # RSPd_left
+    14: 5,   # RSPv_left
+
+    46: 5,   # RSPagl_right
+    47: 5,   # RSPd_right
+    48: 5,   # RSPv_right
+}
+
+REGION_NAMES_6 = {
+    0: "Frontal_MoteurSecondaire",
+    1: "MoteurPrimaire",
+    2: "Somatosensoriel",
+    3: "Associatif_Auditif_Temporal",
+    4: "Visuel",
+    5: "Retrosplenial",
+}
+
+def remove_thin_label_artifacts(
+    atlas,
+    size=3,
+    min_fraction=0.3,
+    background=np.nan
+):
+    """
+    Remplace uniquement les pixels dont le label est peu représenté
+    dans leur voisinage local.
+    """
+
+    atlas = np.asarray(atlas)
+    result = atlas.copy()
+
+    if np.isnan(background):
+        valid = ~np.isnan(atlas)
+    else:
+        valid = atlas != background
+
+    labels = np.unique(atlas[valid])
+
+    local_counts = []
+
+    for label in labels:
+        count = ndi.uniform_filter(
+            (atlas == label).astype(float),
+            size=size,
+            mode="nearest"
+        )
+        local_counts.append(count)
+
+    local_counts = np.stack(local_counts, axis=0)
+
+    majority_index = np.argmax(local_counts, axis=0)
+    majority_label = labels[majority_index]
+
+    # Fraction du voisinage appartenant au label actuel
+    current_fraction = np.zeros(atlas.shape, dtype=float)
+
+    for i, label in enumerate(labels):
+        pixels = atlas == label
+        current_fraction[pixels] = local_counts[i][pixels]
+
+    suspicious = valid & (current_fraction < min_fraction)
+
+    result[suspicious] = majority_label[suspicious]
+
+    return result
+
+def reduce_atlas_to_6_regions(
+    atlas: np.ndarray,
+    roi_mask: np.ndarray | None = None,
+) -> np.ndarray:
+    """
+    Regroupe les 68 régions Allen en 6 régions bilatérales.
+
+    Paramètres
+    ----------
+    atlas
+        Atlas 2D contenant les labels 1 à 68.
+
+    roi_mask
+        Masque 2D optionnel. Les pixels à 0 seront placés à NaN.
+
+    Retour
+    ------
+    atlas_6
+        Atlas 2D contenant les labels 0 à 5 et NaN pour le fond.
+    """
+    if atlas.ndim != 2:
+        raise ValueError(
+            f"L'atlas doit être 2D, mais sa shape est {atlas.shape}."
+        )
+
+    if roi_mask is not None and roi_mask.shape != atlas.shape:
+        raise ValueError(
+            f"Dimensions incompatibles : "
+            f"atlas={atlas.shape}, roi_mask={roi_mask.shape}."
+        )
+
+    atlas_6 = np.full(atlas.shape, np.nan, dtype=float)
+
+    for original_label, parent_label in ATLAS_TO_PARENT_6.items():
+        atlas_6[atlas == original_label] = parent_label
+
+    if roi_mask is not None:
+        atlas_6[roi_mask == 0] = np.nan
+
+    return atlas_6
+
+def clean_reduced_atlas(
+    atlas_6,
+    brain_mask=None,
+    min_component_size=100,
+    tie_tolerance=1.0
+):
+    """
+    Nettoie un atlas réduit à 6 régions.
+
+    Paramètres
+    ----------
+    atlas_6 : array 2D
+        Masque contenant les labels 0 à 5.
+        Le fond peut être NaN ou une autre valeur.
+
+    brain_mask : array bool 2D, optionnel
+        Zone dans laquelle les pixels doivent appartenir à une région.
+        Fortement recommandé pour ne pas remplir l'extérieur du cerveau.
+
+    min_component_size : int
+        Taille minimale d'une composante considérée comme fiable.
+
+    tie_tolerance : float
+        Tolérance en pixels. Parmi les régions dont la distance est à moins
+        de cette valeur de la distance minimale, la plus grande est choisie.
+    """
+
+    atlas_6 = np.asarray(atlas_6, dtype=float)
+
+    valid_labels = np.arange(6)
+
+    # Pixels ayant déjà un label valide
+    valid = np.isin(atlas_6, valid_labels)
+
+    if brain_mask is None:
+        # Solution de repli : seulement la zone déjà occupée par l'atlas.
+        # Mieux vaut fournir un vrai masque du cerveau enregistré.
+        brain_mask = ndi.binary_closing(
+            valid,
+            structure=np.ones((5, 5)),
+            iterations=2
+        )
+        brain_mask = ndi.binary_fill_holes(brain_mask)
+    else:
+        brain_mask = np.asarray(brain_mask, dtype=bool)
+
+    trusted = np.full(atlas_6.shape, np.nan)
+    region_sizes = np.zeros(6, dtype=int)
+
+    structure = np.ones((3, 3), dtype=int)
+
+    # Conserver les grandes composantes connexes de chaque région
+    for region in valid_labels:
+        region_mask = atlas_6 == region
+        components, n_components = ndi.label(
+            region_mask,
+            structure=structure
+        )
+
+        if n_components == 0:
+            continue
+
+        sizes = np.bincount(components.ravel())
+        sizes[0] = 0
+
+        keep_ids = np.where(sizes >= min_component_size)[0]
+
+        # Toujours conserver au moins la composante principale
+        if len(keep_ids) == 0:
+            keep_ids = [np.argmax(sizes)]
+
+        keep_mask = np.isin(components, keep_ids)
+
+        trusted[keep_mask] = region
+        region_sizes[region] = np.sum(keep_mask)
+
+    trusted_valid = np.isin(trusted, valid_labels)
+
+    # Distance de chaque pixel au noyau fiable de chaque région
+    distance_maps = np.full((6, *atlas_6.shape), np.inf)
+
+    for region in valid_labels:
+        seed = trusted == region
+
+        if np.any(seed):
+            distance_maps[region] = ndi.distance_transform_edt(~seed)
+
+    min_distance = np.min(distance_maps, axis=0)
+
+    # Une région est candidate si elle est presque aussi proche que la meilleure
+    candidates = (
+        distance_maps
+        <= min_distance[None, :, :] + tie_tolerance
+    )
+
+    # Parmi les candidates, sélectionner la plus grande région
+    candidate_sizes = np.where(
+        candidates,
+        region_sizes[:, None, None],
+        -1
+    )
+
+    selected_region = np.argmax(candidate_sizes, axis=0)
+
+    result = trusted.copy()
+
+    pixels_to_reassign = brain_mask & ~trusted_valid
+    result[pixels_to_reassign] = selected_region[pixels_to_reassign]
+
+    # Préserver l'extérieur du cerveau
+    result[~brain_mask] = np.nan
+
+    return result
 
 ### CLEANER LE MASQUE DE REGIONS ###
 
