@@ -25,36 +25,64 @@ from maitrise_curbd.curbd import computeCURBD, trainMultiRegionRNN
 # Qu'est-ce qu'on veut tester ?
 # ============================================================
 
-titre_du_test = 'NEW DATASETS À SOIR'
+titre_du_test = 'On grinde le paramètre tauRNN et le sigma de lissage pour la cohorte C8, souris M6-409'
 
 # ============================================================
-# PARAMÈTRES
+# PARAMÈTRES DU TEST
 # ============================================================
 
 now = datetime.now()
 maintenant = now.strftime("%Y-%m-%d_%Hh%M")
 
-# Les souris qu'on investigue
-souris = [191,210,213,233]
-idx_souris_list = [0, 1, 2, 3]
-n_pixels_list = [50,80,100]
+titre_du_test = "test_tauRNN_sigma_C8_M6_409"
 
-lissage_sigma = 2
+# Dataset fixe
+n_cohorte = 8
+month = 6
+souris = 409
+
+# Subdivision spatiale fixe
+n_pixels = 100
+
+# Paramètres testés
+tauRNN_list = [0.083, 0.167, 0.33, 0.5]
+lissage_sigma_list = [2, 4, 6, 8]
+
+# Prétraitement
 use_dff = False
 use_global_regression = True
 
-nRunTrain = 1000
-debug = False
-
-nRunFree = 50
-dtData = 0.083
+# Paramètres CURBD
+dtData = 1 / 12       # 12 fps = 0.083333... seconde
 dtFactor = 4
-tauRNN = 0.083
 P0 = 1.0
 
+nRunTrain = 500
+nRunFree = 50
+
+debug = False
+
+
+# ============================================================
+# DOSSIERS
+# ============================================================
+
 parser = argparse.ArgumentParser()
-parser.add_argument("--data-dir", type=Path, default=Path("data"))
-parser.add_argument("--output-dir", type=Path, default=Path(f"{titre_du_test}/run_du_{maintenant}"))
+
+parser.add_argument(
+    "--data-dir",
+    type=Path,
+    default=Path("data"),
+)
+
+parser.add_argument(
+    "--output-dir",
+    type=Path,
+    default=Path(
+        f"{titre_du_test}/run_du_{maintenant}"
+    ),
+)
+
 args = parser.parse_args()
 
 base_path = args.data_dir
@@ -94,7 +122,13 @@ def safe_last(x):
 # CONFIGS
 # ============================================================
 
-configs = list(product(idx_souris_list, n_pixels_list))
+configs = list(
+    product(
+        tauRNN_list,
+        lissage_sigma_list,
+    )
+)
+
 rows = []
 
 
@@ -102,15 +136,18 @@ rows = []
 # LOOP PRINCIPALE
 # ============================================================
 
-for i_config, (Idx_souris, n_pixels) in enumerate(configs):
+for i_config, (tauRNN, lissage_sigma) in enumerate(configs):
 
     t0 = time.time()
 
     save_path = save_dir / (
-        f"config{i_config}_"
-        f"{souris[Idx_souris]}_"
+        f"config{i_config:02d}_"
+        f"C{n_cohorte}_"
+        f"M{month}_"
+        f"mouse{souris}_"
         f"pix{n_pixels}_"
         f"sigma{lissage_sigma}_"
+        f"tauRNN{tauRNN:.3f}_"
         f"dff{use_dff}_"
         f"globalreg{use_global_regression}_"
         f"nRunTrain{nRunTrain}.pkl"
@@ -118,30 +155,56 @@ for i_config, (Idx_souris, n_pixels) in enumerate(configs):
 
     row = {
         "i_config": i_config,
-        "Idx_souris": Idx_souris,
-        "souris": souris[Idx_souris],
+
+        "cohort": n_cohorte,
+        "month": month,
+        "mouse": souris,
+
         "n_pixels": n_pixels,
         "n_regions": np.nan,
+
+        "fps": 1 / dtData,
+        "dtData": dtData,
+        "dtFactor": dtFactor,
+
+        "lissage_sigma_frames": lissage_sigma,
+        "lissage_sigma_sec": lissage_sigma * dtData,
+        "lissage_fwhm_sec": (
+            2.355 * lissage_sigma * dtData
+        ),
+
+        "tauRNN": tauRNN,
+
+        "nRunTrain": nRunTrain,
+        "nRunFree": nRunFree,
+        "P0": P0,
+
+        "use_dff": use_dff,
+        "use_global_regression": use_global_regression,
+
         "pVar_max": np.nan,
         "pVar_finale": np.nan,
         "chi2_min": np.nan,
         "chi2_final": np.nan,
+
         "runtime_sec": np.nan,
         "status": "started",
         "error": None,
         "save_path": str(save_path),
     }
 
+
     try:
         print("\n" + "=" * 90)
         print(f"CONFIG {i_config + 1}/{len(configs)}")
-        print(f"Souris : {souris[Idx_souris]} | n_pixels : {n_pixels}")
+        print(f"Souris : {souris} | n_pixels : {n_pixels}")
         print("=" * 90)
 
         gcamp, atlas, roi_mask = load_dataset(
-            cohort=0,
-            month=12,
-            mouse=souris[Idx_souris])
+            cohort=n_cohorte,
+            month=month,
+            mouse=souris,
+            )
 
         clean_atlas = remove_thin_label_artifacts(atlas,size=5,min_fraction=0.25)
 

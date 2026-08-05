@@ -3,11 +3,14 @@ pyproject.toml
 src/maitrise_curbd/Synth.py
 src/maitrise_curbd/__init__.py
 src/maitrise_curbd/curbd.py
+src/maitrise_curbd/current_similarity.py
 src/maitrise_curbd/io.py
 src/maitrise_curbd/masks.py
 src/maitrise_curbd/plotting.py
 src/maitrise_curbd/timeseries.py
+src/maitrise_curbd/vector.py
 src/maitrise_curbd.egg-info/PKG-INFO
 src/maitrise_curbd.egg-info/SOURCES.txt
 src/maitrise_curbd.egg-info/dependency_links.txt
+src/maitrise_curbd.egg-info/requires.txt
 src/maitrise_curbd.egg-info/top_level.txt
