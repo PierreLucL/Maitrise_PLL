@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 from matplotlib.gridspec import GridSpec
 
 def trainMultiRegionRNN(activity, dtData=1, dtFactor=1, g=1.5, tauRNN=0.01,
-                        tauWN=0.1, ampInWN=0.01, nRunTrain=2000,
+                        tauWN=0.1, ampInWN=0.001, nRunTrain=2000,
                         nRunFree=10, P0=1.0,
                         nonLinearity=np.tanh,
                         nonLinearity_inv=np.arctanh,

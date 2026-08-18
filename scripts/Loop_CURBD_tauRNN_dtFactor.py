@@ -39,7 +39,7 @@ from maitrise_curbd.curbd import (
 #Prochain test tauRNN= 0.3, dtFactor = 4, sigma = 4 et 
 
 
-titre_du_test = "test_tauRNN_sigma_C8_M6_409"
+titre_du_test = "test_tauRNN_dtFactor_sigma2_CURBD"
 
 now = datetime.now()
 maintenant = now.strftime("%Y-%m-%d_%Hh%M")
@@ -63,26 +63,29 @@ tauRNN_list = [
     0.5,
 ]
 
-lissage_sigma_list = [
+dtFactor_list = [
     2,
     4,
-    6,
-    8,
 ]
+
+# Lissage fixé pour ce test
+lissage_sigma = 2
 
 
 # Prétraitement
-use_dff = False
+use_dff = True
 use_global_regression = True
 
 
 # Paramètres CURBD
 dtData = 1 / 12
-dtFactor = 4
 
+g = 1.5
+tauWN = 0.1
+ampInWN = 0.01
 P0 = 1.0
 
-nRunTrain = 500
+nRunTrain = 1000
 nRunFree = 50
 
 
@@ -165,6 +168,53 @@ def safe_last(x):
     return float(x[-1])
 
 
+def safe_nanmean(x):
+    """
+    Moyenne des valeurs finies.
+    """
+    x = finite_values(x)
+
+    if x.size == 0:
+        return np.nan
+
+    return float(np.mean(x))
+
+
+def safe_nanstd(x):
+    """
+    Écart-type des valeurs finies.
+    """
+    x = finite_values(x)
+
+    if x.size == 0:
+        return np.nan
+
+    return float(np.std(x))
+
+
+def safe_index(x, idx):
+    """
+    Valeur à un indice donné si elle existe et est finie.
+    """
+    x = np.asarray(x, dtype=float).ravel()
+
+    if x.size == 0:
+        return np.nan
+
+    if idx < 0:
+        idx = x.size + idx
+
+    if idx < 0 or idx >= x.size:
+        return np.nan
+
+    value = x[idx]
+
+    if not np.isfinite(value):
+        return np.nan
+
+    return float(value)
+
+
 def get_model_value(model, key, default=None):
     """
     Récupère une valeur dans un modèle qui peut être
@@ -184,7 +234,7 @@ def get_model_value(model, key, default=None):
 configs = list(
     product(
         tauRNN_list,
-        lissage_sigma_list,
+        dtFactor_list,
     )
 )
 
@@ -203,13 +253,19 @@ print(
     f"Nombre de configurations : {len(configs)}"
 )
 
-for i, (tauRNN, sigma) in enumerate(configs):
+for i, (tauRNN, dtFactor) in enumerate(configs):
+
+    dtRNN = dtData / dtFactor
+    alpha_dt_tau = dtRNN / tauRNN
 
     print(
         f"{i:02d} | "
         f"tauRNN = {tauRNN:.3f} s | "
-        f"sigma = {sigma} frames "
-        f"({sigma * dtData:.3f} s)"
+        f"dtFactor = {dtFactor} | "
+        f"dtRNN = {dtRNN:.5f} s | "
+        f"alpha = dtRNN/tauRNN = {alpha_dt_tau:.4f} | "
+        f"sigma = {lissage_sigma} frames "
+        f"({lissage_sigma * dtData:.3f} s)"
     )
 
 
@@ -333,6 +389,75 @@ print(
 )
 
 
+# ============================================================
+# PRÉTRAITEMENT COMMUN À TOUTES LES CONFIGURATIONS
+#
+# Important :
+#   fluorescence régionale brute
+#   -> ΔF/F avec la vraie fréquence d'acquisition
+#   -> régression du signal global
+#   -> lissage (appliqué ensuite, juste avant CURBD)
+# ============================================================
+
+ts_preprocessed = ts_raw.copy()
+
+if use_dff:
+    ts_preprocessed = compute_dff(
+        ts_preprocessed,
+        fs=1 / dtData,
+        window_sec=60,
+        percentile=8,
+    )
+
+if use_global_regression:
+    ts_preprocessed = regress_out_global_signal(
+        ts_preprocessed
+    )
+
+ts_preprocessed = np.asarray(
+    ts_preprocessed,
+    dtype=np.float32,
+)
+
+if not np.all(np.isfinite(ts_preprocessed)):
+    n_nan = np.sum(np.isnan(ts_preprocessed))
+    n_inf = np.sum(np.isinf(ts_preprocessed))
+
+    raise ValueError(
+        "Les séries temporelles après ΔF/F / GSR "
+        f"contiennent {n_nan} NaN et {n_inf} inf."
+    )
+
+
+# ------------------------------------------------------------
+# Diagnostic de normalisation / clipping dans CURBD
+# ------------------------------------------------------------
+
+curbd_scale = np.max(ts_preprocessed)
+
+if not np.isfinite(curbd_scale) or curbd_scale <= 0:
+    raise ValueError(
+        "Le maximum des séries temporelles doit être positif "
+        "pour la normalisation interne de CURBD."
+    )
+
+scaled_for_curbd = ts_preprocessed / curbd_scale
+
+fraction_clip_pos = np.mean(
+    scaled_for_curbd > 0.999
+)
+
+fraction_clip_neg = np.mean(
+    scaled_for_curbd < -0.999
+)
+
+print("\nDiagnostic de normalisation CURBD")
+print(f"Maximum : {np.max(ts_preprocessed)}")
+print(f"Minimum : {np.min(ts_preprocessed)}")
+print(f"% > 0.999 : {100 * fraction_clip_pos}")
+print(f"% < -0.999 : {100 * fraction_clip_neg}")
+
+
 # On peut libérer les images originales :
 # elles ne sont plus nécessaires pendant les entraînements.
 del gcamp
@@ -348,7 +473,7 @@ gc.collect()
 # BOUCLE PRINCIPALE
 # ============================================================
 
-for i_config, (tauRNN, lissage_sigma) in enumerate(configs):
+for i_config, (tauRNN, dtFactor) in enumerate(configs):
 
     t0 = time.time()
 
@@ -360,6 +485,7 @@ for i_config, (tauRNN, lissage_sigma) in enumerate(configs):
         f"pix{n_pixels}_"
         f"sigma{lissage_sigma}_"
         f"tauRNN{tauRNN:.3f}_"
+        f"dtFactor{dtFactor}_"
         f"dff{use_dff}_"
         f"globalreg{use_global_regression}_"
         f"nRunTrain{nRunTrain}.pkl"
@@ -378,6 +504,8 @@ for i_config, (tauRNN, lissage_sigma) in enumerate(configs):
         "fps": 1 / dtData,
         "dtData": dtData,
         "dtFactor": dtFactor,
+        "dtRNN": dtData / dtFactor,
+        "alpha_dt_tau": (dtData / dtFactor) / tauRNN,
 
         "lissage_sigma_frames": lissage_sigma,
         "lissage_sigma_sec": (
@@ -391,6 +519,10 @@ for i_config, (tauRNN, lissage_sigma) in enumerate(configs):
 
         "nRunTrain": nRunTrain,
         "nRunFree": nRunFree,
+
+        "g": g,
+        "tauWN": tauWN,
+        "ampInWN": ampInWN,
         "P0": P0,
 
         "use_dff": use_dff,
@@ -398,11 +530,26 @@ for i_config, (tauRNN, lissage_sigma) in enumerate(configs):
             use_global_regression
         ),
 
+        # Métriques globales (compatibilité avec les anciens CSV)
         "pVar_max": np.nan,
         "pVar_finale": np.nan,
-
         "chi2_min": np.nan,
         "chi2_final": np.nan,
+
+        # Métriques séparant entraînement et runs libres
+        "pVar_max_train": np.nan,
+        "pVar_train_end": np.nan,
+        "pVar_free_mean": np.nan,
+        "pVar_free_std": np.nan,
+        "pVar_free_min": np.nan,
+        "pVar_free_final": np.nan,
+
+        "chi2_min_train": np.nan,
+        "chi2_train_end": np.nan,
+        "chi2_free_mean": np.nan,
+        "chi2_free_std": np.nan,
+        "chi2_free_min": np.nan,
+        "chi2_free_final": np.nan,
 
         "runtime_sec": np.nan,
         "status": "started",
@@ -440,6 +587,12 @@ for i_config, (tauRNN, lissage_sigma) in enumerate(configs):
         )
 
         print(
+            f"dtFactor = {dtFactor} | "
+            f"dtRNN = {dtData / dtFactor:.5f} s | "
+            f"alpha = {(dtData / dtFactor) / tauRNN:.4f}"
+        )
+
+        print(
             f"nRunTrain = {nRunTrain}"
         )
 
@@ -450,18 +603,13 @@ for i_config, (tauRNN, lissage_sigma) in enumerate(configs):
         # Prétraitement propre à cette configuration
         # ----------------------------------------------------
 
-        ts = ts_raw.copy()
-
+        # Le ΔF/F et la régression globale ont déjà été faits
+        # une seule fois, avant la boucle. Ici, seule la dernière
+        # étape (lissage) est appliquée au signal donné à CURBD.
         ts = smooth_timeseries(
-            ts,
+            ts_preprocessed,
             sigma=lissage_sigma,
         )
-
-        if use_dff:
-            ts = compute_dff(ts)
-
-        if use_global_regression:
-            ts = regress_out_global_signal(ts)
 
         ts = np.asarray(
             ts,
@@ -488,7 +636,10 @@ for i_config, (tauRNN, lissage_sigma) in enumerate(configs):
             ts,
             dtData=dtData,
             dtFactor=dtFactor,
+            g=g,
             tauRNN=tauRNN,
+            tauWN=tauWN,
+            ampInWN=ampInWN,
             nRunFree=nRunFree,
             nRunTrain=nRunTrain,
             P0=P0,
@@ -591,20 +742,71 @@ for i_config, (tauRNN, lissage_sigma) in enumerate(configs):
         # Métriques
         # ----------------------------------------------------
 
-        row["pVar_max"] = safe_nanmax(
-            pVar
+        # Métriques globales (pour compatibilité avec les anciens CSV)
+        row["pVar_max"] = safe_nanmax(pVar)
+        row["pVar_finale"] = safe_last(pVar)
+
+        row["chi2_min"] = safe_nanmin(chi2)
+        row["chi2_final"] = safe_last(chi2)
+
+
+        # Séparation entraînement / runs libres
+        pVar_train = pVar[:nRunTrain]
+        pVar_free = pVar[nRunTrain:nRunTrain + nRunFree]
+
+        chi2_train = chi2[:nRunTrain]
+        chi2_free = chi2[nRunTrain:nRunTrain + nRunFree]
+
+
+        row["pVar_max_train"] = safe_nanmax(
+            pVar_train
         )
 
-        row["pVar_finale"] = safe_last(
-            pVar
+        row["pVar_train_end"] = safe_index(
+            pVar,
+            nRunTrain - 1,
         )
 
-        row["chi2_min"] = safe_nanmin(
-            chi2
+        row["pVar_free_mean"] = safe_nanmean(
+            pVar_free
         )
 
-        row["chi2_final"] = safe_last(
-            chi2
+        row["pVar_free_std"] = safe_nanstd(
+            pVar_free
+        )
+
+        row["pVar_free_min"] = safe_nanmin(
+            pVar_free
+        )
+
+        row["pVar_free_final"] = safe_last(
+            pVar_free
+        )
+
+
+        row["chi2_min_train"] = safe_nanmin(
+            chi2_train
+        )
+
+        row["chi2_train_end"] = safe_index(
+            chi2,
+            nRunTrain - 1,
+        )
+
+        row["chi2_free_mean"] = safe_nanmean(
+            chi2_free
+        )
+
+        row["chi2_free_std"] = safe_nanstd(
+            chi2_free
+        )
+
+        row["chi2_free_min"] = safe_nanmin(
+            chi2_free
+        )
+
+        row["chi2_free_final"] = safe_last(
+            chi2_free
         )
 
 
@@ -653,6 +855,10 @@ for i_config, (tauRNN, lissage_sigma) in enumerate(configs):
                 "fps": 1 / dtData,
                 "dtData": dtData,
                 "dtFactor": dtFactor,
+                "dtRNN": dtData / dtFactor,
+                "alpha_dt_tau": (
+                    (dtData / dtFactor) / tauRNN
+                ),
 
                 "lissage_sigma_frames": (
                     lissage_sigma
@@ -672,12 +878,24 @@ for i_config, (tauRNN, lissage_sigma) in enumerate(configs):
 
                 "nRunTrain": nRunTrain,
                 "nRunFree": nRunFree,
+
+                "g": g,
+                "tauWN": tauWN,
+                "ampInWN": ampInWN,
                 "P0": P0,
 
                 "use_dff": use_dff,
 
                 "use_global_regression": (
                     use_global_regression
+                ),
+
+                "fraction_clip_pos": float(
+                    fraction_clip_pos
+                ),
+
+                "fraction_clip_neg": float(
+                    fraction_clip_neg
                 ),
             },
 
@@ -715,6 +933,23 @@ for i_config, (tauRNN, lissage_sigma) in enumerate(configs):
         print(
             f"pVar finale = "
             f"{row['pVar_finale']:.4f}"
+        )
+
+
+        print(
+            f"pVar fin entraînement = "
+            f"{row['pVar_train_end']:.4f}"
+        )
+
+        print(
+            f"pVar runs libres = "
+            f"{row['pVar_free_mean']:.4f} "
+            f"± {row['pVar_free_std']:.4f}"
+        )
+
+        print(
+            f"pVar min runs libres = "
+            f"{row['pVar_free_min']:.4f}"
         )
 
         print(
@@ -784,6 +1019,10 @@ for i_config, (tauRNN, lissage_sigma) in enumerate(configs):
             "J_final",
             "pVar",
             "chi2",
+            "pVar_train",
+            "pVar_free",
+            "chi2_train",
+            "chi2_free",
             "tRNN",
             "to_save",
         ]:

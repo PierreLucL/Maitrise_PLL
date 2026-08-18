@@ -11,12 +11,14 @@ from maitrise_curbd.masks import (remove_thin_label_artifacts,
     reduce_atlas_to_6_regions,subdivide_mask_by_spatial_clustering, 
     build_parent_regions_dict)
 
-from maitrise_curbd.timeseries import (
-    compute_dff,
-    extract_timeseries_du_tenseur,
-    regress_out_global_signal,
+from maitrise_curbd.timeseries import (extract_timeseries_du_tenseur,
+    compute_dff, regress_out_global_signal, smooth_timeseries,
     smooth_timeseries,
+    compute_mean_psd,
+    compute_mean_autocorrelation,
+    estimate_autocorrelation_timescale,
 )
+
 from maitrise_curbd.curbd import computeCURBD, trainMultiRegionRNN
 from maitrise_curbd.plotting import gradient_line, plot_10_ts_with_mask_and_similarity
 
@@ -38,13 +40,13 @@ from maitrise_curbd.plotting import gradient_line, plot_10_ts_with_mask_and_simi
 # SETUP
 ##########################################################################################################
 
-n_cohorte = 0
-month = 10
-souris = 253
-n_pixels = 300
-lissage_sigma = 2
+n_cohorte = 8
+month = 6
+souris = 409
+n_pixels = 50
+lissage_sigma = 4
 Combien_de_petites_regions = 5
-nRunTrain = 100 
+nRunTrain = 500
 debug = True
 plot = True
 
@@ -69,14 +71,9 @@ atlas_6 = reduce_atlas_to_6_regions(
     atlas=clean_atlas,
     roi_mask=roi_mask,
 )
-plt.imshow(atlas_6)
-plt.show()
-
 
 masque_sub, info_masque_sub = subdivide_mask_by_spatial_clustering(atlas_6, target_size=n_pixels)
 
-plt.imshow(masque_sub)
-plt.show()
 
 ### Building du dictionnaire de régions parentes
 regions = build_parent_regions_dict(info_masque_sub)
@@ -98,15 +95,30 @@ ts = extract_timeseries_du_tenseur(gcamp, masque_sub)
 # Opérations sur les TS
 ##########################################################################################################
 
-### Lissage
-ts = smooth_timeseries(ts, sigma=lissage_sigma)
+# Extraction
+ts = extract_timeseries_du_tenseur(
+    gcamp,
+    masque_sub
+)
 
-### Delta F / F comme l'article de référence rolling window
-ts = compute_dff(ts)
+# ΔF/F
+ts = compute_dff(
+    ts,
+    fs=12,
+    window_sec=60,
+    percentile=8
+)
 
-### Regréssion du signal global
-ts = regress_out_global_signal(ts)
+# Régression globale
+ts = regress_out_global_signal(
+    ts
+)
 
+# Lissage EN DERNIER
+timeseries = smooth_timeseries(
+    ts,
+    sigma=lissage_sigma
+)
 ### Z-score
 #ts = (ts - ts.mean(axis=1, keepdims=True)) / ts.std(axis=1, keepdims=True)
 
@@ -122,11 +134,28 @@ if plot:
 # FUCKING CURBD
 ##########################################################################################################
 
+scale = np.max(timeseries)
+
+scaled = timeseries / scale
+
+print("Maximum :", np.max(timeseries))
+print("Minimum :", np.min(timeseries))
+
+print(
+    "% > 0.999 :",
+    100 * np.mean(scaled > 0.999)
+)
+
+print(
+    "% < -0.999 :",
+    100 * np.mean(scaled < -0.999)
+)
+
 ### Training pour obtenir la matrice J
 
-model = trainMultiRegionRNN(ts, dtData=1/12, # pas de temps de données (en secondes)
-    dtFactor=1, # Combien de pas entre les pas de données et les pas de RNN
-    tauRNN=0.33, # constante de temps du RNN (en secondes)
+model = trainMultiRegionRNN(timeseries, dtData=1/12, # pas de temps de données (en secondes)
+    dtFactor=4, # Combien de pas entre les pas de données et les pas de RNN
+    tauRNN=0.3, # constante de temps du RNN (en secondes)
     nRunTrain=nRunTrain, # Nombre d'itérations d'entraînement du RNN,
     P0=1.0, # Taux d'apprentissage du RLS,
     plotStatus=True,
