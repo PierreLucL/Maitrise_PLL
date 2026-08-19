@@ -1,0 +1,21 @@
+i_dataset,cohort,month,mouse,n_pixels,n_subregions,n_parent_regions,fps,dtData,dtFactor,dtRNN,alpha_dt_tau,lissage_sigma_frames,lissage_sigma_sec,tauRNN,g,P0,tauWN,ampInWN,nRunTrain,nRunFree,use_dff,use_global_regression,pVar_max_train,pVar_train_end,pVar_free_mean,pVar_free_std,pVar_free_min,pVar_free_final,chi2_min_train,chi2_train_end,chi2_free_mean,chi2_free_std,chi2_free_min,chi2_free_final,fraction_clip_pos,fraction_clip_neg,runtime_sec,status,error,save_path
+0,2,6,308,100,,,12.0,0.08333333333333333,2,0.041666666666666664,0.12626262626262624,2,0.16666666666666666,0.33,0.8,1.0,0.1,0.01,200,5,True,False,,,,,,,,,,,,,,,0.37459707260131836,failed,"Traceback (most recent call last):
+  File ""/Users/pierre-luclarouche/Desktop/Maîtrise/Maitrise_PLL/notebooks/Loops/Loop_CURBD_M6_GSR_OFF.py"", line 452, in <module>
+    gcamp, atlas, roi_mask = load_dataset(
+                             ~~~~~~~~~~~~^
+        cohort=n_cohorte,
+        ^^^^^^^^^^^^^^^^^
+        month=month,
+        ^^^^^^^^^^^^
+        mouse=souris,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File ""/Users/pierre-luclarouche/Desktop/Maîtrise/Maitrise_PLL/src/maitrise_curbd/io.py"", line 149, in load_dataset
+    raise FileNotFoundError(
+    ...<2 lines>...
+    )
+FileNotFoundError: Fichiers manquants dans :
+/Volumes/Toute ma vie/Datasets/C2_M6/Data/RS_M308
+Fichiers manquants : ['atlas.npy', 'roi_mask.tif']
+",TRAIN_M6_toutes_souris_GSR_OFF/run_du_2026-08-19_15h38/mouse00_C2_M6_mouse308_pix100_sigma2_tauRNN0.330_dtFactor2_g0.80_ampWN0.0100_P01.00_GSRFalse_nRunTrain200.pkl
