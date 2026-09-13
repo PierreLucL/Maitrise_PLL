@@ -1,0 +1,33 @@
+{
+  "experiment_name": "paired_legacy_415_2028_300",
+  "datasets": [
+    [
+      9,
+      6,
+      415
+    ]
+  ],
+  "base_params": {
+    "n_pixels": 15,
+    "segmentation_seed": 0,
+    "use_global_regression": false,
+    "lissage_sigma": 4,
+    "atlas_clean_size": 5,
+    "atlas_clean_min_fraction": 0.25,
+    "dtData": 0.08333333333333333,
+    "tauRNN": 0.33,
+    "dtFactor": 2,
+    "g": 0.8,
+    "P0": 1.0,
+    "tauWN": 0.1,
+    "ampInWN": 0.01,
+    "nRunTrain": 300,
+    "nRunFree": 20,
+    "compute_curbd": false
+  },
+  "sweep": {
+    "seed": [
+      2028
+    ]
+  }
+}

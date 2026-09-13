@@ -3,6 +3,7 @@
 
 # Python
 __pycache__/
+*.egg-info/
 *.py[cod]
 *.pyo
 *.pyd
@@ -16,6 +17,8 @@ __pycache__/
 
 # Donnees lourdes / locales
 *.h5
+*.tif
+*.tiff
 *.npy
 *.pkl
 *.mat
@@ -23,7 +26,26 @@ __pycache__/
 
 # Dossiers locaux de donnees/resultats
 data/
-results/
+Datasets/
+# Résultats légers suivis ; modèles et caches restent locaux.
+results/**
+!results/**/
+!results/**/*.md
+!results/**/*.json
+!results/**/*.csv
+!results/**/*.png
+!results/**/*.jpg
+!results/**/*.pdf
+!results/**/*.py
+!results/**/*.sh
+!results/**/*.sbatch
+!results/**/*.log
+!results/**/*.jobid
+!results/**/*.started
 outputs/
 night_run_models/
 night_run_J_CURBD_36courbes/
+TRAIN_*/
+
+# Caches numériques régénérables
+*.npz

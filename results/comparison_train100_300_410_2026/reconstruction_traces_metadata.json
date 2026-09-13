@@ -1,0 +1,68 @@
+{
+  "files": [
+    "/Users/pierre-luclarouche/Documents/Codex/2026-08-19/yo/Maitrise_PLL_shallow/results/narval_reproducibility_pix15_410_415/2614685/config000_C9_M6_mouse410_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2026_segmentation_seed0.pkl",
+    "/Users/pierre-luclarouche/Documents/Codex/2026-08-19/yo/Maitrise_PLL_shallow/results/narval_train300_410_2026/2796272/config000_C9_M6_mouse410_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain300_use_global_regressionFalse_seed2026_segmentation_seed0.pkl"
+  ],
+  "sha256": [
+    "2cc9e24e07fec42c8f70989098229b12134ed3c8af3ca422bda3239e04fb9fd9",
+    "1903d7389d1f48c6262428347f8e68d291b80846ab9772f3871864afb149402e"
+  ],
+  "selection": "Unité la plus proche de la pVar médiane de sa région à 100, calculée sur toute la session ; égalités départagées par ordre des unités. Aucun critère basé sur le gain à 300.",
+  "units": [
+    {
+      "region": "Rég. M.II",
+      "unit": 379,
+      "median_unit_pvar100": 0.9573290120406284,
+      "pvar100": 0.9573248684854714,
+      "pvar300": 0.967748608004599
+    },
+    {
+      "region": "Rég. M.I",
+      "unit": 633,
+      "median_unit_pvar100": 0.9507213147553859,
+      "pvar100": 0.9506657110469537,
+      "pvar300": 0.9612819535608893
+    },
+    {
+      "region": "Rég. Som.",
+      "unit": 989,
+      "median_unit_pvar100": 0.9378121950767668,
+      "pvar100": 0.937940490194184,
+      "pvar300": 0.9506984480225588
+    },
+    {
+      "region": "Rég. Ass.",
+      "unit": 1868,
+      "median_unit_pvar100": 0.9107930652568272,
+      "pvar100": 0.9101948697907094,
+      "pvar300": 0.9315226833695641
+    },
+    {
+      "region": "Rég. Vis.",
+      "unit": 2516,
+      "median_unit_pvar100": 0.8897715462198944,
+      "pvar100": 0.8897715462198944,
+      "pvar300": 0.9180324801434032
+    },
+    {
+      "region": "Rég. Rét.",
+      "unit": 2477,
+      "median_unit_pvar100": 0.9193596393672595,
+      "pvar100": 0.9193596393672595,
+      "pvar300": 0.941145051314004
+    }
+  ],
+  "window": [
+    60,
+    120
+  ],
+  "zoom": [
+    75,
+    90
+  ],
+  "target": "Adata : cible traitée et normalisée sauvegardée ; ne représente pas le signal avant lissage.",
+  "grids": "RNN échantillonné au temps le plus proche sur tData, sans troncature ni lissage supplémentaire.",
+  "max_time_mismatch": 0.0,
+  "scaling": "Valeurs internes du modèle ; échelle commune aux trois panneaux de chaque ligne, échelles distinctes entre régions.",
+  "caveat": "Exemples de six unités, pas une preuve de performance pour toutes les unités ni une validation hors entraînement."
+}

@@ -1,0 +1,1647 @@
+[
+  {
+    "path": "results/CURBD_DFF_OFF_1000runs_415_410/run_du_2026-08-20_06h40/config000_C9_M6_mouse415_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain1000_use_dffFalse_use_global_regressionFalse.pkl",
+    "bytes": 517395,
+    "sha256": "de2e0f65fd50cd25e4e23c20771f493b997bcf0519a46cf050bc9def0cc045c1"
+  },
+  {
+    "path": "results/CURBD_DFF_OFF_1000runs_415_410/run_du_2026-08-20_06h40/config001_C9_M6_mouse410_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain1000_use_dffFalse_use_global_regressionFalse.pkl",
+    "bytes": 611859,
+    "sha256": "83f8974f026b706c3f82e843df07d8f18c6051f3b08e544d03c91c80c231d78f"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config000_C3_M6_mouse316_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue_use_dffTrue.pkl",
+    "bytes": 415037,
+    "sha256": "2e6797c7ac040f72af04dcd4cace2a36afff881bda9694b5197c61c72687690c"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config001_C3_M6_mouse316_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse_use_dffTrue.pkl",
+    "bytes": 415038,
+    "sha256": "929331abb821d22cacce65e35344408e214403496eb8f386cb23328038bdabcf"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config002_C3_M6_mouse316_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue_use_dffFalse.pkl",
+    "bytes": 415038,
+    "sha256": "faa0b16f0d7b75d66e897813c64bd0c3a98574eee342c7c8c32832334baf40db"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config003_C3_M6_mouse316_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse_use_dffFalse.pkl",
+    "bytes": 415039,
+    "sha256": "4f663fe084a4c6f865f6ccb7aac0ef80445b109f397a7972834b33ff95c0d1eb"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config004_C3_M6_mouse322_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue_use_dffTrue.pkl",
+    "bytes": 422753,
+    "sha256": "0034db9e72f741edfa5cb9aac8419fa4c5d159412a7f817bad606ef8aeecb7b0"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config005_C3_M6_mouse322_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse_use_dffTrue.pkl",
+    "bytes": 422754,
+    "sha256": "f72390c6d304fb263f57a6a22dc9d1e656d7f174cf2400a9b1198f5b6d575ef2"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config006_C3_M6_mouse322_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue_use_dffFalse.pkl",
+    "bytes": 422754,
+    "sha256": "dd0ce8c750cc3dbac9f09a34e20e8803a55f6210d3624f481854c38acf92e515"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config007_C3_M6_mouse322_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse_use_dffFalse.pkl",
+    "bytes": 422755,
+    "sha256": "19925f024bf272626dcca08640b4e31010b3054e6b32791f741904b6b2f72c24"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config008_C9_M6_mouse415_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue_use_dffTrue.pkl",
+    "bytes": 503873,
+    "sha256": "0537b7a0dafd8b6f8ab5f561e8b4671a6382083178dbe22a614ac20a390b7683"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config009_C9_M6_mouse415_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse_use_dffTrue.pkl",
+    "bytes": 503874,
+    "sha256": "2cfe791956d11593abc98c4e658bf1701a3c62fe433eb9e3ae4813192b79a23b"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config010_C9_M6_mouse415_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue_use_dffFalse.pkl",
+    "bytes": 503874,
+    "sha256": "e290c36365ab2d7a4de8ea8e1b8deeb58316fa483ca4313e9b449ba4ce894086"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config011_C9_M6_mouse415_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse_use_dffFalse.pkl",
+    "bytes": 503875,
+    "sha256": "84c9569ad634d7db05f3fca01860727ea8614460c616095b11590c390cd4f46b"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config012_C9_M6_mouse410_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue_use_dffTrue.pkl",
+    "bytes": 598337,
+    "sha256": "246528e966028900c355cdea5dd708969e90a8e64f05d1ec904206291f6fd64b"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config013_C9_M6_mouse410_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse_use_dffTrue.pkl",
+    "bytes": 598338,
+    "sha256": "015725bd5a5192bfb439b53d67f2db6b6d97745d5118c88045550bb429c7eb0e"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config014_C9_M6_mouse410_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue_use_dffFalse.pkl",
+    "bytes": 598338,
+    "sha256": "3e3ec8dc6fb540e5c1346072cfd3409e7e4f78df4d4f1246ba0f52a7094cbc60"
+  },
+  {
+    "path": "results/CURBD_DFF_ON_OFF_GSR_ON_OFF_4souris/run_du_2026-08-20_02h12/config015_C9_M6_mouse410_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse_use_dffFalse.pkl",
+    "bytes": 598339,
+    "sha256": "af7dccb8e67bfd01ff2bbfe7bc18d76821d1e4b75cb5fbc77be602d8a348b734"
+  },
+  {
+    "path": "results/comparison_train100_300_410_2026/maps_and_learning.npz",
+    "bytes": 183946201,
+    "sha256": "265df6fb639d7c97f81d34df1eb810c8892f49a14e9b48b78a81e64e418a45e2"
+  },
+  {
+    "path": "results/curbd_currents_mouse410/mouse410_pix15_N2538_train100_pVar0.946/curbd_currents_total.npz",
+    "bytes": 1511681,
+    "sha256": "74dc89c2e6a80c916cd64480fe4ec9b9981042663a6e15790a06e6c77c0578a4"
+  },
+  {
+    "path": "results/curbd_currents_mouse410/mouse410_pix20_N1903_train100_pVar0.917/curbd_currents_total.npz",
+    "bytes": 1512526,
+    "sha256": "31dc3eca75f1bb0407f380e0dc706b106a0d5fce29a710307ff03fd3c6d73784"
+  },
+  {
+    "path": "results/curbd_currents_mouse410/mouse410_pix25_N1524_train1000_pVar0.932/curbd_currents_total.npz",
+    "bytes": 1520128,
+    "sha256": "e9035012ef55c2db29ef37813fcc4e988aa8ad38c2cc37362b075b30ec20213f"
+  },
+  {
+    "path": "results/curbd_currents_mouse410/mouse410_pix25_N1524_train100_pVar0.897/curbd_currents_total.npz",
+    "bytes": 1509222,
+    "sha256": "e7031aeb62a6bc051dd119f78f240737d1999b1c5ded26329ef8a45ad43a34b4"
+  },
+  {
+    "path": "results/curbd_currents_mouse410/mouse410_pix25_N1524_train300_pVar0.925/curbd_currents_total.npz",
+    "bytes": 1519447,
+    "sha256": "2c58a4898b6b1136cfa3f897cbecc5d00659b2f0f0a16430b4c7af5919b4defb"
+  },
+  {
+    "path": "results/curbd_currents_mouse410/mouse410_pix35_N1089_train300_pVar0.883/curbd_currents_total.npz",
+    "bytes": 1500192,
+    "sha256": "8d2ae1bf0bc673d0d063a1b01ea5e17e813c16f713c60bd480d449b24bf1861f"
+  },
+  {
+    "path": "results/curbd_currents_mouse410/mouse410_pix50_N764_train1000_pVar-110.161/curbd_currents_total.npz",
+    "bytes": 1409801,
+    "sha256": "373d308064fd3a9d75cdcc5240e5b2ed755affee3b959dafcf974f40a9fe5d0b"
+  },
+  {
+    "path": "results/curbd_currents_mouse410/mouse410_pix50_N764_train1000_pVar0.558/curbd_currents_total.npz",
+    "bytes": 1512848,
+    "sha256": "c074ca661a514d0fcbc97a16b36267f7f39cd7e48c1975e7d9fa46df571412d5"
+  },
+  {
+    "path": "results/curbd_currents_mouse410/mouse410_pix50_N764_train1000_pVar0.594/curbd_currents_total.npz",
+    "bytes": 1526584,
+    "sha256": "816d29bb586dbf945dea70dbadd89d67ff14741f0601c3b8f24777393c6ced0e"
+  },
+  {
+    "path": "results/curbd_currents_mouse410/mouse410_pix50_N764_train1000_pVar0.759/curbd_currents_total.npz",
+    "bytes": 1561550,
+    "sha256": "6dee0ac4c237dba273e21186583fcf642ce6d504150c17eb172698f9b61a1b4e"
+  },
+  {
+    "path": "results/curbd_currents_mouse410/mouse410_pix50_N764_train1000_pVar0.785/curbd_currents_total.npz",
+    "bytes": 1510464,
+    "sha256": "ffa94c010e84c5294e92373b099c0238eb2183bcc21947d8539c443f3beb0034"
+  },
+  {
+    "path": "results/curbd_currents_mouse410/mouse410_pix50_N764_train1000_pVar0.828/curbd_currents_total.npz",
+    "bytes": 1493704,
+    "sha256": "f1a06df909c4e4fae2c46e6c99b92c023c095a6cac109296c33b75590c321c03"
+  },
+  {
+    "path": "results/curbd_currents_mouse410_test/mouse410_pix25_N1524_train1000_pVar0.932/curbd_currents_total.npz",
+    "bytes": 1520169,
+    "sha256": "05d4cf639380aff8a759c3c3a83b49e6a2e0d3bf802d1a6efffd6f95bc6707f0"
+  },
+  {
+    "path": "results/curbd_currents_mouse410_test_quiet/mouse410_pix50_N764_train1000_pVar-110.161/curbd_currents_total.npz",
+    "bytes": 1409723,
+    "sha256": "c4f23970284257b263d10202f6b9ae1ad8302a95757a0343673a9cf92daf0a74"
+  },
+  {
+    "path": "results/narval_long_npixels25_g08_sigma4_410_415_ntrain1000/1901587/config000_C9_M6_mouse410_n_pixels25_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain1000_use_global_regressionFalse.pkl",
+    "bytes": 114722994,
+    "sha256": "a4ea46b746b09d9422a39d6fdd3c9fc136e6415c146491996fdf08202f78caa7"
+  },
+  {
+    "path": "results/narval_long_npixels25_g08_sigma4_410_415_ntrain1000/1901587/config001_C9_M6_mouse415_n_pixels25_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain1000_use_global_regressionFalse.pkl",
+    "bytes": 104620993,
+    "sha256": "e7f60bbc874900eede063a866091f5da09275b400bb332d6a64bb27f57de52c4"
+  },
+  {
+    "path": "results/narval_reproducibility_pix15_410_415/2614685/config000_C9_M6_mouse410_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2026_segmentation_seed0.pkl",
+    "bytes": 539058033,
+    "sha256": "2cc9e24e07fec42c8f70989098229b12134ed3c8af3ca422bda3239e04fb9fd9"
+  },
+  {
+    "path": "results/narval_reproducibility_pix15_410_415/2614685/config001_C9_M6_mouse410_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2027_segmentation_seed0.pkl",
+    "bytes": 539058033,
+    "sha256": "2e4118b1ab6411d653223cb7c2154b8850c9db13dd5e555c83a7905acd4b16b7"
+  },
+  {
+    "path": "results/narval_reproducibility_pix15_410_415/2614685/config002_C9_M6_mouse410_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2028_segmentation_seed0.pkl",
+    "bytes": 539058033,
+    "sha256": "7851e3e90e1920174246edc38dd1a72187f5f970434400f00efd2d92692690b9"
+  },
+  {
+    "path": "results/narval_reproducibility_pix15_410_415/2614685/config003_C9_M6_mouse415_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2026_segmentation_seed0.pkl",
+    "bytes": 485451340,
+    "sha256": "117e739692a9a22cbff8f9216f5da7a1a4b116a4c59d5b2a8311e287858ac850"
+  },
+  {
+    "path": "results/narval_reproducibility_pix15_410_415/2614685/config004_C9_M6_mouse415_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2027_segmentation_seed0.pkl",
+    "bytes": 485451340,
+    "sha256": "30c0eb788ea25857280d758f2f6955338e1b715875ccdd66efc9c95a96eff31f"
+  },
+  {
+    "path": "results/narval_reproducibility_pix15_410_415/2614685/config005_C9_M6_mouse415_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2028_segmentation_seed0.pkl",
+    "bytes": 485451340,
+    "sha256": "acd1c176c9853bbdec4a487c8e8a9ac6f7092a3e37a7b592c12c181fa5c40d64"
+  },
+  {
+    "path": "results/narval_scout_article_like_amp001_g08_g12_sigma4_410_415_ntrain1000/1708980/config000_C9_M6_mouse410_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.001_P01_nRunTrain1000_use_global_regressionFalse.pkl",
+    "bytes": 55233247,
+    "sha256": "e9a6495af34d0d223f33bb28516bbb950f5476ff8f1d54f08f142a41326f6575"
+  },
+  {
+    "path": "results/narval_scout_article_like_amp001_g08_g12_sigma4_410_415_ntrain1000/1708980/config001_C9_M6_mouse410_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g1.2_ampInWN0.001_P01_nRunTrain1000_use_global_regressionFalse.pkl",
+    "bytes": 55233247,
+    "sha256": "b63624e3a27fd043b47cb0a2b2a8bc24af99d2b5596de69ff959347fa2d889bf"
+  },
+  {
+    "path": "results/narval_scout_article_like_amp001_g08_g12_sigma4_410_415_ntrain1000/1708980/config002_C9_M6_mouse415_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.001_P01_nRunTrain1000_use_global_regressionFalse.pkl",
+    "bytes": 50434527,
+    "sha256": "7e117313edc6a12b44d608633fb9e0dbad1095a75195e75e5e59d9cff4dcdb1a"
+  },
+  {
+    "path": "results/narval_scout_article_like_amp001_g08_g12_sigma4_410_415_ntrain1000/1708980/config003_C9_M6_mouse415_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g1.2_ampInWN0.001_P01_nRunTrain1000_use_global_regressionFalse.pkl",
+    "bytes": 50434527,
+    "sha256": "d41ae817fdeb23e85162ef3aace070c05e332d656ad1963d87f8ce4bec675a67"
+  },
+  {
+    "path": "results/narval_scout_npixels25_35_g08_sigma4_410_415_ntrain300/1708976/config000_C9_M6_mouse410_n_pixels25_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain300_use_global_regressionFalse.pkl",
+    "bytes": 114711796,
+    "sha256": "3c62c92da99769846f7346889cabbb071b880a675132ead2b2a3237413bb1dec"
+  },
+  {
+    "path": "results/narval_scout_npixels25_35_g08_sigma4_410_415_ntrain300/1708976/config001_C9_M6_mouse410_n_pixels35_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain300_use_global_regressionFalse.pkl",
+    "bytes": 80096233,
+    "sha256": "77bd5ddfba45ae5ca753dbf7fba51b2edc2c2f52cb3a8ad36137a23cfb75137e"
+  },
+  {
+    "path": "results/narval_scout_npixels25_35_g08_sigma4_410_415_ntrain300/1708976/config002_C9_M6_mouse415_n_pixels25_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain300_use_global_regressionFalse.pkl",
+    "bytes": 104609795,
+    "sha256": "d683ce4f8d88b3da047e20db4cd73968c1614e10e7bec8149c82650370a54eec"
+  },
+  {
+    "path": "results/narval_scout_npixels25_35_g08_sigma4_410_415_ntrain300/1708976/config003_C9_M6_mouse415_n_pixels35_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain300_use_global_regressionFalse.pkl",
+    "bytes": 73277642,
+    "sha256": "83baf84c38eae7f2c3e9a5796a9ac066d7ef5fb7b4c27304141725d6f29de317"
+  },
+  {
+    "path": "results/narval_scout_tiny_npixels15_20_25_g08_sigma4_410_415_ntrain100/2142708/config000_C9_M6_mouse410_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse.pkl",
+    "bytes": 201275810,
+    "sha256": "f44f4d5cc05a22a24f79405e0d4fd5cd237cdb38d7780bdc41d96bd23538d368"
+  },
+  {
+    "path": "results/narval_scout_tiny_npixels15_20_25_g08_sigma4_410_415_ntrain100/2142708/config001_C9_M6_mouse410_n_pixels20_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse.pkl",
+    "bytes": 146101929,
+    "sha256": "dd19d0e7708973a02fa41389029116735d9fade0fe611688f89b597fd5c05533"
+  },
+  {
+    "path": "results/narval_scout_tiny_npixels15_20_25_g08_sigma4_410_415_ntrain100/2142708/config002_C9_M6_mouse410_n_pixels25_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse.pkl",
+    "bytes": 114708600,
+    "sha256": "3bc1b3fab132fbc7c7cfa5f57d8355e6c1d9f77cd0c5e3f04256f4d933e9a240"
+  },
+  {
+    "path": "results/narval_scout_tiny_npixels15_20_25_g08_sigma4_410_415_ntrain100/2142708/config003_C9_M6_mouse415_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse.pkl",
+    "bytes": 182935610,
+    "sha256": "e46370b68cb80a02108717cb618ad15db7183f5d9b0e17785f85ac217d255176"
+  },
+  {
+    "path": "results/narval_scout_tiny_npixels15_20_25_g08_sigma4_410_415_ntrain100/2142708/config004_C9_M6_mouse415_n_pixels20_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse.pkl",
+    "bytes": 133207200,
+    "sha256": "6a60a17a27cbd3eaad088418270186bfee62edd57d07b8491baaeba0a5a1f1c8"
+  },
+  {
+    "path": "results/narval_scout_tiny_npixels15_20_25_g08_sigma4_410_415_ntrain100/2142708/config005_C9_M6_mouse415_n_pixels25_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse.pkl",
+    "bytes": 104606599,
+    "sha256": "57f170ccd3298a4e1b1543637fad5534f0e579988b28cee82c92a8b8f694dceb"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config000_C3_M6_mouse316_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1623340,
+    "sha256": "c81e57d608f38986c70e4b6bfefb7a9a68075bfe4520b3e8515775e463573832"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config001_C3_M6_mouse316_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1623339,
+    "sha256": "f9319744e47f40c6e5488f35ef826b73908d7d5d04dbea7d6c519d49a26d05d6"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config002_C3_M6_mouse316_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1623340,
+    "sha256": "ba62361c40e450f385d9ce7330b0a4cbd1769ab00f8162032f7d0dbf49edd291"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config003_C3_M6_mouse316_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1623339,
+    "sha256": "57932f5e8e2c266b2a27a17137be3dda24f84832e4f7cc181db93bf185b951a3"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config004_C3_M6_mouse316_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 727856,
+    "sha256": "186681e37fcdc03b9343e9f6b6eb92d86c4a1a0186d24d9fa362279b9167e533"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config005_C3_M6_mouse316_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 727855,
+    "sha256": "f85f84f82bd27071b629c3f81c97062efa5892cda5001faf408e9c0147bd2ff9"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config006_C3_M6_mouse316_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 727856,
+    "sha256": "993f9558bd8bdf5e223315de467ca0af93988fbf17285791552dd588c1454f0a"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config007_C3_M6_mouse316_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 727855,
+    "sha256": "e294f0b2df1f22aed8142a601fa4917301569894e174269bd618a0a7e34c2b70"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config008_C3_M6_mouse316_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 414957,
+    "sha256": "516f21d80e885065da0a689b556faf1d760b9d798c4caf5e052ca3867286097a"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config009_C3_M6_mouse316_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 414956,
+    "sha256": "f3f7996fb3e6fd9735b5997798b1ccde7f8f48496ca289eddcc00d2a44271740"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config010_C3_M6_mouse316_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 414957,
+    "sha256": "11622fa530455240e4b4dfc66d95c1cafd3bbd011eca25aabe5521f868640184"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config011_C3_M6_mouse316_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 414956,
+    "sha256": "b992e8dc800aa9038a95b14a1c9d852643f319996488d371e5dffdc96c612ca4"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config012_C3_M6_mouse316_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 188537,
+    "sha256": "e98e33ec69a243baa60917914534fa142b5835e989e26e47d4a1d8f9f8cd93cf"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config013_C3_M6_mouse316_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 188536,
+    "sha256": "a6b70c072e587b1434a7d14b5462e50aa337b9d1543642664865f9c40abaa1f9"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config014_C3_M6_mouse316_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 188537,
+    "sha256": "451cc86ec0cbb885b69d94a1889425f146a10112d9e7f34dbff4159a9018ff54"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config015_C3_M6_mouse316_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 188536,
+    "sha256": "4599a0a74be5b1dae709676bffaf18d63ab03b1c28222adb80ebfbe22d423a6c"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config016_C3_M6_mouse316_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 109037,
+    "sha256": "0794cc1b1b5b1b063851c34bfc4d0798650cc45bba6ace9e3dc77a0524f85d64"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config017_C3_M6_mouse316_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 109036,
+    "sha256": "6da8ab0e6526e9057124b7a1d946340cac27fd7e455c4a7d796b53ad5c18e762"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config018_C3_M6_mouse316_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 109037,
+    "sha256": "dafeac99eea1c5e6506f1f10a968e3490cc6765cd37181b1da6efaad6cf823ec"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config019_C3_M6_mouse316_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 109036,
+    "sha256": "f8ad9417ace6d7e3135a3d5c4fa18691c272aa19fd86603115b780065d50a812"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config020_C3_M6_mouse322_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1659152,
+    "sha256": "5f2ba4a48f696f29249ff334942a28bf24dc6927e32ea365ffe38ac65cb471c6"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config021_C3_M6_mouse322_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1659151,
+    "sha256": "31e54eddd0103f8eb6131544c6518286cc00dddc093bd45621e1d4208c00018d"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config022_C3_M6_mouse322_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1659152,
+    "sha256": "4cce0267051ad3edcf9c146ab1631b5c8464aba50fb29dcb4b55c9feab737ffe"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config023_C3_M6_mouse322_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1659151,
+    "sha256": "1eb40b185a76b6a973ce77d590291846c69c46da518ef47fd4423c5a752635f9"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config024_C3_M6_mouse322_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 741520,
+    "sha256": "87398aaeaf3cb579a85b6208caffee256dc8f09158192f58fcad8689a0802baa"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config025_C3_M6_mouse322_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 741519,
+    "sha256": "ab5496c8ba127b97324ea593b9b4dad27b96babcbed7765d7c79a965d6ce2d18"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config026_C3_M6_mouse322_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 741520,
+    "sha256": "64e3f338037075eca7c66593416386fda077ac027f0eec415bbdc38efe935913"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config027_C3_M6_mouse322_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 741519,
+    "sha256": "3c7850f66e66478da245322882998c91b95cb644a11478559121f0244bebceae"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config028_C3_M6_mouse322_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 422673,
+    "sha256": "cae1c6ccc3410f2d36ae59207a13cd845ad5d448ef273bebf9a18b19dd2a7a86"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config029_C3_M6_mouse322_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 422672,
+    "sha256": "5812160b73ac51b31f8c3f208630646905881e52c1129d764bb945d2d2fa6b3b"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config030_C3_M6_mouse322_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 422673,
+    "sha256": "dabd60e7293d08298c60b44715aecc5d5cee6c5c5fd84ef94c1787f2ea936b41"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config031_C3_M6_mouse322_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 422672,
+    "sha256": "29aa592e0b59fc6ae149426f620df2697a699b738dfa6d9052b89a32d1d857a8"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config032_C3_M6_mouse322_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 191977,
+    "sha256": "f3dedb35dcf26fc9fef7feb726c93df8c5ed718162009095b12110783497c829"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config033_C3_M6_mouse322_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 191976,
+    "sha256": "9a3b46ebc2c14edf721eb8f54d45a26d3180b5b0debe7a21ddb3279166a1014e"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config034_C3_M6_mouse322_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 191977,
+    "sha256": "0518cc4aefa865ea621c4c89422cdd905da9e2d50852574fab6b4ddeee6b595f"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config035_C3_M6_mouse322_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 191976,
+    "sha256": "1c0d0fa879fea16a49db29a97491bf2780516b7f696fabfffa658ce0c0640aae"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config036_C3_M6_mouse322_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 112937,
+    "sha256": "b32113b96fbbd7f204c2827025a288d3aebc5ef767e20fcf3e74ecf138db890f"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config037_C3_M6_mouse322_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 112936,
+    "sha256": "2c165e16467e3b6afa5a0677507cdc14d5951681d4623f1a5d69b25772bd229f"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config038_C3_M6_mouse322_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 112937,
+    "sha256": "6d83b98fb2859600787a25c35ad282b492ebb7d5f37fbeb0f4ad94b291f6c890"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config039_C3_M6_mouse322_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 112936,
+    "sha256": "fa3f02ad90d10a18a9f053fd74651ba0748730e575ec77efef0a524fe3fd3e38"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config040_C5_M6_mouse353_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1669456,
+    "sha256": "8576338a5a3691bd1c080adab54275c912495dcd666216b4743c1052cbc1589e"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config041_C5_M6_mouse353_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1669455,
+    "sha256": "e4cf3539a412fc321172535a6f14802effc27d080714747eeb0bf0562ed60652"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config042_C5_M6_mouse353_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1669456,
+    "sha256": "712e37c5f13395b9f66a51a367c9e06ae97002f699d5591837289577b0a99cce"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config043_C5_M6_mouse353_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1669455,
+    "sha256": "25021664f5a5073f85de7a1a329640ca513ecd7259eb255974806d8b85ebda36"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config044_C5_M6_mouse353_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 748400,
+    "sha256": "07debbc16fb71d27c57b11a52219feb4abfc876d3757782cadd1ce5e2e5249b5"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config045_C5_M6_mouse353_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 748399,
+    "sha256": "bdc2c78183530b7397eb20334ce9d28e2f5daac1ee97c608a469eb1d49824b67"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config046_C5_M6_mouse353_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 748400,
+    "sha256": "bfbe06a2dd8175f729803bd0aade68fecfcad9653967fa59235ebaa5cf7bc925"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config047_C5_M6_mouse353_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 748399,
+    "sha256": "e5a4ba1f4ee07c87c1c5c0e080a2969e98e215c285b1cc8cd9d7fd657e6a0d69"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config048_C5_M6_mouse353_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 427857,
+    "sha256": "e059b59bdd1ed2086d131a8613846c97269b484ef7b466406a920d34765583bf"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config049_C5_M6_mouse353_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 427856,
+    "sha256": "47696626a99298bfe98e0ccab58b41caf73e52bba4b30196316f723dcc53d1c4"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config050_C5_M6_mouse353_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 427857,
+    "sha256": "fb6a7201861294b9db85e3115520aebf0ed6826814311849ab2773e0fd4f2b0a"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config051_C5_M6_mouse353_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 427856,
+    "sha256": "cd39f28a4bfab4a10e6ab264d82565c6f3d6b59b1d2fdb9e8e93c655201f40cc"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config052_C5_M6_mouse353_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 195449,
+    "sha256": "f4240d4fb9ef14237b64fdd0bfffd085945ef2a2d2073334ea91c7170580a759"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config053_C5_M6_mouse353_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 195448,
+    "sha256": "74863d9ec7609ae0786a7fa11a26f7a85df9bf72f4709ae7b359f46b18681158"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config054_C5_M6_mouse353_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 195449,
+    "sha256": "6953d6bbd7650c518be517afcce936ed15edc56eb0a2ab88f703739b4bd6c50c"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config055_C5_M6_mouse353_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 195448,
+    "sha256": "0f635eb706a20a1284a7d76f04222750f0c7aac4fd02308fcb8a2913061e32c0"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config056_C5_M6_mouse353_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 114253,
+    "sha256": "82e1bc37e0dac6b9204ad963b96f513cd229b52cd67fe8845208abfcb2862cac"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config057_C5_M6_mouse353_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 114252,
+    "sha256": "6bf691a218a4fa4ab5da24ab89ecfd56185ee8573d6475f67baaeeb18105122d"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config058_C5_M6_mouse353_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 114253,
+    "sha256": "d0ec032ef0e57a6c46c5e0d65732ff1baf551e6b462801802ef313e10905f0f3"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config059_C5_M6_mouse353_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 114252,
+    "sha256": "07a26e5a29a0b05ecf6828ebb148c0742165b7580e7b042e04ba313e324c7f8c"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config060_C5_M6_mouse361_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1931900,
+    "sha256": "b7d91da917adb175fff669f9e1e5ae9ec2783b751bb430057f287b026fa09c6d"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config061_C5_M6_mouse361_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1931899,
+    "sha256": "c232871c15b94e5f2351c28c4ee7bfc3b12c4dcfa6d02fca029a216554f383eb"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config062_C5_M6_mouse361_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1931900,
+    "sha256": "da7d87cdeaabecf9ef2f191b4c5c0e9409ba8ba91e5293497a2fd9514a1e0769"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config063_C5_M6_mouse361_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1931899,
+    "sha256": "b778a418e467e2ec718f6dfcd37f1777d891c8067f73f59fd35d996d55c23731"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config064_C5_M6_mouse361_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 866540,
+    "sha256": "56c19ffe3a92fe54d0509dfc5082ecbb1207137b7e945cca8c637cefc88854e4"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config065_C5_M6_mouse361_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 866539,
+    "sha256": "506e9d7f116fbb3637e184f40997fe6070ff9f4f4c7ee62f6de61bdb5e9e8a16"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config066_C5_M6_mouse361_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 866540,
+    "sha256": "f075149e2d89fa2066e64d1b43e2d6f6d6f1b1689b801999b6bbe700d3b40776"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config067_C5_M6_mouse361_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 866539,
+    "sha256": "004441af187d81394a099bfbefebc8cd7fb85824940d14e3507c3f412693f4d6"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config068_C5_M6_mouse361_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 492561,
+    "sha256": "374971663c4145f4919d972a3d93f4f5c21abf3ce1745ee80141be8ddcc4b3db"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config069_C5_M6_mouse361_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 492560,
+    "sha256": "225e650f37011fff6c748b744c28505a6337ff90aa94281f8d9c12960e362655"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config070_C5_M6_mouse361_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 492561,
+    "sha256": "9003920e23aff260a6394f6f213c46fcd2e1cd0a10d15b7cb495137c1f3bf96f"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config071_C5_M6_mouse361_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 492560,
+    "sha256": "e237310d3eae6fefd7c97d1157b24ad6df724cb083e7b3217c722f031c0707e8"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config072_C5_M6_mouse361_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 224377,
+    "sha256": "10b973d33dd36376fbaa0d31a9a478458086e5265dfe5a5bf309f046932da7e1"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config073_C5_M6_mouse361_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 224376,
+    "sha256": "4d9fe381bbc87c7644233e1508a25e1e20daeffe37997f8d392c49a54c9a2813"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config074_C5_M6_mouse361_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 224377,
+    "sha256": "24e542e5c2654e996e3beb923a4d9ffc3e51e089089c1a455f006cbc028dda0d"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config075_C5_M6_mouse361_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 224376,
+    "sha256": "60f394cd27813cfe07a7d25a2123ec75bea40f3ff6c647e6d312c43fe238eb26"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config076_C5_M6_mouse361_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 130669,
+    "sha256": "11f2ab95f9ce2e7ece227cb4c4920e46db5c82490cae2164bc7d9e93ae906e37"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config077_C5_M6_mouse361_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 130668,
+    "sha256": "cb5b952272b6b9bfea6ad328ce5b546980a4f64555d2974972de66b9b2fba5a7"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config078_C5_M6_mouse361_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 130669,
+    "sha256": "134618d04610ee026139acf235db1e7d94d7355bd50f361f4e7f4c983346d717"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config079_C5_M6_mouse361_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 130668,
+    "sha256": "98d56c8b84a85412a0c78f949d6eac09c5321b0b194d01ade8eaa75566ad9511"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config080_C6_M6_mouse365_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1763632,
+    "sha256": "2e02dd18f35cd017b7f02cc94588a599e9cbed2ae5932e14470c2f66f3249c58"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config081_C6_M6_mouse365_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1763631,
+    "sha256": "c76b80a8b743c87bf492dc08fd781d07d989bef85c413be692321eb55df2923c"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config082_C6_M6_mouse365_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1763632,
+    "sha256": "72e53fc37b082e0088692cf2ce8c0fa87604efbc5ced2f9cf1f465954339789f"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config083_C6_M6_mouse365_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1763631,
+    "sha256": "90005755b6bc40ac607155f50830b71e435f26a7d8f5f916476384f406d95bac"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config084_C6_M6_mouse365_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 790352,
+    "sha256": "2ea2009c5b25e13a7617d5ce89504f8b7303a29356c350012cd866b159b13585"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config085_C6_M6_mouse365_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 790351,
+    "sha256": "e682347f0afd863b84ca77c0f9b5bb015a9362f6dc1f9241c20ddab2485e2ae5"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config086_C6_M6_mouse365_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 790352,
+    "sha256": "35a1315e538e92a7524352630d2b3c8e54efd906355b632ecd138924e5b877de"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config087_C6_M6_mouse365_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 790351,
+    "sha256": "536db18beb04c8225b5bc9e68dd01d84cf0b5c8e08505203b395f49c8070bff9"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config088_C6_M6_mouse365_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 448913,
+    "sha256": "15ddc022fa3a9cd8364c23941de3811a2d64b08b521b0eff36a4cda25a58ba4a"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config089_C6_M6_mouse365_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 448912,
+    "sha256": "2831b9f87d86be83946ffd61e55273abfbe69f90b8c41f6ac52cc2fd90cc39c6"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config090_C6_M6_mouse365_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 448913,
+    "sha256": "5508c600d531c8529b176c9e5bac435787cb9d634d1fc12102fd9f86338f669d"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config091_C6_M6_mouse365_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 448912,
+    "sha256": "38a80c4a92c7ec467a14211040a4926dfa616891dca7fab0010f5c3ae3ae2124"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config092_C6_M6_mouse365_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 204269,
+    "sha256": "e5d280138b67d4d00ee011fce783f0b06c2e0151a5278f64dda50f1f961a5f84"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config093_C6_M6_mouse365_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 204268,
+    "sha256": "ef9120d7c88ddc0709b3d5396f1849674123b232b42dc52c2f3e30ece054942e"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config094_C6_M6_mouse365_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 204269,
+    "sha256": "12f8f9550fc522b1b7b1b435cac38099d51772867281984f22a85331364c08a8"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config095_C6_M6_mouse365_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 204268,
+    "sha256": "f5cb2907a854481cb4e7a634b2cc247fe26e5e0677399ef7cbb6aeb688131d4b"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config096_C6_M6_mouse365_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 118249,
+    "sha256": "be024bdbcbdd5936265d51359092a2ddbbb75db493f4b4f66be649976854d3ff"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config097_C6_M6_mouse365_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 118248,
+    "sha256": "594b3a075571f9a0ca467ae4d5079fdeacfb5bbadc1343df247642d733ca8afa"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config098_C6_M6_mouse365_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 118249,
+    "sha256": "533886d2f3b640d0d61b334929f7af0d844e69707c6179551644f274845db11d"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config099_C6_M6_mouse365_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 118248,
+    "sha256": "1c51398762005ad72fc885bf0ebd01132133716e74a17bbbbac00f35702ac1d4"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config100_C6_M6_mouse367_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1623340,
+    "sha256": "f15e632bc8078f2d070cba0958e98f850d6b3723a7a3a56e5348d7a43e5c77c1"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config101_C6_M6_mouse367_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1623339,
+    "sha256": "0c939042b4afa868227069d326856d162f4cf03884558b79dd9ac23fab5a14b3"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config102_C6_M6_mouse367_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1623340,
+    "sha256": "9da7b668ad00dfdd10e948c6c545d9c4e57a10b2c7e8873ef1730a8be46374fe"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config103_C6_M6_mouse367_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1623339,
+    "sha256": "c938952ff768c1b20a21f49ca254917b661ebb065d11efccad6ebda1953d36ee"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config104_C6_M6_mouse367_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 731260,
+    "sha256": "b057e79d5fd6bd72248baa7db6c6b77a2e448a89f6282dc4a646dae5bf157d7a"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config105_C6_M6_mouse367_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 731259,
+    "sha256": "04e0995ab518c22afd0c552e1d8532074c47bc5951b8c7e326d4670137dd1eeb"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config106_C6_M6_mouse367_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 731260,
+    "sha256": "65e5bc8310cda26a1e03500658ab9d890182cc2dcd0a3e06a8d44c7a4881d20d"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config107_C6_M6_mouse367_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 731259,
+    "sha256": "d189806744cda6468c46524e0e1801c2a2c6c0a4fc2254df61289ce12cbadea1"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config108_C6_M6_mouse367_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 417521,
+    "sha256": "b26a48b7adc174e65cd7bcc174b91cb061a81e5a0442e9b03ffd007db056312e"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config109_C6_M6_mouse367_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 417520,
+    "sha256": "7a74f7ba4850305c200c6570dadca676f72417f44b3a9c7a8407234fe67f6921"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config110_C6_M6_mouse367_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 417521,
+    "sha256": "c5230980277bdab7f40635215c366902affcfa86d1e2af5ff923e83df6cff8af"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config111_C6_M6_mouse367_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 417520,
+    "sha256": "5260b8966b03a385d4a7fb27b13bb093f885879b58f01aa7ac1cb192daed97f1"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config112_C6_M6_mouse367_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 191977,
+    "sha256": "8236c1b23152c0dd8d4e70dbe243993e4cc09e01b26bfbca3e23034db3c5498b"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config113_C6_M6_mouse367_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 191976,
+    "sha256": "eb301d07b7e80da1a793746f25c341600b6dc6212071cb6752cab794ddf42a6b"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config114_C6_M6_mouse367_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 191977,
+    "sha256": "b432ececa5bcf6739f87816a026b4bc4c08b1badae1f215b8b5fd2644329c9db"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config115_C6_M6_mouse367_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 191976,
+    "sha256": "c04d5ff6fb96fb7bdf58a9f4f092ae1ded10026f6a9a0f81044b67052db2f0be"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config116_C6_M6_mouse367_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 111629,
+    "sha256": "6857cfd035d612341f88e80be754fd7021e2fb0289f71f481df215353d6ce65d"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config117_C6_M6_mouse367_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 111628,
+    "sha256": "58bfd590c39c64c89106b7193214deb99660e0e77be1025a91b85f04e74316bf"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config118_C6_M6_mouse367_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 111629,
+    "sha256": "3851527c1a60b436aba3c00683e51a11acd1d86cd2c10aa3b2887d6a3ca57ed3"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config119_C6_M6_mouse367_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 111628,
+    "sha256": "0d845bb01f1ce62bb9bb5e8000d38c9854933bf47d3732ed0fe54389adb3797b"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config120_C6_M6_mouse374_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1784912,
+    "sha256": "025beec4a3d1ec105ba2f0703c50f03032944c16a6eded928a659bf45e8459d1"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config121_C6_M6_mouse374_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1784911,
+    "sha256": "b3e52ab8fd959e0f8bd4a7d8145973f1055a4766769c04ed55c3c76aa12d4d08"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config122_C6_M6_mouse374_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1784912,
+    "sha256": "3c1d3a22d8a3d35c05883a2a704cfa95192481d09e9cb1d11a8e21c0a41630b8"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config123_C6_M6_mouse374_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1784911,
+    "sha256": "601ab7a23657dd2aa259de0de5844f91b1a36d0759287970fe7e0539fe2f2a9b"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config124_C6_M6_mouse374_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 797456,
+    "sha256": "6a9a113722c372d79320f4109c2665487f7dc581f74f5dd0a420c0d26e3a95bc"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config125_C6_M6_mouse374_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 797455,
+    "sha256": "2fac83cea09d00ad55f9c6a9d2e513bfacd0b94da1cfa67fb9715f459e0f7bcb"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config126_C6_M6_mouse374_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 797456,
+    "sha256": "d4fae060874542fee7dd9bf2fecc3c18d871092b028efb190834fc6f59c76738"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config127_C6_M6_mouse374_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 797455,
+    "sha256": "89af5293202da81733be6c8aac11917a43912e7b1f87c5208ccd091c710b029f"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config128_C6_M6_mouse374_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 454257,
+    "sha256": "8e950a78bc17393e51ab62cee92b86451344648da9cda11436aa383ba8884083"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config129_C6_M6_mouse374_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 454256,
+    "sha256": "6b2f48e73533007cb3d43489f56bb2f09ce5a540750ca9efbcdd77f7d9248361"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config130_C6_M6_mouse374_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 454257,
+    "sha256": "515402adac0e5a54d1c77bed3b67d6062b084987763643c23ab9695aae080840"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config131_C6_M6_mouse374_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 454256,
+    "sha256": "9916682fb2834f85f0b1570a64458e0a6639f1b1f2529c7a2320e55afecf7bb6"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config132_C6_M6_mouse374_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 206057,
+    "sha256": "f20488be04c27f1e5596e819acf074a67b149b6755133e9b56e3c2a64c92d2cc"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config133_C6_M6_mouse374_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 206056,
+    "sha256": "809dadec054aeee1ca8ab82e4f3f6070763963e22ec597fdd681692c01ed5480"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config134_C6_M6_mouse374_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 206057,
+    "sha256": "7f59371a6d9b66d7124b9c30f4453010b8de6f8ce16c23940ecb5be5d2adc370"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config135_C6_M6_mouse374_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 206056,
+    "sha256": "a95f2553f534312540eca7f81327d0b681971a9f526d8a07998add52393e76d5"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config136_C6_M6_mouse374_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 120953,
+    "sha256": "9894e5e898b95386c8b0098fb45ce54cd641a4c1e6219db729f5d96332559acd"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config137_C6_M6_mouse374_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 120952,
+    "sha256": "b9bdcd86aa1b3ad6cac25f3461b5806d80af6035779e84a24483225481b50d26"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config138_C6_M6_mouse374_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 120953,
+    "sha256": "dbc0eb3a753d82a6ce6233322d3470df198bcdf19ab563184973af10a7ce36c2"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config139_C6_M6_mouse374_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 120952,
+    "sha256": "ca2674de2c5a03525a77b16bd8f55cedb410c434b248d1bb36d087364052d368"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config140_C7_M6_mouse387_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1145980,
+    "sha256": "afec0e2ec20499c5d189c62fc841b39340efc0b4351c206d67f9336e54684e91"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config141_C7_M6_mouse387_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1145979,
+    "sha256": "195327c61b2cc2e0db4eecd7b6e87d0ab218391932f1945074c090eedb5f6c4e"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config142_C7_M6_mouse387_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1145980,
+    "sha256": "58cf134ed039c5118e3686f877ffbca4dba9a8fb0cdfed73a15cbcff2d5aa803"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config143_C7_M6_mouse387_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1145979,
+    "sha256": "bafa1faf4dde90e1a024ac6b1fe64045c3dda9cbbe57bad319996579ed3d95db"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config144_C7_M6_mouse387_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 515152,
+    "sha256": "e5a5eab77e3e5cb35c6e20f7d081852e46b21fe90ca97c82a25bfe28a07e5ad6"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config145_C7_M6_mouse387_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 515151,
+    "sha256": "4a48fb5f6c04bece84ea85b42414e4b462952540a7a385c61cde6d1eda300adc"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config146_C7_M6_mouse387_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 515152,
+    "sha256": "f7ae43fa7e21aba790ddcb038bc891c99e46b3e1371b6b59869b03a3b01f76af"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config147_C7_M6_mouse387_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 515151,
+    "sha256": "fe035a41cfa1dc6c33e489df1743023679699a053e0d0c2ab0f0919851355582"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config148_C7_M6_mouse387_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 292653,
+    "sha256": "5262514063e1d976e9453aa7247eaf83112e4b6a1531d8bd8f63a690f5eb530d"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config149_C7_M6_mouse387_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 292652,
+    "sha256": "fe9e8fff24d5d8e36b916776b37ca47ede63a2db59f6debe808a91a086811225"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config150_C7_M6_mouse387_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 292653,
+    "sha256": "5bd00b457bcfb02a3fdc8c30063e6207f7a099e1bd2011cd322d4f3a83b5db30"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config151_C7_M6_mouse387_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 292652,
+    "sha256": "d8ed2263a8766d5d233a03e0e7c444ddd14923b88a4f40c9e899b4c9a921e477"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config152_C7_M6_mouse387_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 136397,
+    "sha256": "4cc57364244158673c955d1987f2fd352a858c1ef0df8afe27d7b41858df73a1"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config153_C7_M6_mouse387_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 136396,
+    "sha256": "43e69468ec600c5e9da9822f3d06ea5802551163eb9f6fc0de430ae3cf9d59c1"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config154_C7_M6_mouse387_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 136397,
+    "sha256": "0a01859295bc198c25a9198de21abe01a4e918f32b2c277ed60b9ebb6e29e4e7"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config155_C7_M6_mouse387_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 136396,
+    "sha256": "d17d6d9d60c354e12b52b62b4443de0430146712ce5c00ce81b9f7fec0c3294c"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config156_C7_M6_mouse387_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 79337,
+    "sha256": "0c850dfcb52caa9ead01b14527de60e88791682d68a6fe5efb37efe4ba288807"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config157_C7_M6_mouse387_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 79336,
+    "sha256": "5216fade4caac7748cbf79cd151993b9f808412fa6908c7ced8be69165a7c1b7"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config158_C7_M6_mouse387_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 79337,
+    "sha256": "6f1498374b951d67a9430a5b3032c96b5fa9f4a88da1692c3dce06ede2055cd4"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config159_C7_M6_mouse387_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 79336,
+    "sha256": "b2bac33848bd110d853ce30014ffbaa62f8810635f935735238abb710b62e3c7"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config160_C7_M6_mouse396_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1999100,
+    "sha256": "55cf45bd29ead7664016a3e8c946814727da5a841ef1ae4fad6b8bdf12b77131"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config161_C7_M6_mouse396_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1999099,
+    "sha256": "e237ffd04ee48c24af4c14c5f503958c09c6a6e734bc5f805bd354c3acdef315"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config162_C7_M6_mouse396_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1999100,
+    "sha256": "3447a09e22dd4176843376dafcbb4e1bb4922d4277453163880700ddbf92e54a"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config163_C7_M6_mouse396_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1999099,
+    "sha256": "485f61218745f683f46f6f2151ad604a8c89bd97d28438a476e0d94d706da330"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config164_C7_M6_mouse396_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 896492,
+    "sha256": "2907af7ce2eeead152572c732b9b9850e35c2d1f97032d1049cb2be1af8ff850"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config165_C7_M6_mouse396_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 896491,
+    "sha256": "ab41b16cee95a37a99d972742a9a3b88b0aa82c5b34aaee9f17694a287a47a66"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config166_C7_M6_mouse396_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 896492,
+    "sha256": "3295aa563d4d9d1940a6ed5e31488b2e5c55e66c2f62bfa17b5d879d20f5ed3f"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config167_C7_M6_mouse396_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 896491,
+    "sha256": "e95300251be3d90f5ead1096d2585350da4ae42997f133abfccc7321708d8ead"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config168_C7_M6_mouse396_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 512301,
+    "sha256": "f5c4b7c0344a75645dc79f6d9287a89434fdceea2e467d22536c6d63bb914efc"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config169_C7_M6_mouse396_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 512300,
+    "sha256": "06fcb42e164eaa8358392469d406ea8c521c4b807e47aef03e3183c0f6758465"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config170_C7_M6_mouse396_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 512301,
+    "sha256": "da2f3e93a59cc10a6807973c5fea0b35b183ce478d3416eadd48e79070db503a"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config171_C7_M6_mouse396_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 512300,
+    "sha256": "77ab7fe5c486dfd7645c8c4ea42a521dec6e0a3ef7ade45ed071459213d5170e"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config172_C7_M6_mouse396_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 231929,
+    "sha256": "94705ddaf239194562b35b7bd188c7d2fa2c124af2122664e507ca48a8163b6e"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config173_C7_M6_mouse396_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 231928,
+    "sha256": "8aeca3f3d4f2278dc5380f1a7984dcbc0c8571dfce6f3718e5fe5704380f20f7"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config174_C7_M6_mouse396_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 231929,
+    "sha256": "08f4e86719f17d3cd5bdbfc2e0144496b05001e53b38d4608cde347e0426cb03"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config175_C7_M6_mouse396_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 231928,
+    "sha256": "caeb0ec7edf24d3427cb8a89811311d004f6a12070f5a6cfb40dcfb0cf8933e1"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config176_C7_M6_mouse396_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 134953,
+    "sha256": "832965ae5e55dbee6d012f1ad37f2677a1438d76180dc44acabef083af020216"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config177_C7_M6_mouse396_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 134952,
+    "sha256": "9fba8cb00f5f2583644ff83a79e5d43cf0c5736b13e301a2d3e8f03dc89842eb"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config178_C7_M6_mouse396_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 134953,
+    "sha256": "d8b0ba5bf8a346c2ceb3827472a2ec49cbcb6d99fdf4827c3e34cf7c114cb928"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config179_C7_M6_mouse396_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 134952,
+    "sha256": "3d1307aee34ff3843d8c8212a13a6b4e2affbf5d20e9aa5e8357df24b62ee3ad"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config180_C7_M6_mouse397_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 2334033,
+    "sha256": "caf353d70d23f67075f418f30f449bdfc898b1adc4c97a8cd749d00c1353dd19"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config181_C7_M6_mouse397_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 2334032,
+    "sha256": "c5d54ed6affe9879ec570030579834f21796a4d403e01815de4eb37e884aff65"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config182_C7_M6_mouse397_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 2334033,
+    "sha256": "8f01939f99922b9ba65068ba54bee62a844e4338b20f9c2dae3c205582f83a66"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config183_C7_M6_mouse397_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 2334032,
+    "sha256": "1a161f95ea048793883e7ad70e75fc3210d0d7333c930054aabb2d165b0231e2"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config184_C7_M6_mouse397_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1045756,
+    "sha256": "4bdf85c64abf401676d9c565eb3443eaf280facefcdb38a44bd6d18757e56296"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config185_C7_M6_mouse397_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1045755,
+    "sha256": "060b46945b523338de271ae585ec47470e297bd906d3ca3fd1a6ce021b04ac1d"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config186_C7_M6_mouse397_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1045756,
+    "sha256": "7b0b2a5c74c746790a2cce6adcd72e12590b8fb91232550875fbbc60bcc193d3"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config187_C7_M6_mouse397_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1045755,
+    "sha256": "35e1133016555874df243f1c87688673fb10f5deaf73ce8e9e0c8ef9b704de8e"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config188_C7_M6_mouse397_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 592113,
+    "sha256": "f8c01a37083a4914e65bc9b80fc5cb94e35e5c7e9b85263a6e86f128f788e50a"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config189_C7_M6_mouse397_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 592112,
+    "sha256": "88c665dcae3dbb95dd0a545d482b2b57452623a7c2480005e9f1f87e70f01caf"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config190_C7_M6_mouse397_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 592113,
+    "sha256": "45a27e7676681a62568fd66f9861a3c9eb8969e88e4a0d920151660efad41af4"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config191_C7_M6_mouse397_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 592112,
+    "sha256": "94fb0690f1c91d94ae281036c741f9b21a42cd6fa4b7abb3118a5e8ddcded7cc"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config192_C7_M6_mouse397_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 269553,
+    "sha256": "673f0cc58db552290580184317d767998e814b23180af8cc4c1974d13c7f8838"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config193_C7_M6_mouse397_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 269552,
+    "sha256": "4995f7c73386458305bb50061ab712fba8dab05e11f7b477313c6981f8408cdd"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config194_C7_M6_mouse397_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 269553,
+    "sha256": "feb8bdc5a347d62c4a89a8d228504cf4884aa6a7c143e73af55ef2526f920ed7"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config195_C7_M6_mouse397_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 269552,
+    "sha256": "5400932747124a887d5e5ecc2b315b8145384b8b0ff480a8413dd8b25f44871c"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config196_C7_M6_mouse397_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 155897,
+    "sha256": "b15c2314f50d9d38bebd960c9e1a44b8d13af686b6ff222205404eb72349005b"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config197_C7_M6_mouse397_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 155896,
+    "sha256": "da50894225fb84517620f47bcf5e4deea72a556eff1e792a39ddea70e57fabca"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config198_C7_M6_mouse397_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 155897,
+    "sha256": "3999134bb29d2fa6261d6974bda0b319a9a98e8cc133051de840436b88510134"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config199_C7_M6_mouse397_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 155896,
+    "sha256": "0c85559a9a63792c8ab4d48b856c3fa8d5663af013227e17945c2b891d359eda"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config200_C8_M6_mouse409_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 2004752,
+    "sha256": "478c48018810896d3e45939b651148185756d0b144cda3cc941fb6d833d7cc33"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config201_C8_M6_mouse409_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 2004751,
+    "sha256": "b7c406fe3f00d9bab2d33d2d76f45354e195b7994f0a354cf2f90e4db941993e"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config202_C8_M6_mouse409_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 2004752,
+    "sha256": "604f288f16c7080f93669f4be43d8df4b3d2171672e64a95b8e9690b6afd3c75"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config203_C8_M6_mouse409_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 2004751,
+    "sha256": "5406454d6ba106b213ffd6f08b5685a7d251d9e8e8564a55589e95124ad45a71"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config204_C8_M6_mouse409_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 896492,
+    "sha256": "94e501a20c016ad53176a8252cb5caddebd312d57230c76d785e774126e18d23"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config205_C8_M6_mouse409_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 896491,
+    "sha256": "51404cc09d9142dea8f58f3e475085343b4067d1e16c7fe7d8c3341bd82b4c8e"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config206_C8_M6_mouse409_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 896492,
+    "sha256": "eb05671cad641516ad5a325beac80d4c6cd983e8d9690a9f576df197ab7017a9"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config207_C8_M6_mouse409_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 896491,
+    "sha256": "d4b6b74f4b85e0ec8ad649c32208eef3de95001e62c32b48b3cf2a476b2e017d"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config208_C8_M6_mouse409_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 512301,
+    "sha256": "586248099d71208d7a837f3031aa9560a1ae5512aa2fac285bca6aca50cd4277"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config209_C8_M6_mouse409_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 512300,
+    "sha256": "9b9af2a9bc29653dfc1ec6b630b375885b9791bdc47fe5ac393d9897ad9e7b36"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config210_C8_M6_mouse409_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 512301,
+    "sha256": "1bd6ab9b191dba269f23662ce536fde198f2b4d86ec9fe3c219ecfe3cdb82fb4"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config211_C8_M6_mouse409_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 512300,
+    "sha256": "bd8139f53498da9feee494fa8153bd692b111b6cdd2aeece08c433d49df04c7f"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config212_C8_M6_mouse409_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 231929,
+    "sha256": "0934cc030376924d04be1cd38e03d10bf3e3ae78e1faaf4ff3b0e6fef4529674"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config213_C8_M6_mouse409_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 231928,
+    "sha256": "6eca45a6feb6b636f7fbc44f297a869cb48973d3803e5b91ca7c486024116dee"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config214_C8_M6_mouse409_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 231929,
+    "sha256": "1ca232acc7fb7915162aa0a4469fe30a4b2ad07b8fcec50925040583837ec612"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config215_C8_M6_mouse409_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 231928,
+    "sha256": "de72df1b9954c18eb97e1d38c88e859511f292a59b9ca7646cd4df67daecbde5"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config216_C8_M6_mouse409_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 134953,
+    "sha256": "be24d5ecc94d2d6cc381040bbc4f5168bc9ea081fa1ac77b9b935ba755b50efc"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config217_C8_M6_mouse409_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 134952,
+    "sha256": "ace2699167cc646e80a4508ce399a76ff8777de3d6a6b73679c14aaf95427625"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config218_C8_M6_mouse409_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 134953,
+    "sha256": "55acbf8ef04aed3c5a03c561ed667f7af648df0131707598d309b332c25f6e92"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config219_C8_M6_mouse409_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 134952,
+    "sha256": "1aace7b4da523d5db9c0d0a915139c0a388d55d509196140ece28cb66823e3cd"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config220_C9_M6_mouse410_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 2346256,
+    "sha256": "b39ac25e1038171917eb1b0310f73cc961591c60f91cb99768ade2c334c4a507"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config221_C9_M6_mouse410_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 2346255,
+    "sha256": "fdb38f2256f46f58df06bcf678db54ab8751806345dd83d3d6594c4bf8b3e7a3"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config222_C9_M6_mouse410_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 2346256,
+    "sha256": "d6a5fae1c42858f7183e35ec5e43dc6d138ea0c534c97adb3f93be32b78bb9de"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config223_C9_M6_mouse410_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 2346255,
+    "sha256": "2d5809851ae9238650bd0cfacce824180d80fa7c76d4c8c3ab0584093cb2ed52"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config224_C9_M6_mouse410_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1049840,
+    "sha256": "4417e0ba407a38b36ce71a8cb21e39401e0283f25e691e1567ffdae89bda0feb"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config225_C9_M6_mouse410_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1049839,
+    "sha256": "9dbb720585a735485988791b509e45d29295d9c791e2b805a15c971a6cc90f34"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config226_C9_M6_mouse410_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1049840,
+    "sha256": "87c7746bc0ce30ed7def3f30d46777d933cf82b7f21df2f379354cd9a070a7c1"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config227_C9_M6_mouse410_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1049839,
+    "sha256": "d78c8f689e5b32ec32264ce68851dfa1d4b79d4978c6c23eeeaf18ad2b433842"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config228_C9_M6_mouse410_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 598257,
+    "sha256": "2dd7f085ab8c6de3eb5d9b74b3755f024d8ae2b7d6f8ad2bb44062af8c1f31f8"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config229_C9_M6_mouse410_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 598256,
+    "sha256": "e13fd0a9efde92073ee9103179063e698025672e23c5c0fefaaf9b85a9ffc41e"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config230_C9_M6_mouse410_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 598257,
+    "sha256": "55fc183f62ee9ca2997b50a74639eada9e182910d9822bb37686787c9009349c"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config231_C9_M6_mouse410_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 598256,
+    "sha256": "44a45c58bfd6b152dc5afba31b599521383e8aefe549b0df0c09714c9f06a706"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config232_C9_M6_mouse410_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 269553,
+    "sha256": "2302950b00f5c29a097f595de832e76d5db47133a2c853aa56296c227c097124"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config233_C9_M6_mouse410_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 269552,
+    "sha256": "8269c9a5f90d970be2abb5f0dae5acc69ed8d6c211f102fe25ca66448ef8d33c"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config234_C9_M6_mouse410_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 269553,
+    "sha256": "a50b637a1002f1efa728b0174d7ac1c3fbc9e8a7f99780b9a3511df110bbe37a"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config235_C9_M6_mouse410_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 269552,
+    "sha256": "2d609a6620a803e15449f073cd4361132c26a46c966e0ceab5ac66ba2965ea96"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config236_C9_M6_mouse410_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 155897,
+    "sha256": "8fe64ac899cc7aacbd12cd89d0f6a4c7f5baa99c4fe64949c6704627e9e8b251"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config237_C9_M6_mouse410_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 155896,
+    "sha256": "a26a08bd4aa48a84a6d298eb6c8099a27ee0f2f79534998725086a83df42f69e"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config238_C9_M6_mouse410_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 155897,
+    "sha256": "c010446d0c4eafc925167ace65acc9f2cb8ae668e8301b89207649e1b02692e1"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config239_C9_M6_mouse410_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 155896,
+    "sha256": "58bb8634c72a9ad98868a4d7fc5d5331c57385ad67cb1037e6e432a55de6f8ad"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config240_C9_M6_mouse415_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1970960,
+    "sha256": "82144e21fcb1a0783ec27c821e0ae347ecd26a8099c69c48bf22b659a30ca1d0"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config241_C9_M6_mouse415_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1970959,
+    "sha256": "9870350b69ba6c410cfc6d5e0d80067c393d11358f0d76d47c13061dae5aedfd"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config242_C9_M6_mouse415_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 1970960,
+    "sha256": "2bb85f7176a7148071f20a68cbcb77f9cc70d2f0470fe7c85cdf776c44ed91d1"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config243_C9_M6_mouse415_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 1970959,
+    "sha256": "63002e3afac17e465fc8bae0cbe8908365d304a94cc53d009f376a6885b110f8"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config244_C9_M6_mouse415_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 885200,
+    "sha256": "a15776bbe16af9b48ba47374bde923aedb910513fe2732560484c84b1784976c"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config245_C9_M6_mouse415_n_pixels75_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 885199,
+    "sha256": "aa2cf1e2818ae5f3baf6f4b09df6fa78a1351d6d7e6bf7c1e0acc6e6cd0e3c3e"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config246_C9_M6_mouse415_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 885200,
+    "sha256": "ff21105a96bdad0eb1394d86ab18d23cfb5215d5259030b534146caf8b253902"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config247_C9_M6_mouse415_n_pixels75_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 885199,
+    "sha256": "991c6183d9a3a360c5b282ff08e6bd9d2a2609d3ba6acc328ea1c4618c0aa890"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config248_C9_M6_mouse415_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 503793,
+    "sha256": "4c0144e47fffb95e66c72ffa41ff2f5c0d98ac936f37a429bc59eea04d148bf1"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config249_C9_M6_mouse415_n_pixels100_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 503792,
+    "sha256": "696aa7ac1ac1984b41e6def7cfdade3dfe262438ff1eff161436f426762966e3"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config250_C9_M6_mouse415_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 503793,
+    "sha256": "cbf3ba9473ea781bc70ee456b74950819dc1f2301f26656871f9bbf660ea9cfc"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config251_C9_M6_mouse415_n_pixels100_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 503792,
+    "sha256": "c0e69c3798049f36bcb168adf87ed390f7761f7c1419d6703150db7dbaab08e4"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config252_C9_M6_mouse415_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 230029,
+    "sha256": "f146d24c7def7ec9d97e818402b47b071fe8ea7dd9f60b460e461b114c48655a"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config253_C9_M6_mouse415_n_pixels150_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 230028,
+    "sha256": "0319773d1be8cf1bc2b8ebb981bada4dc0a7eb566a5a6be08a90ea70274fd9bb"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config254_C9_M6_mouse415_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 230029,
+    "sha256": "39cc2c1100e517715ca3faf8d6e074c2027b431785164fcefc8db2301e15d424"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config255_C9_M6_mouse415_n_pixels150_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 230028,
+    "sha256": "c25c0cdb7b72c0ae6a835671fe0739e7504e86cae0a4108b58f0b936bf4a4471"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config256_C9_M6_mouse415_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 133518,
+    "sha256": "2aba287b36cc2088f3d9605207fdecadac534b944ad6c9deb8bea8ad78f173f5"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config257_C9_M6_mouse415_n_pixels200_lissage_sigma2_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 133517,
+    "sha256": "ca39c5d3a37b2d26004df95717410401a37a252fa9513ad7f2e2b7e989210a91"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config258_C9_M6_mouse415_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionFalse.pkl",
+    "bytes": 133518,
+    "sha256": "6e2b483faacbacab2af2e32aae314783ab672d66968140f1a41523455a6213d1"
+  },
+  {
+    "path": "results/narval_screening_preprocessing_m6/1506925/config259_C9_M6_mouse415_n_pixels200_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain200_use_global_regressionTrue.pkl",
+    "bytes": 133517,
+    "sha256": "3b84fdd5437153d8b0ee79da696db1a0c3470b3576b6c2a3680852ff995238a9"
+  },
+  {
+    "path": "results/narval_train300_410_2026/2796272/config000_C9_M6_mouse410_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain300_use_global_regressionFalse_seed2026_segmentation_seed0.pkl",
+    "bytes": 539061227,
+    "sha256": "1903d7389d1f48c6262428347f8e68d291b80846ab9772f3871864afb149402e"
+  },
+  {
+    "path": "results/narval_validation_pix15_g08_sigma4_m6_ntrain100/2250042/config000_C8_M6_mouse409_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse.pkl",
+    "bytes": 184428875,
+    "sha256": "ed269c377e27313b2cacdc6cce07f7b4a130afeb706a67faa8e154613fdee38b"
+  },
+  {
+    "path": "results/narval_validation_pix15_g08_sigma4_m6_ntrain100/2250042/config001_C6_M6_mouse367_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse.pkl",
+    "bytes": 163561354,
+    "sha256": "d81627d420a01014496f03fbc68f94de525f22e344fd24e7fb622ac515ddb852"
+  },
+  {
+    "path": "results/narval_validation_pix15_g08_sigma4_m6_ntrain100/2250042/config002_C3_M6_mouse322_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse.pkl",
+    "bytes": 165799746,
+    "sha256": "939d7b8507cdb0fce88393df200f5027954ac7cef1f15beae6590fe32383599d"
+  },
+  {
+    "path": "results/narval_validation_pix15_g08_sigma4_m6_ntrain100/2250042/config003_C7_M6_mouse397_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse.pkl",
+    "bytes": 201096955,
+    "sha256": "0ef67166d457b7f1e80983a4c409bea04e02c2ae30e9504407d324aa9c7c8623"
+  },
+  {
+    "path": "results/narval_validation_pix15_g08_sigma4_m6_ntrain100/2250042/config004_C7_M6_mouse387_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse.pkl",
+    "bytes": 134621314,
+    "sha256": "272b42d73baf0785aa99d1335b9038aae3b47b43db0639fa874dcf5fe6dd73c6"
+  },
+  {
+    "path": "results/narval_visual_rnn_trace_410_415_ntrain1000/1557715/config000_C9_M6_mouse410_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain1000_use_global_regressionFalse.pkl",
+    "bytes": 55233222,
+    "sha256": "693e9e628b14d2ac9253923868e9d35e8c150f20f12682e04e6e9c58a8e8ab9f"
+  },
+  {
+    "path": "results/narval_visual_rnn_trace_410_415_ntrain1000/1557715/config001_C9_M6_mouse410_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain1000_use_global_regressionTrue.pkl",
+    "bytes": 55233221,
+    "sha256": "1282bb78f5999babf5fb656cd84e3b6dc76e5959c5edfb3af3619c18b2b66bb8"
+  },
+  {
+    "path": "results/narval_visual_rnn_trace_410_415_ntrain1000/1557715/config002_C9_M6_mouse415_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain1000_use_global_regressionFalse.pkl",
+    "bytes": 50434502,
+    "sha256": "c09081f1832c84cea838c3fe4cbfb526b269c4e0c1496a7c3f0fe4d454a827de"
+  },
+  {
+    "path": "results/narval_visual_rnn_trace_410_415_ntrain1000/1557715/config003_C9_M6_mouse415_n_pixels50_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain1000_use_global_regressionTrue.pkl",
+    "bytes": 50434501,
+    "sha256": "b21401cc8893964bcf6044a26c14e699a0ec21f423572f9c345a9e4c01fff024"
+  },
+  {
+    "path": "results/narval_visual_rnn_trace_g10_sigma23_410_415_ntrain1000/1604053/config000_C9_M6_mouse410_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g1_ampInWN0.01_P01_nRunTrain1000_use_global_regressionFalse.pkl",
+    "bytes": 55233232,
+    "sha256": "70d40a11365e1bf7bf4d1824673875d8082f3d523d2345a4c50dc03b9851896b"
+  },
+  {
+    "path": "results/narval_visual_rnn_trace_g10_sigma23_410_415_ntrain1000/1604053/config001_C9_M6_mouse410_n_pixels50_lissage_sigma3_tauRNN0.33_dtFactor2_g1_ampInWN0.01_P01_nRunTrain1000_use_global_regressionFalse.pkl",
+    "bytes": 55233232,
+    "sha256": "e5b1e871f9e87cb24d254d3adfad8e2b03fbf4a22ace4a75e28454f123c7b00a"
+  },
+  {
+    "path": "results/narval_visual_rnn_trace_g10_sigma23_410_415_ntrain1000/1604053/config002_C9_M6_mouse415_n_pixels50_lissage_sigma2_tauRNN0.33_dtFactor2_g1_ampInWN0.01_P01_nRunTrain1000_use_global_regressionFalse.pkl",
+    "bytes": 50434512,
+    "sha256": "4220b22c0f314c4a8a679ea7acb3aa057e136dfb3a72801777ad66dca081ba41"
+  },
+  {
+    "path": "results/narval_visual_rnn_trace_g10_sigma23_410_415_ntrain1000/1604053/config003_C9_M6_mouse415_n_pixels50_lissage_sigma3_tauRNN0.33_dtFactor2_g1_ampInWN0.01_P01_nRunTrain1000_use_global_regressionFalse.pkl",
+    "bytes": 50434512,
+    "sha256": "84f5a5833146ec07ca1d908af9cd81f7e830fda27f19c8f95a3f44d8eee5b3c6"
+  }
+]

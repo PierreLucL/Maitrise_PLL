@@ -1,0 +1,17 @@
+{
+  "current_limit": 0.5855522882938384,
+  "current_percentile": 99,
+  "window": [
+    60,
+    120
+  ],
+  "order_reference": "Pic de l’activité RNN à 100 passages dans 60–120 s, ordre fixé pour les deux modèles",
+  "current_saturation": {
+    "100": 0.007019689606864548,
+    "300": 0.012980337755012696
+  },
+  "activity_outside_0_1": {
+    "100": 0.00030645302512914805,
+    "300": 6.430041152263375e-05
+  }
+}

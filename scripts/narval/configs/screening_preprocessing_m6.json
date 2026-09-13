@@ -1,0 +1,39 @@
+{
+  "experiment_name": "CURBD_screening_preprocessing_M6_signal_deja_dff",
+  "datasets": [
+    [3, 6, 316],
+    [3, 6, 322],
+    [5, 6, 353],
+    [5, 6, 361],
+    [6, 6, 365],
+    [6, 6, 367],
+    [6, 6, 374],
+    [7, 6, 387],
+    [7, 6, 396],
+    [7, 6, 397],
+    [8, 6, 409],
+    [9, 6, 410],
+    [9, 6, 415]
+  ],
+  "base_params": {
+    "use_global_regression": false,
+    "lissage_sigma": 2,
+    "atlas_clean_size": 5,
+    "atlas_clean_min_fraction": 0.25,
+    "dtData": 0.08333333333333333,
+    "tauRNN": 0.33,
+    "dtFactor": 2,
+    "g": 0.8,
+    "P0": 1.0,
+    "tauWN": 0.1,
+    "ampInWN": 0.01,
+    "nRunTrain": 200,
+    "nRunFree": 5,
+    "compute_curbd": false
+  },
+  "sweep": {
+    "n_pixels": [50, 75, 100, 150, 200],
+    "lissage_sigma": [2, 4],
+    "use_global_regression": [false, true]
+  }
+}

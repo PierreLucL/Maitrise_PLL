@@ -1,0 +1,46 @@
+test_different_seeds_change_initialization_but_not_target (test_reproducibility.ReproducibilityTests.test_different_seeds_change_initialization_but_not_target) ... ok
+test_explicit_seed_leaves_global_rng_untouched (test_reproducibility.ReproducibilityTests.test_explicit_seed_leaves_global_rng_untouched) ... ok
+test_failed_pickle_write_preserves_previous_file (test_reproducibility.ReproducibilityTests.test_failed_pickle_write_preserves_previous_file) ... ok
+test_invalid_seeds_rejected (test_reproducibility.ReproducibilityTests.test_invalid_seeds_rejected) ... ok
+test_legacy_global_seed_matches_local_randomstate (test_reproducibility.ReproducibilityTests.test_legacy_global_seed_matches_local_randomstate) ... ok
+test_rnn_seed_does_not_change_segmentation_seed (test_reproducibility.ReproducibilityTests.test_rnn_seed_does_not_change_segmentation_seed) ... ok
+test_same_seed_is_exact_and_does_not_depend_on_global_rng (test_reproducibility.ReproducibilityTests.test_same_seed_is_exact_and_does_not_depend_on_global_rng) ... ok
+test_save_reload_and_replay (test_reproducibility.ReproducibilityTests.test_save_reload_and_replay) ... ok
+test_seed_sweep_filenames_are_distinct (test_reproducibility.ReproducibilityTests.test_seed_sweep_filenames_are_distinct) ... ok
+test_training_duration_does_not_change_initialization (test_reproducibility.ReproducibilityTests.test_training_duration_does_not_change_initialization) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.310s
+
+OK
+
+==========================================================================================
+CONFIGURATION 1
+Dataset: C9 M6 souris 410
+Parametres: n_pixels=15, sigma=4, tauRNN=0.33, dtFactor=2, g=0.8, ampInWN=0.01, P0=1.0
+==========================================================================================
+ERREUR
+Traceback (most recent call last):
+  File "/scratch/pllar11/Maitrise_PLL/run_snapshots/paired_controls_20260913_v1/corrected/scripts/curbd/loop.py", line 616, in run_one_config
+    pickle.dump(to_save, f, protocol=pickle.HIGHEST_PROTOCOL)
+  File "/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/python/3.11.5/lib/python3.11/unittest/mock.py", line 1124, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/python/3.11.5/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/python/3.11.5/lib/python3.11/unittest/mock.py", line 1183, in _execute_mock_call
+    raise effect
+OSError: simulated disk error
+
+
+==========================================================================================
+CONFIGURATION 1
+Dataset: C9 M6 souris 410
+Parametres: n_pixels=15, sigma=4, tauRNN=0.33, dtFactor=2, g=0.8, ampInWN=0.01, P0=1.0
+==========================================================================================
+Sauvegarde: /tmp/tmp8ssn847p/model.pkl
+pVar train end: -0.1502
+pVar free mean: -0.1099
+chi2 free mean: 1.1306
+runtime: 0.0 s

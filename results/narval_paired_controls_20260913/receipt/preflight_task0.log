@@ -1,0 +1,14 @@
+
+==========================================================================================
+LOOP CURBD GENERAL
+==========================================================================================
+Experiment: paired_corrected_410_2026_100
+Datasets: 1
+Configurations par dataset: 1
+Total runs lances ici: 1
+Total grille complete: 1
+Job index: 0
+Data dir: /scratch/pllar11/Datasets
+Results dir: results/narval_paired_controls_20260913/preflight/task0
+Sweep: {'seed': [2026]}
+000: dataset=(9, 6, 410) -> results/narval_paired_controls_20260913/preflight/task0/config000_C9_M6_mouse410_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2026_segmentation_seed0.pkl

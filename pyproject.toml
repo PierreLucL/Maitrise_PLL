@@ -15,6 +15,7 @@ dependencies = [
     "pandas",
     "scikit-learn",
     "scipy",
+    "tifffile",
 ]
 
 [tool.setuptools.packages.find]
