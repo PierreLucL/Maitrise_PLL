@@ -1,0 +1,123 @@
+{
+  "models": [
+    {
+      "mouse": 410,
+      "file": "/Users/pierre-luclarouche/Documents/Codex/2026-08-19/yo/Maitrise_PLL_shallow/results/narval_long_npixels25_g08_sigma4_410_415_ntrain1000/1901587/config000_C9_M6_mouse410_n_pixels25_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain1000_use_global_regressionFalse.pkl",
+      "sha256": "a4ea46b746b09d9422a39d6fdd3c9fc136e6415c146491996fdf08202f78caa7",
+      "pvar": 0.9318563190164079,
+      "units": 1524,
+      "unit_pvar_percentiles": [
+        0.8404667589320202,
+        0.8832635725543253,
+        0.919618657241108,
+        0.9443235333293798,
+        0.9588243541176521
+      ],
+      "fraction_units_below_05": 0.0,
+      "max_time_mismatch": 0.0,
+      "selected": [
+        {
+          "region": "Rég. M.II",
+          "unit": 268,
+          "pvar": 0.9479687779963899,
+          "region_median": 0.9479687779963899
+        },
+        {
+          "region": "Rég. M.I",
+          "unit": 518,
+          "pvar": 0.9403277400035042,
+          "region_median": 0.9403277400035042
+        },
+        {
+          "region": "Rég. Som.",
+          "unit": 853,
+          "pvar": 0.9220328807073832,
+          "region_median": 0.9220328807073832
+        },
+        {
+          "region": "Rég. Ass.",
+          "unit": 1174,
+          "pvar": 0.8941259088988944,
+          "region_median": 0.8936907312348772
+        },
+        {
+          "region": "Rég. Vis.",
+          "unit": 1101,
+          "pvar": 0.8659219317924782,
+          "region_median": 0.866112421734563
+        },
+        {
+          "region": "Rég. Rét.",
+          "unit": 1346,
+          "pvar": 0.9038600506884904,
+          "region_median": 0.9038600506884904
+        }
+      ]
+    },
+    {
+      "mouse": 415,
+      "file": "/Users/pierre-luclarouche/Documents/Codex/2026-08-19/yo/Maitrise_PLL_shallow/results/narval_long_npixels25_g08_sigma4_410_415_ntrain1000/1901587/config001_C9_M6_mouse415_n_pixels25_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain1000_use_global_regressionFalse.pkl",
+      "sha256": "e7f60bbc874900eede063a866091f5da09275b400bb332d6a64bb27f57de52c4",
+      "pvar": 0.9141356865885307,
+      "units": 1399,
+      "unit_pvar_percentiles": [
+        0.5529692037470594,
+        0.6856972777900925,
+        0.8080487814115201,
+        0.9119845363512085,
+        0.9600897080911995
+      ],
+      "fraction_units_below_05": 0.012151536812008578,
+      "max_time_mismatch": 0.0,
+      "selected": [
+        {
+          "region": "Rég. M.II",
+          "unit": 209,
+          "pvar": 0.949946200966509,
+          "region_median": 0.9499058723331213
+        },
+        {
+          "region": "Rég. M.I",
+          "unit": 179,
+          "pvar": 0.9417489479802121,
+          "region_median": 0.940922016560804
+        },
+        {
+          "region": "Rég. Som.",
+          "unit": 479,
+          "pvar": 0.8534759855188567,
+          "region_median": 0.8534764490642821
+        },
+        {
+          "region": "Rég. Ass.",
+          "unit": 944,
+          "pvar": 0.7256637755163479,
+          "region_median": 0.7271117039075508
+        },
+        {
+          "region": "Rég. Vis.",
+          "unit": 1305,
+          "pvar": 0.6586827851776711,
+          "region_median": 0.6586827851776711
+        },
+        {
+          "region": "Rég. Rét.",
+          "unit": 986,
+          "pvar": 0.7187076138636617,
+          "region_median": 0.719774078379082
+        }
+      ]
+    }
+  ],
+  "selection": "Unité la plus proche de la pVar médiane par région sur la session entière ; aucune sélection du meilleur exemple",
+  "target": "Adata prétraitée et normalisée, sigma4 ; aucun lissage ajouté",
+  "window": [
+    60,
+    120
+  ],
+  "zoom": [
+    75,
+    90
+  ],
+  "caveat": "Reconstruction sur données apprises. Unités et échelles distinctes entre souris. Anciens runs sans provenance complète des graines ; comparaison non appariée avec les runs récents à pixels15."
+}

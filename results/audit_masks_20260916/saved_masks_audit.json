@@ -1,0 +1,87 @@
+[
+  {
+    "mouse": 410,
+    "units": 2538,
+    "pixel_count_quantiles": [
+      4.0,
+      11.0,
+      15.0,
+      19.0,
+      24.0
+    ],
+    "disconnected_units": [
+      {
+        "unit": 1376,
+        "components": 2,
+        "n_pixels": 11
+      },
+      {
+        "unit": 1894,
+        "components": 3,
+        "n_pixels": 13
+      },
+      {
+        "unit": 2039,
+        "components": 2,
+        "n_pixels": 14
+      }
+    ],
+    "checks": "IDs contigus, couverture des IDs unique, nombre de pixels, parents et dimensions des traces coh\u00e9rents",
+    "file": "results/narval_paired_controls_20260913/2989725/task0/config000_C9_M6_mouse410_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2026_segmentation_seed0.pkl"
+  },
+  {
+    "mouse": 415,
+    "units": 2331,
+    "pixel_count_quantiles": [
+      2.0,
+      11.0,
+      15.0,
+      19.0,
+      25.0
+    ],
+    "disconnected_units": [
+      {
+        "unit": 273,
+        "components": 2,
+        "n_pixels": 3
+      },
+      {
+        "unit": 320,
+        "components": 4,
+        "n_pixels": 6
+      },
+      {
+        "unit": 390,
+        "components": 2,
+        "n_pixels": 13
+      },
+      {
+        "unit": 758,
+        "components": 2,
+        "n_pixels": 12
+      },
+      {
+        "unit": 928,
+        "components": 2,
+        "n_pixels": 8
+      },
+      {
+        "unit": 974,
+        "components": 2,
+        "n_pixels": 11
+      },
+      {
+        "unit": 1345,
+        "components": 2,
+        "n_pixels": 8
+      },
+      {
+        "unit": 1357,
+        "components": 2,
+        "n_pixels": 10
+      }
+    ],
+    "checks": "IDs contigus, couverture des IDs unique, nombre de pixels, parents et dimensions des traces coh\u00e9rents",
+    "file": "results/narval_paired_controls_20260913/2989725/task1/config000_C9_M6_mouse415_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2026_segmentation_seed0.pkl"
+  }
+]

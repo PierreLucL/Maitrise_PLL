@@ -116,7 +116,7 @@ class ReproducibilityTests(unittest.TestCase):
     def test_rnn_seed_does_not_change_segmentation_seed(self):
         prepared=self.prepared()
         tensor=self.activity.T[:,None,:]
-        atlas=np.array([[0.,0.,1.,1.,1.]])
+        atlas=np.zeros((1,5))
         params={**loop.BASE_PARAMS,'n_pixels':15,'lissage_sigma':0}
         with patch.object(loop,'load_dataset',return_value=(tensor,atlas,atlas)), \
              patch.object(loop,'remove_thin_label_artifacts',return_value=atlas), \

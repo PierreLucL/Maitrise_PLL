@@ -1,0 +1,506 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
+from matplotlib import gridspec
+from matplotlib.colors import ListedColormap
+from matplotlib.collections import LineCollection
+import pickle
+from matplotlib.gridspec import GridSpec
+from scipy.ndimage import gaussian_filter1d
+
+from matplotlib.colors import to_rgb
+
+### Plotting centralise: toutes les figures utiles vivent ici au lieu d'etre eparpillees partout.
+
+### Cree une colormap discrete pour les labels de masque. Pas glamour, mais lisible.
+def cmap_masque(masque):
+    base = plt.cm.tab20.colors  # 20 couleurs fixes
+    n = int(np.nanmax(masque)) + 1  # nombre max de labels
+    colors = [base[i % 20] for i in range(n)]
+    cmap_masque = ListedColormap(colors)
+    return cmap_masque
+
+### Figure diagnostic: masque, similarite entre traces, et quelques timeseries choisies.
+def plot_10_ts_with_mask_and_similarity(
+    timeseries,
+    sub_mask,
+    n_pixels,
+    souris,
+    n=10,
+    subgroup_ids=None,
+    seed=None,
+    annotate_selected_only=True,
+    fontsize_ids=10,
+):
+    """
+    Affiche :
+    - à gauche haut : masque des sous-groupes avec groupes choisis surlignés
+    - à gauche bas  : matrice de similarité de Pearson entre les groupes choisis
+    - à droite      : time series des groupes choisis
+
+    Hypothèses :
+    - timeseries[k] correspond au sous-groupe k
+    - sub_mask contient ces mêmes IDs
+    - fond de sub_mask = NaN ou valeur négative
+    """
+
+    rng = np.random.default_rng(seed)
+
+    ### On force les inputs en arrays pour eviter les surprises de listes ou pandas qui se melent.
+    timeseries = np.asarray(timeseries)
+    sub_mask = np.asarray(sub_mask)
+
+    N, T = timeseries.shape
+    t = np.arange(T)
+
+    ### Choix des sous-groupes: aleatoire si rien n'est donne, sinon on respecte la selection.
+    if subgroup_ids is None:
+        valid_ids = np.unique(sub_mask[np.isfinite(sub_mask)])
+        valid_ids = valid_ids[valid_ids >= 0].astype(int)
+        n = min(n, len(valid_ids))
+        chosen_ids = np.sort(rng.choice(valid_ids, size=n, replace=False))
+    else:
+        chosen_ids = np.sort(np.array(subgroup_ids, dtype=int))
+        n = len(chosen_ids)
+
+    ### Sous-ensemble de traces pour ne pas plotter tout le cerveau au complet.
+    ts_sel = timeseries[chosen_ids]
+
+    ### Similarite Pearson: un quick check pour voir si les traces se ressemblent trop.
+    sim = np.corrcoef(ts_sel)
+    sim_tot = np.corrcoef(timeseries)
+    ### Layout: gauche pour l'espace, droite pour les traces. Lisible sans se battre avec les axes.
+    fig = plt.figure(figsize=(16, max(8, 0.8 * n)))
+    outer = gridspec.GridSpec(
+        nrows=1,
+        ncols=2,
+        width_ratios=[1.35, 3.65],
+        wspace=0.4
+    )
+
+    ### Colonne gauche decoupee en masque + matrice de similarite.
+    left = gridspec.GridSpecFromSubplotSpec(
+        nrows=2,
+        ncols=1,
+        subplot_spec=outer[0],
+        height_ratios=[1.15, 1.0],
+        hspace=0.5
+    )
+
+    ### Haut gauche: masque spatial avec les sous-groupes choisis en overlay.
+    ax_mask = fig.add_subplot(left[0])
+
+    mask_plot = sub_mask.astype(float).copy()
+    if np.nanmin(mask_plot) < 0:
+        mask_plot[mask_plot < 0] = np.nan
+
+    ax_mask.imshow(mask_plot, cmap=cmap_masque(sub_mask), interpolation="nearest")
+
+    ### Overlay orange pour spotter les sous-groupes choisis sans jouer a "ou est Charlie".
+    overlay = np.full(sub_mask.shape, np.nan, dtype=float)
+    overlay[np.isin(sub_mask, chosen_ids)] = 1.0
+    ax_mask.imshow(overlay, cmap="autumn", alpha=0.45, interpolation="nearest")
+
+    ids_to_annotate = (
+        chosen_ids
+        if annotate_selected_only
+        else np.unique(mask_plot[np.isfinite(mask_plot)]).astype(int)
+    )
+
+    for sg_id in ids_to_annotate:
+        coords = np.argwhere(sub_mask == sg_id)
+        if len(coords) == 0:
+            continue
+
+        r_mean, c_mean = coords.mean(axis=0)
+
+        ax_mask.text(
+            c_mean,
+            r_mean,
+            f"{sg_id}",
+            ha="center",
+            va="center",
+            fontsize=fontsize_ids,
+            color="white",
+            fontweight="bold",
+            bbox=dict(
+                facecolor="black",
+                alpha=0.65,
+                edgecolor="white",
+                boxstyle="round,pad=0.18"
+            )
+        )
+
+    ax_mask.set_title("Sous-groupes sélectionnés", fontsize=13, pad=8)
+    ax_mask.set_aspect("equal")
+    ax_mask.axis("off")
+    ax_mask.set_xlim(-0.5, sub_mask.shape[1] - 0.5)
+    ax_mask.set_ylim(sub_mask.shape[0] - 0.5, -0.5)
+
+    ### Bas gauche: matrice de similarite entre les traces selectionnees.
+    ax_sim = fig.add_subplot(left[1])
+
+    im = ax_sim.imshow(sim, vmin=-1, vmax=1, interpolation="nearest")
+    ax_sim.set_title(f"Similarité de Pearson (Moy globale :{np.mean(sim_tot):.2f})", fontsize=13, pad=8)
+
+    ax_sim.set_xticks(np.arange(n))
+    ax_sim.set_yticks(np.arange(n))
+    ax_sim.set_xticklabels(chosen_ids, rotation=90)
+    ax_sim.set_yticklabels(chosen_ids)
+
+    ### Petite grille visuelle: ca aide l'oeil a lire les cases.
+    ax_sim.set_xticks(np.arange(-0.5, n, 1), minor=True)
+    ax_sim.set_yticks(np.arange(-0.5, n, 1), minor=True)
+    ax_sim.grid(which="minor", alpha=0.2)
+    ax_sim.tick_params(which="minor", bottom=False, left=False)
+
+    ### Afficher les coefficients dans les cases, parce que lire une couleur au pif c'est moyen.
+    for i in range(n):
+        for j in range(n):
+            val = sim[i, j]
+            if np.isfinite(val):
+                ax_sim.text(
+                    j, i, f"{val:.2f}",
+                    ha="center",
+                    va="center",
+                    fontsize=7,
+                    color="black"
+                )
+
+    cbar = fig.colorbar(im, ax=ax_sim, fraction=0.046, pad=0.04)
+    cbar.set_label("r de Pearson")
+
+    ### Droite: les traces temporelles, avec la meme echelle y pour comparer honnetement.
+    right = gridspec.GridSpecFromSubplotSpec(
+        nrows=n,
+        ncols=1,
+        subplot_spec=outer[1],
+        hspace=0.22
+    )
+
+    ts_axes = []
+
+    y_global_min = np.nanmin(ts_sel)
+    y_global_max = np.nanmax(ts_sel)
+
+    for i, sg_id in enumerate(chosen_ids):
+        ax = fig.add_subplot(right[i], sharex=ts_axes[0] if ts_axes else None)
+        ts_axes.append(ax)
+
+        ax.plot(t, timeseries[sg_id], linewidth=1.2)
+
+        ax.text(
+            -0.055, 0.5, f"rég. {sg_id}",
+            transform=ax.transAxes,
+            ha="right",
+            va="center",
+            fontsize=10,
+            fontweight="bold"
+        )
+
+        ax.grid(True, alpha=0.2)
+        ax.spines["top"].set_visible(False)
+        ax.spines["right"].set_visible(False)
+        ax.set_ylim(y_global_min, y_global_max)
+
+        if i < n - 1:
+            ax.tick_params(axis="x", labelbottom=False)
+
+    ts_axes[-1].set_xlabel("Time (frame)", fontsize=12)
+    ts_axes[0].set_title(r"$F-\Delta F_{global}$", fontsize=13, pad=8)
+    fig.suptitle(f"10 sous-groupes aléatoires de {n_pixels} pixels, souris {souris}", fontsize=16, y=0.995)
+    plt.show()
+
+### Surligne une region specifique dans un masque de sous-regions.
+def plot_region_highlight(masque_sub, region_indices, title="Région sélectionnée"):
+    """
+    masque_sub : array 2D contenant les labels des sous-régions
+    region_indices : liste ou array des labels à highlight
+    """
+
+    region_indices = np.array(region_indices)
+
+    ### Masque booleen: True la ou le pixel appartient a la region cible.
+    highlight = np.isin(masque_sub, region_indices)
+
+    plt.figure(figsize=(8, 8))
+
+    ### Fond gris: garde le contexte sans voler le show.
+    plt.imshow(masque_sub, cmap="gray", alpha=0.35)
+
+    ### Overlay orange: la region selectionnee saute aux yeux.
+    overlay = np.where(highlight, 1, np.nan)
+    plt.imshow(overlay, cmap="autumn", alpha=0.8)
+
+    plt.title(title)
+    plt.axis("off")
+    plt.show()
+
+### Trace une ligne avec un gradient source -> cible, fancy juste assez pour les courants.
+def gradient_line(
+    x,
+    y,
+    ax,
+    color_start,
+    color_end,
+    lw=0.8
+):
+
+    cmap = LinearSegmentedColormap.from_list(
+        "source_target",
+        [color_start, color_end]
+    )
+
+    ### On coupe la courbe en segments pour colorer progressivement le trajet.
+    points = np.array([x, y]).T.reshape(-1, 1, 2)
+
+    segments = np.concatenate(
+        [points[:-1], points[1:]],
+        axis=1
+    )
+
+    lc = LineCollection(
+        segments,
+        cmap=cmap,
+        linewidth=lw
+    )
+    transition = np.linspace(-6, 6, len(segments))
+
+    colors = 1/(1+np.exp(-transition))
+    lc.set_array(colors)
+
+    ax.add_collection(lc)
+
+    return lc
+
+### Plot les courants CURBD directement depuis un pkl sauvegarde par les scripts.
+def plot_curbd_currents_from_pkl(pkl_path, gradient_line, sigma=2):
+    """
+    Plot les 36 courbes de courant CURBD directement depuis un fichier .pkl.
+    """
+
+    with open(pkl_path, "rb") as f:
+        ### On recharge le run complet; pas besoin de recalculer CURBD juste pour regarder.
+        data = pickle.load(f)
+
+    currents = data["currents_curves"]
+    regions = data["regions"]
+    masque_sub = data["masque_sub"]
+    tRNN = data["tRNN"]
+
+    n_regions = len(regions)
+
+    region_colors = {
+        0: "#0047AB",
+        1: "#FF7F00",
+        2: "#00A550",
+        3: "#A020F0",
+        4: "#E60026",
+        5: "#00B7EB",
+    }
+
+    all_currents = np.concatenate(list(currents.values()))
+    ### Echelle robuste: percentile 99 pour ne pas laisser un spike ruiner tous les axes.
+    max_abs = np.percentile(np.abs(all_currents), 99)
+
+    mask_rgb = np.ones((*masque_sub.shape, 3))
+
+    for iRegion in range(n_regions):
+        ### On colore le masque selon les regions parentes, pas les sous-regions.
+        subregion_indices = regions[iRegion, 1]
+        color = to_rgb(region_colors[iRegion])
+
+        for idx in subregion_indices:
+            mask_rgb[masque_sub == idx] = color
+
+    if np.any(np.isnan(masque_sub)):
+        mask_rgb[np.isnan(masque_sub)] = [1, 1, 1]
+
+    fig = plt.figure(figsize=(12, 8))
+
+    outer = GridSpec(
+        1, 2,
+        width_ratios=[1, 5],
+        wspace=0.15,
+        figure=fig
+    )
+
+    ax_mask = fig.add_subplot(outer[0, 0])
+    ax_mask.imshow(mask_rgb)
+    ax_mask.set_title("Régions", fontsize=10)
+    ax_mask.axis("off")
+
+    right = outer[0, 1].subgridspec(
+        n_regions,
+        n_regions,
+        wspace=0.08,
+        hspace=0.08
+    )
+
+    for iTarget in range(n_regions):
+        for iSource in range(n_regions):
+
+            ax = fig.add_subplot(right[iTarget, iSource])
+
+            current = currents[(iTarget, iSource)]
+            ### Lissage uniquement pour la visualisation: les donnees sauvegardees restent untouched.
+            current_plot = gaussian_filter1d(current, sigma=sigma)
+            source_color = region_colors[iSource]
+            target_color = region_colors[iTarget]
+
+            gradient_line(
+                tRNN,
+                current_plot,
+                ax,
+                source_color,
+                target_color,
+                lw=0.8 if iSource == iTarget else 0.5
+            )
+
+            ax.axhline(0, color="black", linewidth=0.4, alpha=0.25)
+
+            ax.set_xlim(tRNN[0], tRNN[-1])
+            ax.set_ylim(-max_abs, max_abs)
+
+            if iTarget == 0:
+                ax.set_title(
+                    regions[iSource, 0],
+                    fontsize=8,
+                    color=source_color
+                )
+
+            if iSource == 0:
+                ax.set_ylabel(
+                    regions[iTarget, 0],
+                    fontsize=8,
+                    color=target_color
+                )
+
+            if iTarget != n_regions - 1:
+                ax.set_xticklabels([])
+
+            if iSource != 0:
+                ax.set_yticklabels([])
+
+            ax.tick_params(axis="both", labelsize=6, length=2)
+
+            for spine in ax.spines.values():
+                spine.set_linewidth(0.5)
+                spine.set_alpha(0.5)
+
+    fig.suptitle(
+        "Courants CURBD source → cible, souris {}, n_pixels {}".format(data["row"]["souris"], data["row"]["n_pixels"]),
+        fontsize=14,
+        y=0.98
+    )
+
+    plt.show()
+
+
+### Affiche une matrice source -> cible avec labels de regions propres.
+def plot_current_similarity_imshow(
+    matrix,
+    title="Similarité Pearson des courants",
+    region_names=None,
+    region_colors=None,
+    cmap="bwr",
+    vmin=-1,
+    vmax=1,
+    annotate=True,
+    ax=None,
+):
+    """
+    Affiche une matrice 6x6 source -> cible avec labels de régions.
+
+    Lignes = régions sources
+    Colonnes = régions cibles
+    """
+
+    if region_names is None:
+        ### Noms par defaut des 6 regions; assez courts pour tenir dans une figure.
+        region_names = [
+            "Rég. M.II",
+            "Rég. M.I",
+            "Rég. Som.",
+            "Rég. Ass.",
+            "Rég. Vis.",
+            "Rég. Rét.",
+        ]
+
+    if region_colors is None:
+        region_colors = [
+            "#0057d9",  # M.II bleu
+            "#ff7a00",  # M.I orange
+            "#00a85a",  # Som. vert
+            "#a735ff",  # Ass. violet
+            "#ff1f2d",  # Vis. rouge
+            "#00b7e8",  # Rét. cyan
+        ]
+
+    matrix = np.asarray(matrix)
+
+    if matrix.shape != (len(region_names), len(region_names)):
+        raise ValueError(
+            f"matrix doit être de taille "
+            f"{len(region_names)}x{len(region_names)}, reçu {matrix.shape}"
+        )
+
+    created_fig = ax is None
+    if ax is None:
+        ### Si aucun axe n'est donne, on cree la figure ici. Sinon on respecte le subplot externe.
+        fig, ax = plt.subplots(figsize=(8.5, 7.5), constrained_layout=True)
+    else:
+        fig = ax.figure
+
+    im = ax.imshow(matrix, cmap=cmap, vmin=vmin, vmax=vmax)
+
+    ax.set_title(title, fontsize=18, pad=18)
+    ax.set_xlabel("Région cible", fontsize=14, labelpad=12)
+    ax.set_ylabel("Région source", fontsize=14, labelpad=12)
+
+    ax.set_xticks(np.arange(len(region_names)))
+    ax.set_yticks(np.arange(len(region_names)))
+    ax.set_xticklabels(region_names, fontsize=12)
+    ax.set_yticklabels(region_names, fontsize=12)
+
+    ax.tick_params(top=True, bottom=False, labeltop=True, labelbottom=False)
+
+    for tick, color in zip(ax.get_xticklabels(), region_colors):
+        tick.set_color(color)
+        tick.set_rotation(0)
+
+    for tick, color in zip(ax.get_yticklabels(), region_colors):
+        tick.set_color(color)
+
+    # Grille entre les cases
+    ax.set_xticks(np.arange(-0.5, len(region_names), 1), minor=True)
+    ax.set_yticks(np.arange(-0.5, len(region_names), 1), minor=True)
+    ax.grid(which="minor", color="white", linewidth=2)
+    ax.tick_params(which="minor", bottom=False, left=False)
+
+    # Annoter les valeurs
+    if annotate:
+        midpoint = (vmin + vmax) / 2
+        for i in range(matrix.shape[0]):
+            for j in range(matrix.shape[1]):
+                value = matrix[i, j]
+                text_color = "white" if abs(value - midpoint) > 0.45 else "black"
+                ax.text(
+                    j,
+                    i,
+                    f"{value:.2f}",
+                    ha="center",
+                    va="center",
+                    color=text_color,
+                    fontsize=11,
+                    fontweight="bold",
+                )
+
+    cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
+    cbar.set_label("Pearson r", fontsize=12)
+    cbar.ax.tick_params(labelsize=10)
+
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+
+    return fig, ax

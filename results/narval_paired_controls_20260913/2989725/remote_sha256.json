@@ -1,0 +1,8 @@
+{
+  "task0/loop_summary_job_0000.csv": "522e746b000420b88425744d113b73f20fd3cbad27cb4f9b16442e5b395ca7bf",
+  "task0/pairing_verified.json": "57737d30c1d101b6183c41a5e8645e82e9823c1ad0a896cab7b74852a7d5a7fe",
+  "task1/loop_summary_job_0000.csv": "8ebe69143a91ce9a34ecf8a6deb8a542b0649b0c2df594066fd8cc9c51f621fd",
+  "task1/pairing_verified.json": "db2fa70a14be05cbe6377410d147a52b108c45588034e9ad5f63072487af310b",
+  "task0/config000_C9_M6_mouse410_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2026_segmentation_seed0.pkl": "f93583434ee5cb9930e699d9db6e7be3d5b377fac6ce387bfc8fd55a45ba5292",
+  "task1/config000_C9_M6_mouse415_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2026_segmentation_seed0.pkl": "49231a6d575a401318b59e79c74a514ad43c1c0c1d4e45a6bd5042a69227b076"
+}

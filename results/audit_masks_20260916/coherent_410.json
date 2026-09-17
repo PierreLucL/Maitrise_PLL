@@ -1,0 +1,70 @@
+{
+  "parameters": {
+    "size": 5,
+    "min_fraction": 0.25,
+    "max_distance": 3.0,
+    "distance_margin": 1.0
+  },
+  "changed_pixels": 22,
+  "unresolved_suspicious_pixels": 10,
+  "parents_without_core": [],
+  "unassigned_roi_pixels": 20,
+  "transitions": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      2,
+      0,
+      4,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      2,
+      0,
+      1
+    ],
+    [
+      2,
+      0,
+      0,
+      0,
+      8,
+      0
+    ]
+  ],
+  "qc": {
+    "n_units": 2538,
+    "n_parents": 6,
+    "singleton_ids": [],
+    "disconnected_ids_4_neighbors": []
+  },
+  "changed_vs_legacy": 22,
+  "roi_pixels": 38041
+}

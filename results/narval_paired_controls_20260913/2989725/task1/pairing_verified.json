@@ -1,0 +1,13 @@
+{
+  "task": {
+    "index": 1,
+    "variant": "corrected",
+    "mouse": 415,
+    "seed": 2026,
+    "nRunTrain": 100,
+    "reference": "/scratch/pllar11/Maitrise_PLL/results/narval_reproducibility_pix15_410_415/2614685/config003_C9_M6_mouse415_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2026_segmentation_seed0.pkl",
+    "reference_sha256": "117e739692a9a22cbff8f9216f5da7a1a4b116a4c59d5b2a8311e287858ac850"
+  },
+  "checks": "Identit\u00e9 des entr\u00e9es, initialisation, param\u00e8tres ; pr\u00e9fixe pVar100 exact pour dur\u00e9e legacy",
+  "pvar_final": 0.9272723584845515
+}

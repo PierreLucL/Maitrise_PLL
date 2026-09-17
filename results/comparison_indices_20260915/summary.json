@@ -1,0 +1,42 @@
+[
+  {
+    "mouse": 410,
+    "pvar": [
+      0.9453645690857272,
+      0.9628450356495812
+    ],
+    "gain_percentage_points": 1.7480466563854047,
+    "residual_mse_reduction": 0.31994744566547384,
+    "norm_correlation_median": 0.9888773399569596,
+    "cca10_median": 0.9852190741135433,
+    "centered_rms_ratio_median": 0.8488885293526789,
+    "centered_rms_ratio_range": [
+      0.7034029929465097,
+      1.2505898209036446
+    ],
+    "unit_r_median": 0.986247106069863,
+    "held_cca2_10_median": 0.9821432687824558,
+    "source_wins_cca2_10": 36,
+    "source_margin_median": 0.4311162679914573
+  },
+  {
+    "mouse": 415,
+    "pvar": [
+      0.9142955579304559,
+      0.9272723527588173
+    ],
+    "gain_percentage_points": 1.2976794828361338,
+    "residual_mse_reduction": 0.15141332835270582,
+    "norm_correlation_median": 0.9940572556377967,
+    "cca10_median": 0.9916594336526326,
+    "centered_rms_ratio_median": 0.9116868633955917,
+    "centered_rms_ratio_range": [
+      0.8182488593135385,
+      1.0289000138951765
+    ],
+    "unit_r_median": 0.9896804333729969,
+    "held_cca2_10_median": 0.9889729286826242,
+    "source_wins_cca2_10": 36,
+    "source_margin_median": 0.4677011768873113
+  }
+]

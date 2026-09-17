@@ -1,0 +1,42 @@
+{
+  "parent_snapshot": "paired_controls_20260913_v1",
+  "purpose": "Reproductibilit\u00e9 inter-graines tt-1 \u00e0 100 passages, souris410/415",
+  "tasks": [
+    {
+      "index": 0,
+      "variant": "corrected",
+      "mouse": 410,
+      "seed": 2027,
+      "nRunTrain": 100,
+      "reference": "/scratch/pllar11/Maitrise_PLL/results/narval_reproducibility_pix15_410_415/2614685/config001_C9_M6_mouse410_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2027_segmentation_seed0.pkl",
+      "reference_sha256": "2e4118b1ab6411d653223cb7c2154b8850c9db13dd5e555c83a7905acd4b16b7"
+    },
+    {
+      "index": 1,
+      "variant": "corrected",
+      "mouse": 410,
+      "seed": 2028,
+      "nRunTrain": 100,
+      "reference": "/scratch/pllar11/Maitrise_PLL/results/narval_reproducibility_pix15_410_415/2614685/config002_C9_M6_mouse410_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2028_segmentation_seed0.pkl",
+      "reference_sha256": "7851e3e90e1920174246edc38dd1a72187f5f970434400f00efd2d92692690b9"
+    },
+    {
+      "index": 2,
+      "variant": "corrected",
+      "mouse": 415,
+      "seed": 2027,
+      "nRunTrain": 100,
+      "reference": "/scratch/pllar11/Maitrise_PLL/results/narval_reproducibility_pix15_410_415/2614685/config004_C9_M6_mouse415_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2027_segmentation_seed0.pkl",
+      "reference_sha256": "30c0eb788ea25857280d758f2f6955338e1b715875ccdd66efc9c95a96eff31f"
+    },
+    {
+      "index": 3,
+      "variant": "corrected",
+      "mouse": 415,
+      "seed": 2028,
+      "nRunTrain": 100,
+      "reference": "/scratch/pllar11/Maitrise_PLL/results/narval_reproducibility_pix15_410_415/2614685/config005_C9_M6_mouse415_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2028_segmentation_seed0.pkl",
+      "reference_sha256": "acd1c176c9853bbdec4a487c8e8a9ac6f7092a3e37a7b592c12c181fa5c40d64"
+    }
+  ]
+}

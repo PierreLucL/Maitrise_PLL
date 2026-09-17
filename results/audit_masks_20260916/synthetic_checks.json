@@ -1,0 +1,8 @@
+{
+  "NaN_hole_preserved": true,
+  "zero_hole_can_be_relabelled": true,
+  "unmapped_labels_excluded": true,
+  "unused_cleaner_invents_region_zero_when_no_seed": true,
+  "empty_atlas_error": "need at least one array to stack",
+  "dict_preserves_insertion_not_sorted_ids": true
+}

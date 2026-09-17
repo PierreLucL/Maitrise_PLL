@@ -34,9 +34,6 @@ from maitrise_curbd.curbd import computeCURBD, trainMultiRegionRNN
 from maitrise_curbd.io import load_dataset
 from maitrise_curbd.masks import (
     build_parent_regions_dict,
-    validate_region_assignment,
-    repair_anatomical_outliers,
-    make_connected_subgroups,
     reduce_atlas_to_6_regions,
     remove_thin_label_artifacts,
     subdivide_mask_by_spatial_clustering,
@@ -261,25 +258,12 @@ def prepare_timeseries(dataset, data_root, params):
         roi_mask=roi_mask,
     )
 
-    method = params.get("segmentation_method", "legacy")
-    anatomical_qc = None
-    if method == "coherent_v1":
-        # Nouvelle méthode explicite : contrôle complémentaire après nettoyage historique.
-        # On conserve les changements pour pouvoir inspecter leurs effets.
-        atlas_6, anatomical_qc = repair_anatomical_outliers(
-            atlas_6, roi_mask)
-    elif method != "legacy":
-        raise ValueError(f"Méthode de segmentation inconnue : {method}")
-
     ### 5. Subdiviser les grosses regions en sous-regions de taille comparable.
     masque_sub, info_masque_sub = subdivide_mask_by_spatial_clustering(
         atlas_6,
         target_size=params["n_pixels"],
         random_state=params.get("segmentation_seed", 0),
     )
-
-    if method == "coherent_v1":
-        masque_sub, info_masque_sub = make_connected_subgroups(atlas_6, masque_sub)
 
     ### 6. Construire le format regions attendu par CURBD.
     regions = build_parent_regions_dict(info_masque_sub)
@@ -295,9 +279,6 @@ def prepare_timeseries(dataset, data_root, params):
     )
 
     ts = np.asarray(ts, dtype=np.float32)
-    segmentation_qc = validate_region_assignment(
-        atlas_6, masque_sub, info_masque_sub, regions, ts.shape[0])
-    segmentation_qc.update(method=method, anatomical_repair=anatomical_qc)
 
     if ts.ndim != 2:
         raise ValueError(
@@ -328,8 +309,6 @@ def prepare_timeseries(dataset, data_root, params):
 
     return {
         "ts": ts,
-        "segmentation_qc": segmentation_qc,
-        "parent_mask": atlas_6,
         "masque_sub": masque_sub,
         "info_masque_sub": info_masque_sub,
         "regions": regions,
@@ -364,7 +343,6 @@ def build_run_name(i_config, dataset, params, sweep_names):
         "use_global_regression",
         "seed",
         "segmentation_seed",
-        "segmentation_method",
     ]
 
     for name in important_names:
@@ -605,8 +583,6 @@ def run_one_config(i_config, dataset, params, data_root, save_path):
             "activity_scale": get_model_value(model, "activity_scale"),
             "model_parameters": get_model_value(model, "params"),
             "iTarget": get_model_value(model, "iTarget"),
-            "segmentation_qc": prepared.get("segmentation_qc"),
-            "parent_mask": prepared.get("parent_mask"),
             "masque_sub": prepared["masque_sub"],
             "info_masque_sub": prepared["info_masque_sub"],
             "reproducibility": reproducibility_metadata(ts),

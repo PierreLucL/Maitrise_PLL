@@ -101,3 +101,41 @@ Neuf sessions du panel contrôlées par planche atlas nettoyé/masque/variabilit
 Snapshot `paired_controls_20260913_v1` construit depuis `repro15_b3abdc905a6b5302`, deux copies ne différant que par la ligne de r_slice. Tests et prévols réussis ; 4 CPU et 16 Go par tâche, 36 h de limite pour les pilotes100, 96 h pour les runs300. État au contrôle de soumission : sept tâches en attente, démarrage non déterminé. Ce sont des calculs soumis, pas des résultats. Vérifications automatiques de provenance/versions/threads, appariement de la cible avant entraînement et des entrées/initialisation après ; préfixe pVar100 exact exigé pour le volet durée.
 
 [Protocole et reçu](../results/narval_paired_controls_20260913/protocole.md). Le volet indice reste un pilote à une graine par souris ; il ne valide pas à lui seul la reproductibilité de la correction. Les contrôles locaux du signal partagé peuvent continuer pendant l’attente.
+
+## Mise à jour du 14 septembre : spécificité multidimensionnelle et signal partagé
+
+Contrôle local terminé sur les six modèles 100. Projection par unité sur la moyenne des six activités régionales, coefficients appris avant 230 s ; PCA 10 et CCA apprises sur ce bloc, axes/signes figés et évaluation après 250 s. Aucun réentraînement ou changement de GSR. Le contrôle original retrouve exactement les classements historiques CCA 1 et norme.
+
+Résultat à conserver : **l’ambiguïté de source de CCA 1 ne s’étend pas à toutes les dimensions**. La moyenne des corrélations test CCA 2–10 classe la bonne source première dans 108/108 cas chez 410 et 107/108 chez 415, avant projection ; marges médianes +0,132/+0,144. La moyenne des dix CCA donne les mêmes nombres. Après projection : CCA 1 gagne 100/108 et 65/108 (contre 89/108 et 29/108) ; CCA 2–10 gagne 108/108 et 106/108. Les corrélations test CCA 1 restent élevées (0,971/0,948), mais la norme chez 410 devient moins reproductible (médiane 0,826→0,394).
+
+Interprétation : information régionale reproductible dans plusieurs dimensions, premier alignement partiellement ambigu ; pas de bénéfice uniforme de la projection. Ne plus présenter 415 comme globalement dépourvue de spécificité sur la seule base de CCA 1. Ne pas confondre ce classement descriptif dépendant avec causalité, validation biologique ou généralisation du RNN à de nouvelles sessions. Les axes CCA de chaque paire ne définissent pas encore une mesure intersessions directement comparable. Garder amplitudes, normalisation et contrôle anatomique comme questions distinctes.
+
+[Bilan et figure](../results/shared_signal_specificity_20260914/bilan.md). Trois tests dédiés passent (projection et absence de fuite, mélange inversible, signe test conservé) ; figure inspectée.
+
+## Rapatriement du 15 septembre : pilotes tt-1
+
+Les tâches2989725_0 (410) et2989725_1 (415), graine2026,100 passages, ont terminé avec succès en23h52 et20h27. pVar finales rapportées :0,962845 et0,927272 ; références historiques0,945365 et0,914296. Appariement des entrées et initialisations confirmé sur Narval. Les deux PKL, CSV et preuves d’appariement ont été rapatriés : six empreintesSHA-256 identiques aux sources distantes, environ1,025Go. Journaux également copiés. Voir `results/narval_paired_controls_20260913/2989725/transfer_verified.json`. La comparaison détaillée des courants et traces entre versions reste à effectuer. Au contrôle du15septembre21h28UTC, les tâches2/3 (410,300 passages) tournaient depuis27h24/24h02 ; les tâches4–6 attendaient.
+
+## Comparaison des indices terminée le 15 septembre
+
+Pilotes appariés tt/tt-1, 100 passages, graine2026, souris410/415 : entrées et initialisations identiques, sources vérifiées contre snapshots ne différant que par r_slice. pVar recalculée410 :0,945365→0,962845 (erreur quadratique −32,0%) ;415 :0,914296→0,927272 (−15,1%). Amélioration dans les six régions de chaque souris.
+
+Courants par unité conservés : corrélation médiane des normes PCA10 entre versions0,989/0,994 ; médiane des moyennes CCA10 sur session0,985/0,992 ; médiane des corrélations par unité puis par bloc0,986/0,990. CCA2–10 test (axes appris avant230s, évalués après250s)0,982/0,989 ; source correspondante première36/36 chez chacune. Ce résultat entre versions à même graine n’est pas une validation inter-graines de tt-1.
+
+Amplitude RMS centrée tt-1/tt : médiane0,849 chez410 (étendue0,703–1,251),0,912 chez415 (0,818–1,029). Les dynamiques sont très proches, les amplitudes ne sont pas interchangeables. Pilotes favorables à tt-1, mais ne pas mélanger des versions dans l’étude d’âge ; reproductibilité du nouvel indice encore à établir. Le moteur de production reste inchangé.
+
+[Bilan et provenance](../results/comparison_indices_20260915/bilan.md). Trois figures inspectées ; traces de six unités par souris choisies près de la pVar régionale médiane du modèle tt, mêmes échelles, aucun lissage ajouté. Scripts compare_index_variants.py, report_index_variants.py et compare_reconstruction_indices.py.
+
+## Réplications tt-1 soumises le 16 septembre
+
+À la demande de Pierre-Luc, quatre réplications à100 passages :410/2027,410/2028,415/2027,415/2028. Job array3178099 (0–3%2),4CPU/16Go/36h par tâche. Snapshot ttminus1_replicates_20260916_v1 reprend exactement le moteur corrigé des pilotes2026 ; paramètres conservés. Tests et quatre prévols réussis ; reçu local. Le contrôle des cibles prétraitées se fait au démarrage effectif, puis les initialisations/entrées sont vérifiées en fin de run. Les calculs historiques300 ne sont pas modifiés. Après rapatriement, comparer trois graines par souris pour reconstruction, dynamique multidimensionnelle, spécificité et amplitudes ; aucune validation inter-graines de tt-1 acquise avant ces résultats.
+
+[Protocole et reçu](../results/narval_ttminus1_replicates_20260916/protocole.md).
+
+## Audit des masques du 16 septembre
+
+Lecture de la chaîne active et contrôle des masques sauvegardés des pilotes410/415 : aucun décalage d'IDs détecté entre masque, métadonnées, regions et dimensions des traces. Attention aux conventions : clean_reduced_atlas n'est pas appelée par prepare_timeseries ; NaN/non-mappés restent exclus, tandis que le fond0 peut être réétiqueté par le nettoyage initial. pixels15 est une taille cible KMeans, sans garantie de connexité :3/2538 et8/2331 parcelles non connexes à4voisins. Noms anatomiques à clarifier : selon la table commentée, M.II inclut AUD*, Ass. contient VISa/VISrl, Vis. inclut TEa ; légende originale atlas.npy à vérifier avant interprétation anatomique. Les IDs spatiaux ne sont pas homologues entre sessions. Aucun code de segmentation ni snapshot Narval modifié. Voir results/audit_masks_20260916/bilan.md et les contrôles synthétiques reproductibles.
+
+## Intention et prototype de segmentation clarifiés le16septembre
+
+Pierre-Luc veut corriger les artefacts du masque anatomique initial, notamment des lignes fines étiquetées comme une région éloignée, avant la parcellisation. Préserver aveuglément le parent initial serait donc trop restrictif. Nouvelle voie locale explicite coherent_v1 : nettoyage historique conservé, correction complémentaire prudente par soutien local/distance à des noyaux, séparation des parcelles non connexes, fusion des singletons adjacents dans le parent corrigé, contrôle pixel→parent→ID→trace→regions. Voie historique par défaut et snapshots Narval conservés.33tests passent. Sur410 :22pixels réattribués supplémentaires,2538unités,0singleton et0parcelle non connexe ;415 :30pixels,2335unités,3singletons isolés signalés,0parcelle non connexe. Cas anatomiques ambigus non forcés. Proposition testée sur deux masques, non validée longitudinalement ; voir docs/segmentation_coherente.md. La nomenclature des six groupes demeure à confirmer.

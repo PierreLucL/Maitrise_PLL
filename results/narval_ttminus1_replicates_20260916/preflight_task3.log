@@ -1,0 +1,14 @@
+
+==========================================================================================
+LOOP CURBD GENERAL
+==========================================================================================
+Experiment: ttminus1_415_2028_100
+Datasets: 1
+Configurations par dataset: 1
+Total runs lances ici: 1
+Total grille complete: 1
+Job index: 0
+Data dir: /scratch/pllar11/Datasets
+Results dir: results/narval_ttminus1_replicates_20260916/preflight/task3
+Sweep: {'seed': [2028]}
+000: dataset=(9, 6, 415) -> results/narval_ttminus1_replicates_20260916/preflight/task3/config000_C9_M6_mouse415_n_pixels15_lissage_sigma4_tauRNN0.33_dtFactor2_g0.8_ampInWN0.01_P01_nRunTrain100_use_global_regressionFalse_seed2028_segmentation_seed0.pkl

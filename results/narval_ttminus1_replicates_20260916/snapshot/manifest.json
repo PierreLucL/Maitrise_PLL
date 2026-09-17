@@ -1,0 +1,22 @@
+{
+  "configs/0.json": "bfadc93bf7cfd6d2cbe50e8e24c5aa5aa85547c24e7b7af75ff54c3cd9051a37",
+  "configs/1.json": "a487aa8925e9bcba159a2d1223e2131e04bba1f9bdff8be7fb659229c996cf4b",
+  "configs/2.json": "6704227b4021857a2274a864c54d4d6de9520f68c135a81942e5e3821cd43d32",
+  "configs/3.json": "f03ab3571d0b5fc02e37a3a696cb378864c4d0eee579e53b7e6416b60fa4add6",
+  "corrected/scripts/curbd/loop.py": "2cc58e0d5b32dfb2a119743079e2f047d03ccc5af8c29b31663830b1459c49df",
+  "corrected/src/maitrise_curbd/__init__.py": "3bfd24f444fafc39f520cb308b8d18155022d4b093812576c3d58d9c12cce0c9",
+  "corrected/src/maitrise_curbd/animation.py": "6ba5997e9826135a63334d408e8b1879b7832502da275980f78748e272f3c310",
+  "corrected/src/maitrise_curbd/curbd.py": "a3d2095b7fa751f479bdb6ccbba54459f5532858282152e1705e3c7025b41534",
+  "corrected/src/maitrise_curbd/current_similarity.py": "be7441472f8b0b955febf3cda7d33048d1ac000c15c95b03c30d59bc91649217",
+  "corrected/src/maitrise_curbd/io.py": "f3fcac65c4b3db2d27dd754d3432900dca50b8904f87426e3fa34cb3bc6a48b6",
+  "corrected/src/maitrise_curbd/masks.py": "440d0dda3b42d866bd002a4c498f4a8767dc9f1a7a20d5339400e01f6f5f948f",
+  "corrected/src/maitrise_curbd/plotting.py": "f935e365399fb24d8c3b23fe96784cf7b66c58ef9844e00dbfe76fb4ab518929",
+  "corrected/src/maitrise_curbd/synth.py": "51614742006ca46accf1fdcde9f2ff3d6dafbe76b3b7869a38b950d32894cf0c",
+  "corrected/src/maitrise_curbd/timeseries.py": "476fb6b92284fd969ee9ef620f5d9b368821919bdd3c46baa14ccbbdf0e8fb93",
+  "corrected/src/maitrise_curbd/vector.py": "45a9b7a189fb953696c2b6ce2c498a1eb8da8ea4ba6e547c8c31c64f94dad7f8",
+  "corrected/tests/test_reproducibility.py": "bb40a3ddc39037ded4f1161fdaa004e83388aabb9dc483f087fb961c4523cc78",
+  "plan.json": "f35ec879864636b61ead2ba8549994600d62c9594796c762a54d5dd91a5f1174",
+  "run_paired_controls.py": "fe0c4bfaee417b240b18ebcc8b2e203e29e3da100d8e3c018a90d4841736eed0",
+  "run_paired_controls.sbatch": "793241685cf16457aca4cb30fd3234b6fb8fd617bbab9777cd06ba27536fc00c",
+  "submit_paired_controls.sh": "2955ae11bb468de57ee3b759ec19204051cb6277a8250aa9a890f5f903733fd7"
+}
